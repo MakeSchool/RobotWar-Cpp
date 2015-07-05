@@ -46,7 +46,8 @@ class AdvancedRobot: Robot {
     // to your initial state -- first thing robot does before scanning another robot
     switch actionIndex % 1 {          // should be % of number of possible actions
     case 0:
-      moveAhead(100)
+      moveAhead(25)
+      currentRobotState = .Searching
     default:
       break
     }

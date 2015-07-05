@@ -19,16 +19,17 @@ class CamperRobot: Robot {
   var lastKnownPosition = CGPoint(x: 0, y: 0)
   var lastKnownPositionTimestamp = CGFloat(0.0)
   let firingTimeout = CGFloat(1.0)
+  let gunToleranceAngle = CGFloat(2.0)
   
   override func run() {
     while true {
       switch currentRobotState {
       case .FirstMove:
         performFirstMoveAction()
-      case .Firing:
-        performNextFiringAction()
       case .Camping:
         shoot()
+      case .Firing:
+        performNextFiringAction()
       }
     }
   }
@@ -76,12 +77,7 @@ class CamperRobot: Robot {
       turnToCenter()
       currentRobotState = .Camping
     } else {
-      var angle = Int(angleBetweenGunHeadingDirectionAndWorldPosition(lastKnownPosition))
-      if angle > 0 {
-        turnGunRight(angle)
-      } else {
-        turnGunLeft(abs(angle))
-      }
+      turnToEnemyPosition(lastKnownPosition)
     }
     shoot()
   }
@@ -116,6 +112,20 @@ class CamperRobot: Robot {
   
   override func bulletHitEnemy(bullet: Bullet!) {
     shoot()
+  }
+  
+  func turnToEnemyPosition(position: CGPoint) {
+    cancelActiveAction()
+    
+    // calculate angle between turret and enemey
+    var angleBetweenTurretAndEnemy = angleBetweenGunHeadingDirectionAndWorldPosition(position)
+    
+    // turn if necessary
+    if angleBetweenTurretAndEnemy > gunToleranceAngle {
+      turnGunRight(Int(abs(angleBetweenTurretAndEnemy)))
+    } else if angleBetweenTurretAndEnemy < -gunToleranceAngle {
+      turnGunLeft(Int(abs(angleBetweenTurretAndEnemy)))
+    }
   }
   
 }

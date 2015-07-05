@@ -36,17 +36,7 @@ class TurretRobot: Robot {
   }
   
   override func scannedRobot(robot: Robot!, atPosition position: CGPoint) {
-    // calculate angle between turret and enemey
-    var angleBetweenTurretAndEnemy = angleBetweenGunHeadingDirectionAndWorldPosition(position)
-    
-    // turn if necessary
-    if angleBetweenTurretAndEnemy > gunToleranceAngle {
-      cancelActiveAction()
-      turnGunRight(Int(abs(angleBetweenTurretAndEnemy)))
-    } else if angleBetweenTurretAndEnemy < -gunToleranceAngle {
-      cancelActiveAction()
-      turnGunLeft(Int(abs(angleBetweenTurretAndEnemy)))
-    }
+    turnToEnemyPosition(position)
     
     lastEnemyHit = currentTimestamp()
     currentRobotState = .Firing
@@ -61,7 +51,25 @@ class TurretRobot: Robot {
   }
   
   override func bulletHitEnemy(bullet: Bullet!) {
+    let position = bullet.bulletOwner.position()
+    turnToEnemyPosition(position)
+    
     lastEnemyHit = currentTimestamp()
+    currentRobotState = .Firing
+  }
+  
+  func turnToEnemyPosition(position: CGPoint) {
+    cancelActiveAction()
+    
+    // calculate angle between turret and enemey
+    var angleBetweenTurretAndEnemy = angleBetweenGunHeadingDirectionAndWorldPosition(position)
+    
+    // turn if necessary
+    if angleBetweenTurretAndEnemy > gunToleranceAngle {
+      turnGunRight(Int(abs(angleBetweenTurretAndEnemy)))
+    } else if angleBetweenTurretAndEnemy < -gunToleranceAngle {
+      turnGunLeft(Int(abs(angleBetweenTurretAndEnemy)))
+    }
   }
   
 }

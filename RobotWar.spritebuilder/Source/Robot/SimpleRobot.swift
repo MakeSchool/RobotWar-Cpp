@@ -10,12 +10,6 @@ import Foundation
 
 class SimpleRobot: Robot {
   
-  enum RobotState {                    // enum for keeping track of RobotState
-    case Default, Turnaround
-  }
-  
-  var currentRobotState: RobotState = .Default
-  
   override func run() {
     while true {
       moveAhead(80)
@@ -38,8 +32,6 @@ class SimpleRobot: Robot {
   
   override func hitWall(hitDirection: RobotWallHitDirection, hitAngle: CGFloat) {
     cancelActiveAction()
-    
-    currentRobotState = .Turnaround
     
     switch hitDirection {
     case .Front:
