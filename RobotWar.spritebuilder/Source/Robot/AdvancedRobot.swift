@@ -24,6 +24,7 @@ class AdvancedRobot: Robot {
   
   var lastKnownPosition = CGPoint(x: 0, y: 0)
   var lastKnownPositionTimestamp = CGFloat(0.0)
+  let firingTimeout = CGFloat(1.0)
   
   override func run() {
     while true {
@@ -69,7 +70,7 @@ class AdvancedRobot: Robot {
   }
   
   func performNextFiringAction() {
-    if currentTimestamp() - lastKnownPositionTimestamp > CGFloat(1) {
+    if currentTimestamp() - lastKnownPositionTimestamp > firingTimeout {
       currentRobotState = .Searching
     } else {
       let angle = Int(angleBetweenGunHeadingDirectionAndWorldPosition(lastKnownPosition))

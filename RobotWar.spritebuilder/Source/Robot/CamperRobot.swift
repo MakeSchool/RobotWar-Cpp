@@ -18,6 +18,7 @@ class CamperRobot: Robot {
   
   var lastKnownPosition = CGPoint(x: 0, y: 0)
   var lastKnownPositionTimestamp = CGFloat(0.0)
+  let firingTimeout = CGFloat(1.0)
   
   override func run() {
     while true {
@@ -71,7 +72,7 @@ class CamperRobot: Robot {
   }
   
   func performNextFiringAction() {
-    if currentTimestamp() - lastKnownPositionTimestamp > 1 {
+    if currentTimestamp() - lastKnownPositionTimestamp > firingTimeout {
       turnToCenter()
       currentRobotState = .Camping
     } else {

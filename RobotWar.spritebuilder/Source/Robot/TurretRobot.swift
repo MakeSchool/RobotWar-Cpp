@@ -17,6 +17,7 @@ class TurretRobot: Robot {
   var currentRobotState: RobotState = .Scanning
   var lastEnemyHit = CGFloat(0.0)
   let gunToleranceAngle = CGFloat(2.0)
+  let firingTimeout = CGFloat(2.5)
   
   override func run() {
     while true {
@@ -24,7 +25,7 @@ class TurretRobot: Robot {
       case .Scanning:
         turnGunRight(90)
       case .Firing:
-        if currentTimestamp() - lastEnemyHit > 2.5 {
+        if currentTimestamp() - lastEnemyHit > firingTimeout {
           cancelActiveAction()
           currentRobotState = .Scanning
         } else {
