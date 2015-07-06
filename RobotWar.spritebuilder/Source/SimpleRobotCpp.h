@@ -11,27 +11,13 @@
 
 #include "RobotCpp.h"
 
-namespace SimpleRobotCppAction {
-    
-enum SimpleRobotCppAction
-{
-    DEFAULT,
-    TURN_AROUND
-};
-    
-}
-
 class SimpleRobotCpp : public RobotCpp
 {
 public:
-    SimpleRobotCpp();
-    
     void run() override;
     void gotHit() override;
     void hitWallWithSideAndAngle(RobotWallHitSide::RobotWallHitSide side, float hitAngle) override;
-    
-private:
-    SimpleRobotCppAction::SimpleRobotCppAction currentAction;
+
 };
 
 #endif /* defined(__RobotWar__SimpleRobotCpp__) */

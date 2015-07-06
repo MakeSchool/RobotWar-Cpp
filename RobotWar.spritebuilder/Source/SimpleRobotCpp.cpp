@@ -8,11 +8,6 @@
 
 #include "SimpleRobotCpp.h"
 
-SimpleRobotCpp::SimpleRobotCpp()
-{
-    this->currentAction = SimpleRobotCppAction::DEFAULT;
-}
-
 void SimpleRobotCpp::run()
 {
     while (true)
@@ -35,8 +30,6 @@ void SimpleRobotCpp::gotHit()
 void SimpleRobotCpp::hitWallWithSideAndAngle(RobotWallHitSide::RobotWallHitSide side, float hitAngle)
 {
     this->cancelActiveAction();
-    
-    this->currentAction = SimpleRobotCppAction::TURN_AROUND;
     
     switch (side)
     {
@@ -62,8 +55,4 @@ void SimpleRobotCpp::hitWallWithSideAndAngle(RobotWallHitSide::RobotWallHitSide 
         case RobotWallHitSide::NONE:
             break;
     }
-    
-    this->currentAction = SimpleRobotCppAction::DEFAULT;
-    
-    
 }
