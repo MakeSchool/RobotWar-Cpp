@@ -15,6 +15,7 @@ namespace SuperKenAction {
     
     enum SuperKenAction
     {
+        INIT,
         SCANNING,
         FIRING,
         ESCAPE
@@ -33,6 +34,7 @@ public:
 private:
     SuperKenAction::SuperKenAction currentState;
     float timeSinceLastEnemyHit;
+
 };
 
 
