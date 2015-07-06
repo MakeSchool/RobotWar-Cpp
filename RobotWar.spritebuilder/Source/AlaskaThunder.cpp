@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 MakeGamesWithUs. All rights reserved.
 //
 
+#include <iostream>
 #include "AlaskaThunder.h"
 #include <math.h>
 
@@ -16,41 +17,41 @@ AlaskaThunderCpp::AlaskaThunderCpp()
 
 void AlaskaThunderCpp::run()
 {
+    auto dimentions = this->arenaDimensions();
+    float distance;
+    int rnd;
+    
     while (true)
     {
         switch (this->currentState)
         {
+            case AlaskaThunderCppAction::DEFAULT:
+            
+            this->shoot();
+            this->turnGunRight(90);
+            this->turnRobotLeft(90);
+            this->currentState = AlaskaThunderCppAction::FIRING;
+            break;
+            
             case AlaskaThunderCppAction::FIRING:
-            if (this->currentTimestamp() - this->lastKnownPositionTimestamp > 1.0f)
-            {
-                this->currentState = AlaskaThunderCppAction::SEARCHING;
-            }
-            else
-            {
-                float angle = this->angleBetweenGunHeadingDirectionAndWorldPosition(this->lastKnownPosition);
-                
-                if (angle >= 0)
-                {
-                    this->turnGunRight(fabsf(angle));
-                }
-                else
-                {
-                    this->turnGunLeft(fabsf(angle));
-                }
-                
+            
+            rnd = rand() % 3 + 3;
+            distance = (dimentions.height - this->position().y - this->robotBoundingBox().size.height / 2) / rnd;
+            for (int i = 0; i < rnd; i++) {
+                this->moveAhead(distance);
                 this->shoot();
             }
+            
+            rnd = rand() % 3 + 3;
+            distance = (this->position().y - this->robotBoundingBox().size.height / 2) / rnd;
+            for (int i = 0; i < rnd; i++) {
+                this->moveBack(distance);
+                this->shoot();
+            }
+            
             break;
             
             case AlaskaThunderCppAction::SEARCHING:
-            this->moveAhead(50);
-            this->turnRobotLeft(20);
-            this->moveAhead(50);
-            this->turnRobotRight(20);
-            break;
-            
-            case AlaskaThunderCppAction::DEFAULT:
-            this->moveAhead(100);
             break;
             
             case AlaskaThunderCppAction::TURN_AROUND:
@@ -93,7 +94,6 @@ void AlaskaThunderCpp::hitWallWithSideAndAngle(RobotWallHitSide::RobotWallHitSid
 
 void AlaskaThunderCpp::bulletHitEnemy(RWVec enemyPosition)
 {
-    
 }
 
 void AlaskaThunderCpp::scannedRobotAtPosition(RWVec position)
