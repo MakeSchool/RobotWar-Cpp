@@ -25,7 +25,8 @@
     
     if (self)
     {
-        delegate = new SimpleRobotCpp();
+        delegate = new ROBOT_ONE_CLASS();
+        
         delegate->setObjCRobot(self);
     }
     
