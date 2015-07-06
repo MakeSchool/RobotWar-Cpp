@@ -197,13 +197,13 @@
         continue;
       } else if (ccpDistance(robot.robotNode.position, otherRobot.robotNode.position)  < SCAN_DISTANCE) {
         if (timeSinceLastEvent > 0.5f/GAME_SPEED) {
-          if (fabsf([robot angleBetweenGunHeadingDirectionAndWorldPosition:otherRobot.position]) < SCAN_FIELD_OF_VIEW/2) {
+          if (fabsf( (float) [robot angleBetweenGunHeadingDirectionAndWorldPosition:otherRobot.position]) < SCAN_FIELD_OF_VIEW/2) {
             [robot _scannedRobot:[otherRobot copy] atPosition:otherRobot.robotNode.positionInPoints];
             [robot _updateFOVScaned:YES];
           } else {
             [robot _updateFOVScaned:NO];
           }
-          if (fabsf([otherRobot angleBetweenGunHeadingDirectionAndWorldPosition:robot.position]) < SCAN_FIELD_OF_VIEW/2) {
+          if (fabsf( (float) [otherRobot angleBetweenGunHeadingDirectionAndWorldPosition:robot.position]) < SCAN_FIELD_OF_VIEW/2) {
             [otherRobot _scannedRobot:[robot copy] atPosition:robot.robotNode.positionInPoints];
             [otherRobot _updateFOVScaned:YES];
           } else {
