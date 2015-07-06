@@ -23,6 +23,7 @@
 		654E591B1B3F96F5004CCACF /* SimpleRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = 654E59171B3F96F5004CCACF /* SimpleRobot.m */; };
 		654E591C1B3F96F5004CCACF /* TurretRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = 654E59191B3F96F5004CCACF /* TurretRobot.m */; };
 		65EC9A5F19691E9A002F9DB2 /* TournamentScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 65EC9A5E19691E99002F9DB2 /* TournamentScene.m */; };
+		9613D8C51B4AF5CA0009E379 /* AlaskaThunder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9613D8C31B4AF5CA0009E379 /* AlaskaThunder.cpp */; };
 		B71F5911188484E7003F4D28 /* iPad-old.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5907188484E7003F4D28 /* iPad-old.png */; };
 		B71F5912188484E7003F4D28 /* iPad-old@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5908188484E7003F4D28 /* iPad-old@2x.png */; };
 		B71F5913188484E7003F4D28 /* iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5909188484E7003F4D28 /* iPad.png */; };
@@ -145,6 +146,8 @@
 		65859D4F196C4E49009F640D /* TournamentConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TournamentConfiguration.h; path = Source/TournamentConfiguration.h; sourceTree = "<group>"; };
 		65EC9A5D19691E99002F9DB2 /* TournamentScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TournamentScene.h; path = Source/TournamentScene.h; sourceTree = "<group>"; };
 		65EC9A5E19691E99002F9DB2 /* TournamentScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TournamentScene.m; path = Source/TournamentScene.m; sourceTree = "<group>"; };
+		9613D8C31B4AF5CA0009E379 /* AlaskaThunder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AlaskaThunder.cpp; path = Source/AlaskaThunder.cpp; sourceTree = "<group>"; };
+		9613D8C41B4AF5CA0009E379 /* AlaskaThunder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlaskaThunder.h; path = Source/AlaskaThunder.h; sourceTree = "<group>"; };
 		B71F5907188484E7003F4D28 /* iPad-old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old.png"; path = "Icons/iPad-old.png"; sourceTree = "<group>"; };
 		B71F5908188484E7003F4D28 /* iPad-old@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old@2x.png"; path = "Icons/iPad-old@2x.png"; sourceTree = "<group>"; };
 		B71F5909188484E7003F4D28 /* iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iPad.png; path = Icons/iPad.png; sourceTree = "<group>"; };
@@ -257,6 +260,8 @@
 				65004DAA1B4AD96400B151B8 /* TurretRobotCpp.h */,
 				65004DAC1B4AF5DB00B151B8 /* NewAdvancedRobotCpp.cpp */,
 				65004DAD1B4AF5DB00B151B8 /* NewAdvancedRobotCpp.h */,
+				9613D8C31B4AF5CA0009E379 /* AlaskaThunder.cpp */,
+				9613D8C41B4AF5CA0009E379 /* AlaskaThunder.h */,
 			);
 			name = CppRobots;
 			sourceTree = "<group>";
@@ -422,7 +427,7 @@
 				ORGANIZATIONNAME = MakeGamesWithUs;
 				TargetAttributes = {
 					B77F1B2D17B978D7009739AE = {
-						DevelopmentTeam = SBVP8ED765;
+						DevelopmentTeam = M8QSFKHKKE;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 0;
@@ -521,6 +526,7 @@
 				65004DAE1B4AF5DB00B151B8 /* NewAdvancedRobotCpp.cpp in Sources */,
 				65004D461B4A41CF00B151B8 /* RobotWrapper.mm in Sources */,
 				650785D1196A20290022192D /* TournamentWonScene.m in Sources */,
+				9613D8C51B4AF5CA0009E379 /* AlaskaThunder.cpp in Sources */,
 				BC717229196AF978002FCF86 /* LiveRobot.m in Sources */,
 				6244629A1937DDD300895F2D /* Robot.m in Sources */,
 				65004D561B4A717D00B151B8 /* SimpleRobotCpp.cpp in Sources */,
@@ -639,7 +645,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = RobotWar;
-				PROVISIONING_PROFILE = "18D84403-392D-4C50-BA7D-C45F153D06AB";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -672,7 +678,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = RobotWar;
-				PROVISIONING_PROFILE = "18D84403-392D-4C50-BA7D-C45F153D06AB";
+				PROVISIONING_PROFILE = "";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
