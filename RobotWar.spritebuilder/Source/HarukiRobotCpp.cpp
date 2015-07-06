@@ -7,10 +7,10 @@
 //
 
 #include "HarukiRobotCpp.h"
+#include <iostream>
 #include <math.h>
 
-#if 1
-#include <iostream>
+#if 0
 #define DEBUG_PRINT(x)               \
     do {                             \
         std::cout << x << std::endl; \
@@ -22,9 +22,11 @@
 #define INF 99999
 
 HarukiRobotCpp::HarukiRobotCpp() {
+    this->enemysHitPoints = this->hitPoints();
     this->currentState = HarukiRobotCppAction::INIT;
     this->lastKnownPositionTimestamp = this->currentTimestamp();
     this->gunAngleMoved = 0.0f;
+    this->isDangerousPlace = false;
 }
 
 void HarukiRobotCpp::run() {
@@ -36,6 +38,7 @@ void HarukiRobotCpp::run() {
                 break;
             case HarukiRobotCppAction::MOVE_TO_CORNER:
                 this->moveBack(50);
+                isDangerousPlace = false;
                 break;
 
             case HarukiRobotCppAction::MOVE:
@@ -44,29 +47,52 @@ void HarukiRobotCpp::run() {
                 } else {
                     this->moveBack(50);
                 }
-                if (this->currentTimestamp() - this->lastKnownPositionTimestamp > 16.0f) {
+                if (this->currentTimestamp() - this->lastKnownPositionTimestamp > 8.0f) {
                     this->currentState = HarukiRobotCppAction::HIT_AND_AWAY;
                 }
+                isDangerousPlace = false;
                 break;
             case HarukiRobotCppAction::HIT_AND_AWAY:
                 if (this->moveUp) {
                     int distance = std::min(this->robotBoundingBox().size.height, this->robotBoundingBox().size.width);
                     DEBUG_PRINT(distance);
-                    this->moveAhead(distance);
+                    if (isDangerousPlace) {
+                        this->moveAhead(distance);
+                    }
                     this->shoot();
                     this->shoot();
                     this->shoot();
                 } else {
                     int distance = std::min(this->robotBoundingBox().size.height, this->robotBoundingBox().size.width);
-                    DEBUG_PRINT(distance);
-                    this->moveBack(distance);
+                    DEBUG_PRINT(this->position().y);
+                    if (isDangerousPlace) {
+                        this->moveBack(distance);
+                    }
                     this->shoot();
                     this->shoot();
                     this->shoot();
                 }
+                DEBUG_PRINT(this->currentTimestamp() - this->lastKnownPositionTimestamp);
+                if (this->currentTimestamp() - this->lastKnownPositionTimestamp > 36.0f) {
+                    this->gunAngleMoved = 0.0f;
+                    this->currentState = HarukiRobotCppAction::TURRET;
+                }
+
+                isDangerousPlace = false;
+                break;
+            case HarukiRobotCppAction::TURRET:
+                this->gunAngleMoved += 8.0f;
+                if (this->gunAngleMoved > 90.0f) {
+                    this->gunAngleMoved -= 180.0f;
+                    this->turnGunRight(180.0f);
+                } else {
+                    this->turnGunLeft(8.0f);
+                }
+                this->shoot();
+                this->shoot();
+                this->shoot();
                 break;
             case HarukiRobotCppAction::PAUSE:
-                // this->cancelActiveAction();
                 break;
             case HarukiRobotCppAction::FIRING:
                 if (this->currentTimestamp() - this->lastKnownPositionTimestamp > 1.0f) {
@@ -113,6 +139,7 @@ void HarukiRobotCpp::scannedRobotAtPosition(RWVec position) {
 }
 
 void HarukiRobotCpp::gotHit() {
+    isDangerousPlace = true;
     if (this->currentState == HarukiRobotCppAction::MOVE_TO_CORNER) {
         // Do nothing utill we reach the corner.
         return;
@@ -136,6 +163,9 @@ void HarukiRobotCpp::hitWallWithSideAndAngle(RobotWallHitSide::RobotWallHitSide 
 }
 
 void HarukiRobotCpp::bulletHitEnemy(RWVec enemyPosition) {
+    this->enemysHitPoints--;
+    this->lastKnownPosition = enemyPosition;
+    this->lastKnownPositionTimestamp = this->currentTimestamp();
 }
 
 void HarukiRobotCpp::printStates() {
