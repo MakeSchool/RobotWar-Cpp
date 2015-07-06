@@ -221,14 +221,12 @@
 		65CC917619648EEE00838899 /* Robots */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				654E59141B3F96F5004CCACF /* AdvancedRobot.h */,
 				654E59151B3F96F5004CCACF /* AdvancedRobot.m */,
 				654E59161B3F96F5004CCACF /* SimpleRobot.h */,
 				654E59171B3F96F5004CCACF /* SimpleRobot.m */,
 				654E59181B3F96F5004CCACF /* TurretRobot.h */,
 				654E59191B3F96F5004CCACF /* TurretRobot.m */,
-=======
 				65CC917719648EEE00838899 /* AdvancedRobot.h */,
 				65CC917819648EEE00838899 /* AdvancedRobot.m */,
 				65CC917919648EEE00838899 /* SimpleRobot.h */,
@@ -239,7 +237,6 @@
 				BC0E62DB196A0CB600AED4CF /* NewAdvancedRobot.m */,
 				BC717227196AF978002FCF86 /* LiveRobot.h */,
 				BC717228196AF978002FCF86 /* LiveRobot.m */,
->>>>>>> 274683fa5af57e71a93d2e2284e7a15929b7457f
 			);
 			name = Robots;
 			path = Source/Robot;
@@ -462,9 +459,11 @@
 <<<<<<< HEAD
 				65004D461B4A41CF00B151B8 /* RobotWrapper.mm in Sources */,
 				650785D1196A20290022192D /* TournamentWonScene.m in Sources */,
+				BC717229196AF978002FCF86 /* LiveRobot.m in Sources */,
 =======
 				BC717229196AF978002FCF86 /* LiveRobot.m in Sources */,
->>>>>>> 274683fa5af57e71a93d2e2284e7a15929b7457f
+				650785D1196A20290022192D /* TournamentWonScene.m in Sources */,
+>>>>>>> ed83d7d8fc1801f12c91c0d6e36d0a9a2a548e88
 				6244629A1937DDD300895F2D /* Robot.m in Sources */,
 				65004D561B4A717D00B151B8 /* SimpleRobotCpp.cpp in Sources */,
 				B737893F1807617C0076A88C /* AppDelegate.m in Sources */,
@@ -475,11 +474,8 @@
 				654E591B1B3F96F5004CCACF /* SimpleRobot.m in Sources */,
 				62E3A32419397BE400BD3F0F /* RobotAction.m in Sources */,
 				62E3A330193D3F3B00BD3F0F /* Bullet.m in Sources */,
-<<<<<<< HEAD
 				654E591A1B3F96F5004CCACF /* AdvancedRobot.m in Sources */,
-=======
 				BC0E62DC196A0CB600AED4CF /* NewAdvancedRobot.m in Sources */,
->>>>>>> 274683fa5af57e71a93d2e2284e7a15929b7457f
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

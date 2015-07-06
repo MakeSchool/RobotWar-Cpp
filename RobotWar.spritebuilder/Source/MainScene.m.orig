@@ -39,8 +39,8 @@
 <<<<<<< HEAD
 =======
     
-  [self initWithRobotClassOne:robotClass1 creatorOne:robotCreator1 andRobotClassTwo:robotClass2 creatorTwo:robotCreator2];
->>>>>>> 274683fa5af57e71a93d2e2284e7a15929b7457f
+//  [self initWithRobotClassOne:robotClass1 creatorOne:robotCreator1 andRobotClassTwo:robotClass2 creatorTwo:robotCreator2];
+>>>>>>> ed83d7d8fc1801f12c91c0d6e36d0a9a2a548e88
 }
 
 - (void)initWithRobotClassOne:(NSString *)botClass1 andRobotClassTwo:(NSString *)botClass2  {
@@ -52,33 +52,19 @@
 
   //spawn two robots
   robot1.robotNode = [CCBReader load:@"Robot" owner:robot1];
-<<<<<<< HEAD
-    CCColor* bot1Color = [CCColor colorWithCcColor3b:ccc3(251, 72, 154)];
-    [robot1 _setRobotColor: bot1Color];
-     _robot1Label.color = bot1Color;
-  robot1.robotNode.position = ccp(50, 220);
-  [self addChild:robot1.robotNode];
-=======
   [robot1 _setRobotColor:[CCColor colorWithCcColor3b:ccc3(251, 72, 154)]];
   [robot1 _setFieldOfViewColor:[CCColor colorWithCcColor3b:ccc3(251, 87, 172)]];
   
   robot1.robotNode.position = ccp(50, arc4random_uniform(140) + 80);
   [_gameNode addChild:robot1.robotNode];
->>>>>>> 274683fa5af57e71a93d2e2284e7a15929b7457f
   robot1.gameBoard = self;
   [robot1 _run];
   robot1.robotClass = botClass1;
 
   robot2.robotNode = [CCBReader load:@"Robot" owner:robot2];
   CGSize screenSize = [[CCDirector sharedDirector] viewSize];
-<<<<<<< HEAD
-  robot2.robotNode.position = ccp(screenSize.width - 50, 100);
-    _robot2Label.color = [robot2 getRobotColor];
-  [self addChild:robot2.robotNode];
-=======
   robot2.robotNode.position = ccp(screenSize.width - 50, arc4random_uniform(140) + 80);
   [_gameNode addChild:robot2.robotNode];
->>>>>>> 274683fa5af57e71a93d2e2284e7a15929b7457f
   robot2.gameBoard = self;
   [robot2 _run];
   robot2.robotNode.rotation = 180;
@@ -310,7 +296,7 @@
       _robot2Label.string = [NSString stringWithFormat:@"%@: %d", robot2.robotClass, [robot2 hitPoints]];
   else
       _robot2Label.string = [NSString stringWithFormat:@"DEAD"];
->>>>>>> 274683fa5af57e71a93d2e2284e7a15929b7457f
+>>>>>>> ed83d7d8fc1801f12c91c0d6e36d0a9a2a548e88
 }
 
 - (void)cleanupBullet:(CCNode *)bullet {
