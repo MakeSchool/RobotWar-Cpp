@@ -17,6 +17,12 @@
 
 #import "RobotWrapper.h"
 
+// weird preprocessor stuff for CPP labels
+#define STRINGIFY(x) #x
+#define TOSTRING(x) STRINGIFY(x)
+#define AT __FILE__ ":" TOSTRING(__LINE__)
+
+
 @implementation MainScene {
   CGFloat timeSinceLastEvent;
   NSMutableArray *_bullets;
@@ -63,8 +69,10 @@
 
   //spawn two robots
   robot1.robotNode = [CCBReader load:@"Robot" owner:robot1];
-  [robot1 _setRobotColor:[CCColor colorWithCcColor3b:ccc3(251, 72, 154)]];
+  CCColor* robotOneColor = [CCColor colorWithCcColor3b:ccc3(251, 72, 154)];
+  [robot1 _setRobotColor:robotOneColor];
   [robot1 _setFieldOfViewColor:[CCColor colorWithCcColor3b:ccc3(251, 87, 172)]];
+  [_robot1Label setColor:robotOneColor];
   
   robot1.robotNode.position = ccp(50, arc4random_uniform(140) + 80);
   [_gameNode addChild:robot1.robotNode];
@@ -73,6 +81,9 @@
   robot1.robotClass = botClass1;
 
   robot2.robotNode = [CCBReader load:@"Robot" owner:robot2];
+  CCColor* robotTwoColor = [CCColor colorWithCcColor3b:ccc3(84, 184, 255)];
+  [robot2 _setRobotColor:robotTwoColor];
+  [_robot2Label setColor:robotTwoColor];
   CGSize screenSize = [[CCDirector sharedDirector] viewSize];
   robot2.robotNode.position = ccp(screenSize.width - 50, arc4random_uniform(140) + 80);
   [_gameNode addChild:robot2.robotNode];
@@ -289,14 +300,36 @@
   if (_robots.count > 1) robot2 = (Robot*) _robots[1];
     
   if (robot1)
+  {
+      // check if Cpp Robot to update label
+      if ([robot1 isKindOfClass:[RobotWrapper class]])
+      {
+        NSString* robotOneName = [NSString stringWithUTF8String:TOSTRING(ROBOT_ONE_CPP_CLASS)];
+        robot1.robotClass = robotOneName;
+      }
+
       _robot1Label.string = [NSString stringWithFormat:@"%@ %ld", robot1.robotClass, (long)[robot1 hitPoints]];
+  }
   else
+  {
       _robot1Label.string = @"DEAD";
-      
+  }
+    
   if (robot2)
+  {
+      // check if Cpp Robot to update label
+      if ([robot2 isKindOfClass:[RobotWrapper class]])
+      {
+          NSString* robotTwoName = [NSString stringWithUTF8String:TOSTRING(ROBOT_TWO_CPP_CLASS)];
+          robot2.robotClass = robotTwoName;
+      }
+      
       _robot2Label.string = [NSString stringWithFormat:@"%@ %ld", robot2.robotClass, (long)[robot2 hitPoints]];
+  }
   else
+  {
       _robot2Label.string = @"DEAD";
+  }
 }
 
 - (void)cleanupBullet:(CCNode *)bullet {
