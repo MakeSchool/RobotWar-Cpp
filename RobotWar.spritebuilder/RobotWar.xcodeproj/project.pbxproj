@@ -140,7 +140,7 @@
 		65004E651B4B3DDA00B151B8 /* CamperRobot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CamperRobot.swift; sourceTree = "<group>"; };
 		65004E661B4B3DDA00B151B8 /* SimpleRobot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleRobot.swift; sourceTree = "<group>"; };
 		65004E671B4B3DDA00B151B8 /* TurretRobot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TurretRobot.swift; sourceTree = "<group>"; };
-		65004E711B4B3EF500B151B8 /* RobotWar-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "RobotWar-Bridging-Header.h"; path = "Source/RobotWar-Bridging-Header.h"; sourceTree = "<group>"; };
+		65004E721B4B4ADE00B151B8 /* RobotWar-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "RobotWar-Bridging-Header.h"; path = "Source/Robot/RobotWar-Bridging-Header.h"; sourceTree = "<group>"; };
 		650785CF196A20290022192D /* TournamentWonScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TournamentWonScene.h; path = Source/TournamentWonScene.h; sourceTree = "<group>"; };
 		650785D0196A20290022192D /* TournamentWonScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TournamentWonScene.m; path = Source/TournamentWonScene.m; sourceTree = "<group>"; };
 		65859D4F196C4E49009F640D /* TournamentConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TournamentConfiguration.h; path = Source/TournamentConfiguration.h; sourceTree = "<group>"; };
@@ -286,7 +286,7 @@
 				624B45D019411F7600A81B57 /* Configuration.h */,
 				624A3886193E86140054705C /* GameConstants.h */,
 				65859D4F196C4E49009F640D /* TournamentConfiguration.h */,
-				65004E711B4B3EF500B151B8 /* RobotWar-Bridging-Header.h */,
+				65004E721B4B4ADE00B151B8 /* RobotWar-Bridging-Header.h */,
 				65004D4E1B4A492800B151B8 /* Cpp */,
 				65004DA81B4ACEA600B151B8 /* CppRobots */,
 				62C4F42D1941413E0047553C /* Engine */,
@@ -634,7 +634,7 @@
 				);
 				PRODUCT_NAME = RobotWar;
 				PROVISIONING_PROFILE = "18D84403-392D-4C50-BA7D-C45F153D06AB";
-				SWIFT_OBJC_BRIDGING_HEADER = "Source/RobotWar-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Source/Robot/RobotWar-Bridging-Header.h";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -668,7 +668,7 @@
 				);
 				PRODUCT_NAME = RobotWar;
 				PROVISIONING_PROFILE = "18D84403-392D-4C50-BA7D-C45F153D06AB";
-				SWIFT_OBJC_BRIDGING_HEADER = "Source/RobotWar-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Source/Robot/RobotWar-Bridging-Header.h";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

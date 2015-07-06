@@ -46,23 +46,38 @@
   _robots = [NSMutableArray array];
 }
 
+- (Class)swiftClassFromString:(NSString *)className {
+    NSString *appName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"];
+    NSString *classStringName = [NSString stringWithFormat:@"_TtC%lu%@%lu%@", (unsigned long)appName.length, appName, (unsigned long)className.length, className];
+    return NSClassFromString(classStringName);
+}
+
 - (void)initWithRobotClassOne:(NSString *)botClass1 andRobotClassTwo:(NSString *)botClass2  {
   // intantiate two AIs
     
-  Robot *robot1 = (Robot*) [[NSClassFromString(botClass1) alloc] init];
-
+    Robot* robot1;
+    Robot* robot2;
+    
   if ([botClass1 isEqualToString:@"RobotWrapper"])
   {
+      robot1 = (Robot*) [[NSClassFromString(botClass1) alloc] init];
       RobotWrapper* robotOneWrapper = (RobotWrapper*) robot1;
       [robotOneWrapper setCppRobotClassForRobot:YES];
   }
-    
-  Robot *robot2 = (Robot*) [[NSClassFromString(botClass2) alloc] init];
+  else
+  {
+      robot1 = (Robot*) [[[self swiftClassFromString:botClass1] alloc] init];
+  }
     
   if ([botClass2 isEqualToString:@"RobotWrapper"])
   {
+      robot2 = (Robot*) [[NSClassFromString(botClass2) alloc] init];
       RobotWrapper* robotTwoWrapper = (RobotWrapper*) robot2;
       [robotTwoWrapper setCppRobotClassForRobot:NO];
+  }
+  else
+  {
+      robot2 = (Robot*) [[[self swiftClassFromString:botClass2] alloc] init];
   }
     
   _robots = [NSMutableArray arrayWithArray:@[robot1, robot2]];
