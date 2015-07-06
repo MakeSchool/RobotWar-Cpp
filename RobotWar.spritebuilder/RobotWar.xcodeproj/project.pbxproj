@@ -27,6 +27,7 @@
 		654E591C1B3F96F5004CCACF /* TurretRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = 654E59191B3F96F5004CCACF /* TurretRobot.m */; };
 		65EC9A5F19691E9A002F9DB2 /* TournamentScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 65EC9A5E19691E99002F9DB2 /* TournamentScene.m */; };
 		9613D8C51B4AF5CA0009E379 /* AlaskaThunder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9613D8C31B4AF5CA0009E379 /* AlaskaThunder.cpp */; };
+		9F0564B91B4B186100649A7F /* SuperKen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F0564B61B4B186100649A7F /* SuperKen.cpp */; };
 		B71F5911188484E7003F4D28 /* iPad-old.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5907188484E7003F4D28 /* iPad-old.png */; };
 		B71F5912188484E7003F4D28 /* iPad-old@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5908188484E7003F4D28 /* iPad-old@2x.png */; };
 		B71F5913188484E7003F4D28 /* iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5909188484E7003F4D28 /* iPad.png */; };
@@ -157,6 +158,8 @@
 		65EC9A5E19691E99002F9DB2 /* TournamentScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TournamentScene.m; path = Source/TournamentScene.m; sourceTree = "<group>"; };
 		9613D8C31B4AF5CA0009E379 /* AlaskaThunder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AlaskaThunder.cpp; path = Source/AlaskaThunder.cpp; sourceTree = "<group>"; };
 		9613D8C41B4AF5CA0009E379 /* AlaskaThunder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlaskaThunder.h; path = Source/AlaskaThunder.h; sourceTree = "<group>"; };
+		9F0564B61B4B186100649A7F /* SuperKen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SuperKen.cpp; path = Source/ken/SuperKen.cpp; sourceTree = "<group>"; };
+		9F0564B71B4B186100649A7F /* SuperKen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SuperKen.h; path = Source/ken/SuperKen.h; sourceTree = "<group>"; };
 		B71F5907188484E7003F4D28 /* iPad-old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old.png"; path = "Icons/iPad-old.png"; sourceTree = "<group>"; };
 		B71F5908188484E7003F4D28 /* iPad-old@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old@2x.png"; path = "Icons/iPad-old@2x.png"; sourceTree = "<group>"; };
 		B71F5909188484E7003F4D28 /* iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iPad.png; path = Icons/iPad.png; sourceTree = "<group>"; };
@@ -261,6 +264,7 @@
 		65004DA81B4ACEA600B151B8 /* CppRobots */ = {
 			isa = PBXGroup;
 			children = (
+				9F0564AF1B4B180A00649A7F /* ken */,
 				65004D541B4A717D00B151B8 /* SimpleRobotCpp.cpp */,
 				65004D551B4A717D00B151B8 /* SimpleRobotCpp.h */,
 				65004D9B1B4AC97800B151B8 /* AdvancedRobotCpp.cpp */,
@@ -305,6 +309,15 @@
 				B7378940180761A80076A88C /* cocos2d-ios.xcodeproj */,
 			);
 			name = libs;
+			sourceTree = "<group>";
+		};
+		9F0564AF1B4B180A00649A7F /* ken */ = {
+			isa = PBXGroup;
+			children = (
+				9F0564B61B4B186100649A7F /* SuperKen.cpp */,
+				9F0564B71B4B186100649A7F /* SuperKen.h */,
+			);
+			name = ken;
 			sourceTree = "<group>";
 		};
 		B737893C1807616C0076A88C /* Source */ = {
@@ -537,6 +550,7 @@
 			files = (
 				654E591C1B3F96F5004CCACF /* TurretRobot.m in Sources */,
 				65004D521B4A5B2100B151B8 /* RobotCpp.mm in Sources */,
+				9F0564B91B4B186100649A7F /* SuperKen.cpp in Sources */,
 				629FCFF4193E71C300896E8C /* GameOverScene.m in Sources */,
 				65004DAE1B4AF5DB00B151B8 /* NewAdvancedRobotCpp.cpp in Sources */,
 				65004D461B4A41CF00B151B8 /* RobotWrapper.mm in Sources */,
