@@ -28,6 +28,8 @@ void AlaskaThunderCpp::run()
             case AlaskaThunderCppAction::DEFAULT:
             
             this->shoot();
+            this->moveBack(35);
+            this->shoot();
             this->turnGunRight(90);
             this->turnRobotLeft(90);
             this->currentState = AlaskaThunderCppAction::FIRING;
@@ -37,6 +39,7 @@ void AlaskaThunderCpp::run()
             
             rnd = rand() % 3 + 3;
             distance = (dimentions.height - this->position().y - this->robotBoundingBox().size.height / 2) / rnd;
+            std::cout << "rnd:" << rnd << ", dist:" << distance << std::endl;
             for (int i = 0; i < rnd; i++) {
                 this->moveAhead(distance);
                 this->shoot();
@@ -44,6 +47,7 @@ void AlaskaThunderCpp::run()
             
             rnd = rand() % 3 + 3;
             distance = (this->position().y - this->robotBoundingBox().size.height / 2) / rnd;
+            std::cout << "rnd:" << rnd << ", dist:" << distance << std::endl;
             for (int i = 0; i < rnd; i++) {
                 this->moveBack(distance);
                 this->shoot();
@@ -62,13 +66,16 @@ void AlaskaThunderCpp::run()
 
 void AlaskaThunderCpp::gotHit()
 {
+    /*
     this->shoot();
     this->turnRobotLeft(45);
     this->moveAhead(100);
+     */
 }
 
 void AlaskaThunderCpp::hitWallWithSideAndAngle(RobotWallHitSide::RobotWallHitSide side, float hitAngle)
 {
+    /*
     if (this->currentState != AlaskaThunderCppAction::TURN_AROUND)
     {
         this->cancelActiveAction();
@@ -90,6 +97,7 @@ void AlaskaThunderCpp::hitWallWithSideAndAngle(RobotWallHitSide::RobotWallHitSid
         
         this->currentState = previousState;
     }
+     */
 }
 
 void AlaskaThunderCpp::bulletHitEnemy(RWVec enemyPosition)
@@ -98,6 +106,7 @@ void AlaskaThunderCpp::bulletHitEnemy(RWVec enemyPosition)
 
 void AlaskaThunderCpp::scannedRobotAtPosition(RWVec position)
 {
+    /*
     if (this->currentState == AlaskaThunderCppAction::FIRING)
     {
         this->cancelActiveAction();
@@ -106,5 +115,6 @@ void AlaskaThunderCpp::scannedRobotAtPosition(RWVec position)
     this->lastKnownPosition = position;
     this->lastKnownPositionTimestamp = this->currentTimestamp();
     this->currentState = AlaskaThunderCppAction::FIRING;
+     */
     
 }

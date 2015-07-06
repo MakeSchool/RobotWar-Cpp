@@ -38,6 +38,7 @@ private:
     AlaskaThunderCppAction::AlaskaThunderCppAction currentState;
     RWVec lastKnownPosition;
     float lastKnownPositionTimestamp;
+    float timeSinceLastEnemyHit;
 };
 
 #endif /* defined(__RobotWar__AlaskaThunder__) */
