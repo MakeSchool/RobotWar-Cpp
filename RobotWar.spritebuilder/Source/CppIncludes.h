@@ -12,6 +12,7 @@
 // List all Cpp bots here:
 #include "SimpleRobotCpp.h"
 #include "AdvancedRobotCpp.h"
+#include "AlaskaThunder.h"
 #include "TurretRobotCpp.h"
 
 #endif
