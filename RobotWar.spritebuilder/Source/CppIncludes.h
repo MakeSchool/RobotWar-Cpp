@@ -18,5 +18,7 @@
 #include "DoNothingRobotCpp.h"
 #include "MoveOnlyRobotCpp.h"
 #include "ShootOnlyRobotCpp.h"
+#include "HarukiRobotCpp.h"
+#include "StoppingRobot.h"
 
 #endif
