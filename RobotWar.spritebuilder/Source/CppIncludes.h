@@ -14,5 +14,6 @@
 #include "AdvancedRobotCpp.h"
 #include "TurretRobotCpp.h"
 #include "NewAdvancedRobotCpp.h"
+#include "LiveRobotCpp.h"
 
 #endif
