@@ -31,11 +31,11 @@ void AdvancedRobotCpp::run()
                     
                     if (angle >= 0)
                     {
-                        this->turnGunRight(fabs(angle));
+                        this->turnGunRight(fabsf(angle));
                     }
                     else
                     {
-                        this->turnGunLeft(fabs(angle));
+                        this->turnGunLeft(fabsf(angle));
                     }
                     
                     this->shoot();
