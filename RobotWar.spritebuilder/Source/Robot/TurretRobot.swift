@@ -51,9 +51,6 @@ class TurretRobot: Robot {
   }
   
   override func bulletHitEnemy(bullet: Bullet!) {
-    let position = bullet.bulletOwner.position()
-    turnToEnemyPosition(position)
-    
     lastEnemyHit = currentTimestamp()
     currentRobotState = .Firing
   }
