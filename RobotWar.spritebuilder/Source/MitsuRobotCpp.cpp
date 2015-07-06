@@ -27,8 +27,10 @@
 MitsuRobotCpp::MitsuRobotCpp()
 {
     this->changeState(MitsuRobotCppAction::INITIAL);
-    this->damagedPlayer = 0;
-    this->damagedEnemy  = 0;
+    this->damagedPlayer       = 0;
+    this->damagedEnemy        = 0;
+    this->lastGotHitTimestamp = this->currentTimestamp();
+    this->isTargetedByEnemy   = false;
 }
 
 #pragma mark -
@@ -46,6 +48,11 @@ void MitsuRobotCpp::run()
             case MitsuRobotCppAction::ASSAULT_FIRING:      this->runAssaultFiring();    break;
             case MitsuRobotCppAction::DEBUGGING:           this->runDebugging();        break;
         }
+        
+        if (this->currentTimestamp() - this->lastGotHitTimestamp > 1.0f)
+        {
+            this->isTargetedByEnemy = false;
+        }
     }
 }
 
@@ -53,6 +60,7 @@ void MitsuRobotCpp::gotHit()
 {
     DEBUG_PRINT("got hit!\n");
     this->damagedPlayer++;
+    this->isTargetedByEnemy = true;
     
     if (this->currentTimestamp() - this->lastKnownPositionTimestamp > 1.0f)
     {
@@ -110,7 +118,8 @@ void MitsuRobotCpp::bulletHitEnemy(RWVec enemyPosition)
     this->lastKnownPosition = enemyPosition;
     this->lastKnownPositionTimestamp = this->currentTimestamp();
     
-    if (this->isWinningLife())
+    if (this->isWinningLife() ||
+        (this->currentState == MitsuRobotCppAction::OFFENSE_SEARCHING && !this->isTargetedByEnemy))
     {
         this->changeState(MitsuRobotCppAction::ASSAULT_FIRING);
     }

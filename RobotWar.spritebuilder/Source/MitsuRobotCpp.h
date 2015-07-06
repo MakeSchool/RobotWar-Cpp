@@ -39,7 +39,8 @@ private:
     MitsuRobotCppAction::MitsuRobotCppAction currentState;
     int damagedPlayer, damagedEnemy;
     RWVec lastKnownPosition;
-    float lastKnownPositionTimestamp;
+    float lastKnownPositionTimestamp, lastGotHitTimestamp;
+    bool isTargetedByEnemy;
     
     // running methods
     void runInitial();
