@@ -15,6 +15,8 @@
 #import "Helpers.h"
 #import "Configuration.h"
 
+#import "RobotWrapper.h"
+
 @implementation MainScene {
   CGFloat timeSinceLastEvent;
   NSMutableArray *_bullets;
@@ -40,9 +42,23 @@
 
 - (void)initWithRobotClassOne:(NSString *)botClass1 andRobotClassTwo:(NSString *)botClass2  {
   // intantiate two AIs
-
+    
   Robot *robot1 = (Robot*) [[NSClassFromString(botClass1) alloc] init];
+
+  if ([botClass1 isEqualToString:@"RobotWrapper"])
+  {
+      RobotWrapper* robotOneWrapper = (RobotWrapper*) robot1;
+      [robotOneWrapper setCppRobotClassForRobot:YES];
+  }
+    
   Robot *robot2 = (Robot*) [[NSClassFromString(botClass2) alloc] init];
+    
+  if ([botClass2 isEqualToString:@"RobotWrapper"])
+  {
+      RobotWrapper* robotTwoWrapper = (RobotWrapper*) robot2;
+      [robotTwoWrapper setCppRobotClassForRobot:NO];
+  }
+    
   _robots = [NSMutableArray arrayWithArray:@[robot1, robot2]];
 
   //spawn two robots

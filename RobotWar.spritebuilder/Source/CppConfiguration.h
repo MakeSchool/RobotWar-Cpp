@@ -9,11 +9,9 @@
 #ifndef RobotWar_CppConfiguration_h
 #define RobotWar_CppConfiguration_h
 
-#define ROBOT_ONE_CLASS AdvancedRobotCpp
-#define ROBOT_TWO_CLASS MyRobotCpp
-
 // List all Cpp bots here:
 #include "SimpleRobotCpp.h"
 #include "AdvancedRobotCpp.h"
+#include "TurretRobotCpp.h"
 
 #endif

@@ -13,6 +13,8 @@
 
 @interface RobotWrapper : Robot
 
+- (void)setCppRobotClassForRobot:(BOOL)robotOne;
+
 @end
 
 #endif /* defined(__RobotWar__RobotWrapper__) */

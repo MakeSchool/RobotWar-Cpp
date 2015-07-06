@@ -10,6 +10,7 @@
 #import "Bullet.h"
 #include "CppInterface.h"
 #include "CppConfiguration.h"
+#include "Configuration.h"
 
 @implementation RobotWrapper
 {
@@ -19,18 +20,18 @@
 #pragma mark -
 #pragma mark Lifecycle
 
-- (instancetype)init
+- (void)setCppRobotClassForRobot:(BOOL)robotOne
 {
-    self = [super init];
-    
-    if (self)
+    if (robotOne)
     {
-        delegate = new ROBOT_ONE_CLASS();
-        
-        delegate->setObjCRobot(self);
+        delegate = new ROBOT_ONE_CPP_CLASS();
+    }
+    else
+    {
+        delegate = new ROBOT_TWO_CPP_CLASS();
     }
     
-    return self;
+    delegate->setObjCRobot(self);
 }
 
 - (void)dealloc
