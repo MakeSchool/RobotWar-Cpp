@@ -78,7 +78,7 @@ class AdvancedRobot: Robot {
       if angle >= 0 {
         turnGunRight(abs(angle))
       } else {
-        turnRobotLeft(abs(angle))
+        turnGunLeft(abs(angle))
       }
       shoot()
     }

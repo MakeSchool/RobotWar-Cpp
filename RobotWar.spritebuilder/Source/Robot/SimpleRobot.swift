@@ -35,7 +35,7 @@ class SimpleRobot: Robot {
     
     switch hitDirection {
     case .Front:
-      turnGunRight(180)
+      turnRobotRight(180)
       moveAhead(20)
     case .Rear:
       moveAhead(80)
