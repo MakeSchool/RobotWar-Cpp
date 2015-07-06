@@ -299,18 +299,16 @@
   if (_robots.count > 0) robot1 = (Robot*) _robots[0];
   if (_robots.count > 1) robot2 = (Robot*) _robots[1];
     
-  NSString* robotOneName = robot1.robotClass;
-  NSString* robotTwoName = robot2.robotClass;
-    
   if (robot1)
   {
       // check if Cpp Robot to update label
       if ([robot1 isKindOfClass:[RobotWrapper class]])
       {
-        robotOneName = [NSString stringWithUTF8String:TOSTRING(ROBOT_ONE_CPP_CLASS)];
+        NSString* robotOneName = [NSString stringWithUTF8String:TOSTRING(ROBOT_ONE_CPP_CLASS)];
+        robot1.robotClass = robotOneName;
       }
 
-      _robot1Label.string = [NSString stringWithFormat:@"%@ %ld", robotOneName, (long)[robot1 hitPoints]];
+      _robot1Label.string = [NSString stringWithFormat:@"%@ %ld", robot1.robotClass, (long)[robot1 hitPoints]];
   }
   else
   {
@@ -322,10 +320,11 @@
       // check if Cpp Robot to update label
       if ([robot2 isKindOfClass:[RobotWrapper class]])
       {
-          robotTwoName = [NSString stringWithUTF8String:TOSTRING(ROBOT_TWO_CPP_CLASS)];
+          NSString* robotTwoName = [NSString stringWithUTF8String:TOSTRING(ROBOT_TWO_CPP_CLASS)];
+          robot2.robotClass = robotTwoName;
       }
       
-      _robot2Label.string = [NSString stringWithFormat:@"%@ %ld", robotTwoName, (long)[robot2 hitPoints]];
+      _robot2Label.string = [NSString stringWithFormat:@"%@ %ld", robot2.robotClass, (long)[robot2 hitPoints]];
   }
   else
   {
