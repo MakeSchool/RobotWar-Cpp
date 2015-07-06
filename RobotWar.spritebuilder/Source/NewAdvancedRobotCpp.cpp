@@ -54,7 +54,7 @@ void NewAdvancedRobotCpp::performNextFiringAction()
 {
     if (this->currentTimestamp() - this->lastKnownPositionTimestamp > 1.0f)
     {
-        this->currentState = NewAdvancedRobotCppAction::SEARCHING;
+        this->setCurrentState(NewAdvancedRobotCppAction::SEARCHING);
     }
     else
     {
