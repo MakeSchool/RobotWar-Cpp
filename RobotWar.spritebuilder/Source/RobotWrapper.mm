@@ -11,6 +11,7 @@
 #include "CppInterface.h"
 #include "CppIncludes.h"
 #include "Configuration.h"
+#include "SuperKen.h"
 
 @implementation RobotWrapper
 {
