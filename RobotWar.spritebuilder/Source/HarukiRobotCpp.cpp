@@ -7,6 +7,7 @@
 //
 
 #include "HarukiRobotCpp.h"
+#include <random>
 #include <iostream>
 #include <math.h>
 
@@ -33,7 +34,6 @@ void HarukiRobotCpp::run() {
     while (true) {
         switch (this->currentState) {
             case HarukiRobotCppAction::INIT:
-                DEBUG_PRINT("Move to corner");
                 this->currentState = HarukiRobotCppAction::MOVE_TO_CORNER;
                 break;
             case HarukiRobotCppAction::MOVE_TO_CORNER:
@@ -55,7 +55,6 @@ void HarukiRobotCpp::run() {
             case HarukiRobotCppAction::HIT_AND_AWAY:
                 if (this->moveUp) {
                     int distance = std::min(this->robotBoundingBox().size.height, this->robotBoundingBox().size.width);
-                    DEBUG_PRINT(distance);
                     if (isDangerousPlace) {
                         this->moveAhead(distance);
                     }
@@ -64,7 +63,6 @@ void HarukiRobotCpp::run() {
                     this->shoot();
                 } else {
                     int distance = std::min(this->robotBoundingBox().size.height, this->robotBoundingBox().size.width);
-                    DEBUG_PRINT(this->position().y);
                     if (isDangerousPlace) {
                         this->moveBack(distance);
                     }
@@ -81,12 +79,14 @@ void HarukiRobotCpp::run() {
                 isDangerousPlace = false;
                 break;
             case HarukiRobotCppAction::TURRET:
-                if (this->gunAngleMoved > 90.0f) {
-                    this->gunAngleMoved -= 180.0f;
-                    this->turnGunRight(180.0f);
+                if (this->gunAngleMoved > 60.0f) {
+                    this->gunAngleMoved -= 120.0f;
+                    this->turnGunRight(120.0f);
                 } else {
-                    this->gunAngleMoved += 8.0f;
-                    this->turnGunLeft(8.0f);
+                    float move = (rand() % 4) + 5.0f;
+                    DEBUG_PRINT(move);
+                    this->gunAngleMoved += move;
+                    this->turnGunLeft(move);
                 }
                 this->shoot();
                 this->shoot();
