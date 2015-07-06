@@ -9,7 +9,7 @@
 #import "RobotWrapper.h"
 #import "Bullet.h"
 #include "CppInterface.h"
-#include "CppConfiguration.h"
+#include "CppIncludes.h"
 #include "Configuration.h"
 
 @implementation RobotWrapper

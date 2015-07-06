@@ -124,7 +124,7 @@
 		65004D4F1B4A4DCE00B151B8 /* CppInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CppInterface.h; path = Source/CppInterface.h; sourceTree = "<group>"; };
 		65004D501B4A5B2100B151B8 /* RobotCpp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RobotCpp.mm; path = Source/RobotCpp.mm; sourceTree = "<group>"; };
 		65004D511B4A5B2100B151B8 /* RobotCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RobotCpp.h; path = Source/RobotCpp.h; sourceTree = "<group>"; };
-		65004D531B4A712600B151B8 /* CppConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CppConfiguration.h; path = Source/CppConfiguration.h; sourceTree = "<group>"; };
+		65004D531B4A712600B151B8 /* CppIncludes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CppIncludes.h; path = Source/CppIncludes.h; sourceTree = "<group>"; };
 		65004D541B4A717D00B151B8 /* SimpleRobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SimpleRobotCpp.cpp; path = Source/SimpleRobotCpp.cpp; sourceTree = "<group>"; };
 		65004D551B4A717D00B151B8 /* SimpleRobotCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleRobotCpp.h; path = Source/SimpleRobotCpp.h; sourceTree = "<group>"; };
 		65004D9B1B4AC97800B151B8 /* AdvancedRobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AdvancedRobotCpp.cpp; path = Source/AdvancedRobotCpp.cpp; sourceTree = "<group>"; };
@@ -233,7 +233,7 @@
 		65004D4E1B4A492800B151B8 /* Cpp */ = {
 			isa = PBXGroup;
 			children = (
-				65004D531B4A712600B151B8 /* CppConfiguration.h */,
+				65004D531B4A712600B151B8 /* CppIncludes.h */,
 				65004D4F1B4A4DCE00B151B8 /* CppInterface.h */,
 				65004D441B4A41CF00B151B8 /* RobotWrapper.h */,
 				65004D451B4A41CF00B151B8 /* RobotWrapper.mm */,
