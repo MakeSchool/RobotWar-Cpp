@@ -4,9 +4,10 @@ In this exercise, you'll learn a bit about basic artificial intelligence through
 
 - Create a new Robot by inheriting from the `RobotCpp` class:
 
-        class SimpleRobot: Robot {
+        class SimpleRobotCpp : public RobotCpp 
+        {
           
-        }
+        };
 
 - Define your Robot to participate in the Battle by placing the Class name of the robot in "Configuration.h"
 
