@@ -81,11 +81,11 @@ void HarukiRobotCpp::run() {
                 isDangerousPlace = false;
                 break;
             case HarukiRobotCppAction::TURRET:
-                this->gunAngleMoved += 8.0f;
                 if (this->gunAngleMoved > 90.0f) {
                     this->gunAngleMoved -= 180.0f;
                     this->turnGunRight(180.0f);
                 } else {
+                    this->gunAngleMoved += 8.0f;
                     this->turnGunLeft(8.0f);
                 }
                 this->shoot();
