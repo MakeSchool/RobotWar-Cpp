@@ -36,8 +36,6 @@
   _bullets = [NSMutableArray array];
   
   _robots = [NSMutableArray array];
-    
-  [self initWithRobotClassOne:robotClass1 andRobotClassTwo:robotClass2];
 }
 
 - (Class)swiftClassFromString:(NSString *)className {
