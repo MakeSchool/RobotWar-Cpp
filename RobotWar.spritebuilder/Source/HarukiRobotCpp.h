@@ -13,7 +13,7 @@
 
 namespace HarukiRobotCppAction {
 
-enum HarukiRobotCppAction { INIT, MOVE_TO_CORNER, PAUSE, MOVE, FIRING, HIT_AND_AWAY };
+enum HarukiRobotCppAction { INIT, MOVE_TO_CORNER, PAUSE, MOVE, FIRING, HIT_AND_AWAY, TURRET };
 }
 
 class HarukiRobotCpp : public RobotCpp {
@@ -29,11 +29,13 @@ public:
 
 private:
     bool moveUp;
+    bool isDangerousPlace;
     HarukiRobotCppAction::HarukiRobotCppAction currentState;
     RWVec lastPosition;
     RWVec lastKnownPosition;
     float lastKnownPositionTimestamp;
     float gunAngleMoved;
+    int enemysHitPoints;
 };
 
 #endif /* defined(__RobotWar__MyRobot__) */
