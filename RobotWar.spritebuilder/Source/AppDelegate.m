@@ -28,6 +28,8 @@
 #import "AppDelegate.h"
 #import "CCBuilderReader.h"
 #import "Configuration.h"
+#import "TournamentConfiguration.h"
+#import "MainScene.h"
 
 @implementation AppController
 
@@ -58,7 +60,14 @@
 }
 
 - (CCScene *)startScene {
-  return [CCBReader loadAsScene:@"TournamentScene"];
+    if (TOURNAMENT) {
+        return [CCBReader loadAsScene:@"TournamentScene"];
+    } else {
+        CCScene* scene = [CCBReader loadAsScene:@"MainScene"];
+        MainScene* mainScene = (MainScene*) scene.children[0];
+        [mainScene initWithRobotClassOne:robotClass1 andRobotClassTwo:robotClass2];
+        return scene;
+    }
 }
 
 @end

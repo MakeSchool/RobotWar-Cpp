@@ -13,6 +13,11 @@
 #pragma mark -
 #pragma mark Public Interface
 
+RobotCpp::RobotCpp()
+{
+    this->robot = 0;
+}
+
 void RobotCpp::setObjCRobot(RobotWrapper *pRobot)
 {
     this->robot = pRobot;

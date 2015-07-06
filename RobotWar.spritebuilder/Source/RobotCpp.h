@@ -20,6 +20,7 @@ typedef struct objc_object RobotWrapper;
 class RobotCpp : public RobotCallbackDelegate
 {
 public:
+    RobotCpp();
     void setObjCRobot(RobotWrapper* pRobot);
     
 protected:

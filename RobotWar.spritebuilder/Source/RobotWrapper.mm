@@ -13,7 +13,7 @@
 
 @implementation RobotWrapper
 {
-    RobotCallbackDelegate* delegate;
+    RobotCpp* delegate;
 }
 
 #pragma mark -
@@ -26,6 +26,7 @@
     if (self)
     {
         delegate = new SimpleRobotCpp();
+        delegate->setObjCRobot(self);
     }
     
     return self;
