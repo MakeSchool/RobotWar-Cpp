@@ -17,6 +17,7 @@
 		65004D561B4A717D00B151B8 /* SimpleRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65004D541B4A717D00B151B8 /* SimpleRobotCpp.cpp */; };
 		65004D9D1B4AC97800B151B8 /* AdvancedRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65004D9B1B4AC97800B151B8 /* AdvancedRobotCpp.cpp */; };
 		65004DAB1B4AD96400B151B8 /* TurretRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65004DA91B4AD96400B151B8 /* TurretRobotCpp.cpp */; };
+		65004DAE1B4AF5DB00B151B8 /* NewAdvancedRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65004DAC1B4AF5DB00B151B8 /* NewAdvancedRobotCpp.cpp */; };
 		650785D1196A20290022192D /* TournamentWonScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 650785D0196A20290022192D /* TournamentWonScene.m */; };
 		654E591A1B3F96F5004CCACF /* AdvancedRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = 654E59151B3F96F5004CCACF /* AdvancedRobot.m */; };
 		654E591B1B3F96F5004CCACF /* SimpleRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = 654E59171B3F96F5004CCACF /* SimpleRobot.m */; };
@@ -132,6 +133,8 @@
 		65004D9C1B4AC97800B151B8 /* AdvancedRobotCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdvancedRobotCpp.h; path = Source/AdvancedRobotCpp.h; sourceTree = "<group>"; };
 		65004DA91B4AD96400B151B8 /* TurretRobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TurretRobotCpp.cpp; path = Source/TurretRobotCpp.cpp; sourceTree = "<group>"; };
 		65004DAA1B4AD96400B151B8 /* TurretRobotCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TurretRobotCpp.h; path = Source/TurretRobotCpp.h; sourceTree = "<group>"; };
+		65004DAC1B4AF5DB00B151B8 /* NewAdvancedRobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NewAdvancedRobotCpp.cpp; path = Source/NewAdvancedRobotCpp.cpp; sourceTree = "<group>"; };
+		65004DAD1B4AF5DB00B151B8 /* NewAdvancedRobotCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewAdvancedRobotCpp.h; path = Source/NewAdvancedRobotCpp.h; sourceTree = "<group>"; };
 		650785CF196A20290022192D /* TournamentWonScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TournamentWonScene.h; path = Source/TournamentWonScene.h; sourceTree = "<group>"; };
 		650785D0196A20290022192D /* TournamentWonScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TournamentWonScene.m; path = Source/TournamentWonScene.m; sourceTree = "<group>"; };
 		654E59141B3F96F5004CCACF /* AdvancedRobot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvancedRobot.h; sourceTree = "<group>"; };
@@ -518,6 +521,7 @@
 				654E591C1B3F96F5004CCACF /* TurretRobot.m in Sources */,
 				65004D521B4A5B2100B151B8 /* RobotCpp.mm in Sources */,
 				629FCFF4193E71C300896E8C /* GameOverScene.m in Sources */,
+				65004DAE1B4AF5DB00B151B8 /* NewAdvancedRobotCpp.cpp in Sources */,
 				65004D461B4A41CF00B151B8 /* RobotWrapper.mm in Sources */,
 				650785D1196A20290022192D /* TournamentWonScene.m in Sources */,
 				BC717229196AF978002FCF86 /* LiveRobot.m in Sources */,

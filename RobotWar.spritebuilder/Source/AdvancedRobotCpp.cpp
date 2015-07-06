@@ -98,7 +98,7 @@ void AdvancedRobotCpp::bulletHitEnemy(RWVec enemyPosition)
 
 void AdvancedRobotCpp::scannedRobotAtPosition(RWVec position)
 {
-    if (this->currentState == AdvancedRobotCppAction::FIRING)
+    if (this->currentState != AdvancedRobotCppAction::FIRING)
     {
         this->cancelActiveAction();
     }

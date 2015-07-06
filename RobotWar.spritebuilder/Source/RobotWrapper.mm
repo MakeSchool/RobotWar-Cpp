@@ -93,7 +93,7 @@
 {
     if (delegate)
     {
-        CGPoint enemyPosition = bullet.bulletOwner.position;
+        CGPoint enemyPosition = bullet.position;
         
         delegate->bulletHitEnemy(RWVec(enemyPosition.x, enemyPosition.y));
     }
