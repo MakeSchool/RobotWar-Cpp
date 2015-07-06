@@ -23,6 +23,8 @@
 
 HarukiRobotCpp::HarukiRobotCpp() {
     this->currentState = HarukiRobotCppAction::INIT;
+    this->lastKnownPositionTimestamp = this->currentTimestamp();
+    this->gunAngleMoved = 0.0f;
 }
 
 void HarukiRobotCpp::run() {
@@ -36,22 +38,52 @@ void HarukiRobotCpp::run() {
                 this->moveBack(50);
                 break;
 
-            case HarukiRobotCppAction::GO_UP:
-                this->moveAhead(50);
+            case HarukiRobotCppAction::MOVE:
+                if (this->moveUp) {
+                    this->moveAhead(50);
+                } else {
+                    this->moveBack(50);
+                }
+                if (this->currentTimestamp() - this->lastKnownPositionTimestamp > 16.0f) {
+                    this->currentState = HarukiRobotCppAction::HIT_AND_AWAY;
+                }
                 break;
-            case HarukiRobotCppAction::GO_DOWN:
-                this->moveBack(50);
+            case HarukiRobotCppAction::HIT_AND_AWAY:
+                if (this->moveUp) {
+                    int distance = std::min(this->robotBoundingBox().size.height, this->robotBoundingBox().size.width);
+                    DEBUG_PRINT(distance);
+                    this->moveAhead(distance);
+                    this->shoot();
+                    this->shoot();
+                    this->shoot();
+                } else {
+                    int distance = std::min(this->robotBoundingBox().size.height, this->robotBoundingBox().size.width);
+                    DEBUG_PRINT(distance);
+                    this->moveBack(distance);
+                    this->shoot();
+                    this->shoot();
+                    this->shoot();
+                }
                 break;
             case HarukiRobotCppAction::PAUSE:
                 // this->cancelActiveAction();
                 break;
             case HarukiRobotCppAction::FIRING:
                 if (this->currentTimestamp() - this->lastKnownPositionTimestamp > 1.0f) {
-                    this->currentState = HarukiRobotCppAction::GO_UP;
+                    // restore the position of the gun.
+                    float angle = this->gunAngleMoved;
+                    if (angle >= 0.0f) {
+                        this->turnGunLeft(fabsf(angle));
+                    } else {
+                        this->turnGunRight(fabsf(angle));
+                    }
+                    this->gunAngleMoved = 0.0;
+                    this->currentState = HarukiRobotCppAction::MOVE;
                 } else {
                     float angle = this->angleBetweenGunHeadingDirectionAndWorldPosition(this->lastKnownPosition);
 
-                    if (angle >= 0) {
+                    this->gunAngleMoved += angle;
+                    if (angle >= 0.0f) {
                         this->turnGunRight(fabsf(angle));
                     } else {
                         this->turnGunLeft(fabsf(angle));
@@ -61,10 +93,16 @@ void HarukiRobotCpp::run() {
                 }
                 break;
         }
+
+        lastPosition = this->position();
     }
 }
 
 void HarukiRobotCpp::scannedRobotAtPosition(RWVec position) {
+    if (this->currentState == HarukiRobotCppAction::MOVE_TO_CORNER) {
+        // Do nothing utill we reach the corner.
+        return;
+    }
     if (this->currentState != HarukiRobotCppAction::FIRING) {
         this->cancelActiveAction();
     }
@@ -75,6 +113,12 @@ void HarukiRobotCpp::scannedRobotAtPosition(RWVec position) {
 }
 
 void HarukiRobotCpp::gotHit() {
+    if (this->currentState == HarukiRobotCppAction::MOVE_TO_CORNER) {
+        // Do nothing utill we reach the corner.
+        return;
+    } else if (this->currentState != HarukiRobotCppAction::MOVE) {
+        this->currentState = HarukiRobotCppAction::MOVE;
+    }
 }
 
 void HarukiRobotCpp::hitWallWithSideAndAngle(RobotWallHitSide::RobotWallHitSide side, float hitAngle) {
@@ -83,12 +127,11 @@ void HarukiRobotCpp::hitWallWithSideAndAngle(RobotWallHitSide::RobotWallHitSide 
     if (this->currentState == HarukiRobotCppAction::MOVE_TO_CORNER) {
         this->turnRobotLeft(90);
         this->turnGunRight(90);
-        this->currentState = HarukiRobotCppAction::GO_UP;
+        this->currentState = HarukiRobotCppAction::MOVE;
         printStates();
-    } else if (this->currentState == HarukiRobotCppAction::GO_UP) {
-        this->currentState = HarukiRobotCppAction::GO_DOWN;
-    } else if (this->currentState == HarukiRobotCppAction::GO_DOWN) {
-        this->currentState = HarukiRobotCppAction::GO_UP;
+    } else if (this->currentState == HarukiRobotCppAction::MOVE ||
+               this->currentState == HarukiRobotCppAction::HIT_AND_AWAY) {
+        this->moveUp = !this->moveUp;
     }
 }
 
