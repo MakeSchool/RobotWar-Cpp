@@ -10,8 +10,7 @@
 #define RobotWar_CppConfiguration_h
 
 #define ROBOT_ONE_CLASS SimpleRobotCpp
-
-#define ROBOT_TWO_CLASS
+#define ROBOT_TWO_CLASS MyRobotCpp
 
 // List all Cpp bots here:
 
