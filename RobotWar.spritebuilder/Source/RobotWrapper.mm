@@ -7,7 +7,7 @@
 //
 
 #import "RobotWrapper.h"
-#import "Robot.h"
+#import "Bullet.h"
 #include "CppInterface.h"
 #include "CppConfiguration.h"
 
@@ -91,7 +91,9 @@
 {
     if (delegate)
     {
-        delegate->bulletHitEnemy();
+        CGPoint enemyPosition = bullet.bulletOwner.position;
+        
+        delegate->bulletHitEnemy(RWVec(enemyPosition.x, enemyPosition.y));
     }
 }
 

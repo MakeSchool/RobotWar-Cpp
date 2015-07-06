@@ -74,7 +74,7 @@ public:
     virtual void scannedRobotAtPosition(RWVec position) {}
     virtual void gotHit() {}
     virtual void hitWallWithSideAndAngle(RobotWallHitSide::RobotWallHitSide side, float hitAngle) {}
-    virtual void bulletHitEnemy() {}
+    virtual void bulletHitEnemy(RWVec enemyPosition) {}
 };
 
 #endif
