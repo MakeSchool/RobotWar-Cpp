@@ -31,9 +31,9 @@ typedef NS_ENUM(NSInteger, RobotState) {
       } else {
         CGFloat angle = [self angleBetweenGunHeadingDirectionAndWorldPosition:_lastKnownPosition];
         if (angle >= 0) {
-          [self turnGunRight:abs(angle)];
+          [self turnGunRight:fabs(angle)];
         } else {
-          [self turnGunLeft:abs(angle)];
+          [self turnGunLeft:fabs(angle)];
         }
         [self shoot];
       }
@@ -75,9 +75,9 @@ typedef NS_ENUM(NSInteger, RobotState) {
     
     // always turn to head straight away from the wall
     if (angle >= 0) {
-      [self turnRobotLeft:abs(angle)];
+      [self turnRobotLeft:fabs(angle)];
     } else {
-      [self turnRobotRight:abs(angle)];
+      [self turnRobotRight:fabs(angle)];
 
     }
     

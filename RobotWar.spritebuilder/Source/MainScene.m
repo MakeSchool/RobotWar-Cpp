@@ -260,12 +260,12 @@
   if (_robots.count > 1) robot2 = (Robot*) _robots[1];
     
   if (robot1)
-      _robot1Label.string = [NSString stringWithFormat:@"%@ %d", robot1.robotClass, [robot1 hitPoints]];
+      _robot1Label.string = [NSString stringWithFormat:@"%@ %ld", robot1.robotClass, (long)[robot1 hitPoints]];
   else
       _robot1Label.string = @"DEAD";
       
   if (robot2)
-      _robot2Label.string = [NSString stringWithFormat:@"%@ %d", robot2.robotClass, [robot2 hitPoints]];
+      _robot2Label.string = [NSString stringWithFormat:@"%@ %ld", robot2.robotClass, (long)[robot2 hitPoints]];
   else
       _robot2Label.string = @"DEAD";
 }
