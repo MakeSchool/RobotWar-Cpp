@@ -17,9 +17,8 @@ namespace AlaskaThunderCppAction {
     enum AlaskaThunderCppAction
     {
         DEFAULT,
-        TURN_AROUND,
-        FIRING,
-        SEARCHING
+        BLAST,
+        FIRING
     };
 }
 
@@ -33,12 +32,15 @@ public:
     void hitWallWithSideAndAngle(RobotWallHitSide::RobotWallHitSide side, float hitAngle) override;
     void bulletHitEnemy(RWVec enemyPosition) override;
     void scannedRobotAtPosition(RWVec position) override;
+    void lookRight();
     
 private:
     AlaskaThunderCppAction::AlaskaThunderCppAction currentState;
     RWVec lastKnownPosition;
     float lastKnownPositionTimestamp;
     float timeSinceLastEnemyHit;
+    float gunAngleMoved;
+
 };
 
 #endif /* defined(__RobotWar__AlaskaThunder__) */
