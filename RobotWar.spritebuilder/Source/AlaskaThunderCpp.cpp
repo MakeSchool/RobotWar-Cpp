@@ -9,7 +9,7 @@
 static const float GUN_ANGLE_TOLERANCE = 2.f;
 
 #include <iostream>
-#include "AlaskaThunder.h"
+#include "AlaskaThunderCpp.h"
 #include <math.h>
 
 AlaskaThunderCpp::AlaskaThunderCpp()
