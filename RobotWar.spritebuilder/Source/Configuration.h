@@ -9,13 +9,10 @@
 #ifndef RobotWar_Configuration_h
 #define RobotWar_Configuration_h
 
-// To use Cpp Robot, robotClass must be @"RobotWrapper"
+static BOOL robotOneIsCpp = YES;
+static BOOL robotTwoIsCpp = NO;
 
-static NSString *robotClass1 = @"RobotWrapper";
-static NSString *robotClass2 = @"RobotWrapper";
-
-#define ROBOT_ONE_CPP_CLASS TAMAKI
-#define ROBOT_TWO_CPP_CLASS FoeReaper4000RobotCpp
-
+static NSString *robotClass1 = @"SimpleRobotCpp";
+static NSString *robotClass2 = @"TurretRobot";
 
 #endif
