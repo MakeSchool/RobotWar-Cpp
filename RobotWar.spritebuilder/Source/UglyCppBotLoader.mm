@@ -37,9 +37,10 @@ static UglyCppBotLoader *_sharedInstance = nil;
 #pragma mark -
 #pragma mark Public Methods
 
+
 - (RobotCpp*)constructBotWithName:(NSString *)name
 {
-    RobotCpp* returnRobot = nullptr;
+    RobotCpp* returnRobot = 0;
     
     if ([name isEqualToString:@"SimpleRobotCpp"])
     {

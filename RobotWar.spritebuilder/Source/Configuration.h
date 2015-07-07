@@ -9,8 +9,6 @@
 #ifndef RobotWar_Configuration_h
 #define RobotWar_Configuration_h
 
-// To use Cpp Robot, robotClass must be @"RobotWrapper"
-
 static BOOL robotOneIsCpp = YES;
 static BOOL robotTwoIsCpp = NO;
 
