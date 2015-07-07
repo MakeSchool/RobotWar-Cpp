@@ -65,7 +65,7 @@
     } else {
         CCScene* scene = [CCBReader loadAsScene:@"MainScene"];
         MainScene* mainScene = (MainScene*) scene.children[0];
-        [mainScene initWithRobotClassOne:robotClass1 andRobotClassTwo:robotClass2];
+        [mainScene initWithRobotClassOne:robotClass1 robotOneIsCpp:robotOneIsCpp andRobotClassTwo:robotClass2 robotTwoIsCpp:robotTwoIsCpp];
         return scene;
     }
 }
