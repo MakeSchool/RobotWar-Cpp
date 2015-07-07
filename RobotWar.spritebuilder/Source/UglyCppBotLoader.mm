@@ -62,6 +62,48 @@ static UglyCppBotLoader *_sharedInstance = nil;
     {
         returnRobot = new LiveRobotCpp();
     }
+    else if ([name isEqualToString:@"AlaskaThunderCpp"])
+    {
+        // Shota.Oiyama
+        returnRobot = new AlaskaThunderCpp();
+    }
+    else if ([name isEqualToString:@"RobotTARS"])
+    {
+        // Mitsu
+        returnRobot = new RobotTARS();
+    }
+    else if ([name isEqualToString:@"Maguro"])
+    {
+        // Haru
+        returnRobot = new Maguro();
+    }
+    else if ([name isEqualToString:@"TAMAKI"])
+    {
+        // Ryu
+        returnRobot = new TAMAKI();
+    }
+    else if ([name isEqualToString:@"AkiRobotCpp"])
+    {
+        // AKI
+        returnRobot = new AkiRobotCpp();
+    }
+    else if ([name isEqualToString:@"SuperKen"])
+    {
+        // 渡辺謙
+        returnRobot = new SuperKen();
+    }
+    else if ([name isEqualToString:@"FoeReaper4000RobotCpp"])
+    {
+        // Liang.Fan
+        returnRobot = new FoeReaper4000RobotCpp();
+    }
+    else if ([name isEqualToString:@"CookieRobotCpp"])
+    {
+        // Cookie
+        returnRobot = new CookieRobotCpp();
+    }
+    
+    
     
     return returnRobot;
 }
