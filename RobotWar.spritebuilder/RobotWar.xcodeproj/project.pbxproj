@@ -27,10 +27,11 @@
 		654E591B1B3F96F5004CCACF /* SimpleRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = 654E59171B3F96F5004CCACF /* SimpleRobot.m */; };
 		654E591C1B3F96F5004CCACF /* TurretRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = 654E59191B3F96F5004CCACF /* TurretRobot.m */; };
 		65EC9A5F19691E9A002F9DB2 /* TournamentScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 65EC9A5E19691E99002F9DB2 /* TournamentScene.m */; };
+		9613D8C51B4AF5CA0009E379 /* AlaskaThunderCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9613D8C31B4AF5CA0009E379 /* AlaskaThunderCpp.cpp */; };
 		71F9F57D1B4B17DE00DDEBB7 /* HarukiRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71F9F57B1B4B17DE00DDEBB7 /* HarukiRobotCpp.cpp */; };
 		71F9F5841B4B17EB00DDEBB7 /* StoppingRobot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71F9F5821B4B17EB00DDEBB7 /* StoppingRobot.cpp */; };
-		9613D8C51B4AF5CA0009E379 /* AlaskaThunder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9613D8C31B4AF5CA0009E379 /* AlaskaThunder.cpp */; };
 		9F0564B91B4B186100649A7F /* SuperKen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F0564B61B4B186100649A7F /* SuperKen.cpp */; };
+		6922C8041B4AF20E00684A97 /* MitsuRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6922C8021B4AF20E00684A97 /* MitsuRobotCpp.cpp */; };
 		B71F5911188484E7003F4D28 /* iPad-old.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5907188484E7003F4D28 /* iPad-old.png */; };
 		B71F5912188484E7003F4D28 /* iPad-old@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5908188484E7003F4D28 /* iPad-old@2x.png */; };
 		B71F5913188484E7003F4D28 /* iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5909188484E7003F4D28 /* iPad.png */; };
@@ -161,14 +162,18 @@
 		65859D4F196C4E49009F640D /* TournamentConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TournamentConfiguration.h; path = Source/TournamentConfiguration.h; sourceTree = "<group>"; };
 		65EC9A5D19691E99002F9DB2 /* TournamentScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TournamentScene.h; path = Source/TournamentScene.h; sourceTree = "<group>"; };
 		65EC9A5E19691E99002F9DB2 /* TournamentScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TournamentScene.m; path = Source/TournamentScene.m; sourceTree = "<group>"; };
+		9613D8C31B4AF5CA0009E379 /* AlaskaThunderCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AlaskaThunderCpp.cpp; path = Source/AlaskaThunderCpp.cpp; sourceTree = "<group>"; };
+		9613D8C41B4AF5CA0009E379 /* AlaskaThunderCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlaskaThunderCpp.h; path = Source/AlaskaThunderCpp.h; sourceTree = "<group>"; };
+		9E21B9461B4AF67B00CAA983 /* FoeReaper4000RobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FoeReaper4000RobotCpp.cpp; sourceTree = "<group>"; };
+		9E21B9471B4AF67B00CAA983 /* FoeReaper4000RobotCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoeReaper4000RobotCpp.h; sourceTree = "<group>"; };
 		71F9F57B1B4B17DE00DDEBB7 /* HarukiRobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HarukiRobotCpp.cpp; path = Source/HarukiRobotCpp.cpp; sourceTree = "<group>"; };
 		71F9F57C1B4B17DE00DDEBB7 /* HarukiRobotCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HarukiRobotCpp.h; path = Source/HarukiRobotCpp.h; sourceTree = "<group>"; };
 		71F9F5821B4B17EB00DDEBB7 /* StoppingRobot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StoppingRobot.cpp; path = Source/StoppingRobot.cpp; sourceTree = "<group>"; };
 		71F9F5831B4B17EB00DDEBB7 /* StoppingRobot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoppingRobot.h; path = Source/StoppingRobot.h; sourceTree = "<group>"; };
-		9613D8C31B4AF5CA0009E379 /* AlaskaThunder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AlaskaThunder.cpp; path = Source/AlaskaThunder.cpp; sourceTree = "<group>"; };
-		9613D8C41B4AF5CA0009E379 /* AlaskaThunder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlaskaThunder.h; path = Source/AlaskaThunder.h; sourceTree = "<group>"; };
 		9F0564B61B4B186100649A7F /* SuperKen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SuperKen.cpp; path = Source/ken/SuperKen.cpp; sourceTree = "<group>"; };
 		9F0564B71B4B186100649A7F /* SuperKen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SuperKen.h; path = Source/ken/SuperKen.h; sourceTree = "<group>"; };
+		6922C8021B4AF20E00684A97 /* MitsuRobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MitsuRobotCpp.cpp; path = Source/MitsuRobotCpp.cpp; sourceTree = "<group>"; };
+		6922C8031B4AF20E00684A97 /* MitsuRobotCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MitsuRobotCpp.h; path = Source/MitsuRobotCpp.h; sourceTree = "<group>"; };
 		B71F5907188484E7003F4D28 /* iPad-old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old.png"; path = "Icons/iPad-old.png"; sourceTree = "<group>"; };
 		B71F5908188484E7003F4D28 /* iPad-old@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old@2x.png"; path = "Icons/iPad-old@2x.png"; sourceTree = "<group>"; };
 		B71F5909188484E7003F4D28 /* iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iPad.png; path = Icons/iPad.png; sourceTree = "<group>"; };
@@ -278,14 +283,18 @@
 				65004D551B4A717D00B151B8 /* SimpleRobotCpp.h */,
 				65004D9B1B4AC97800B151B8 /* AdvancedRobotCpp.cpp */,
 				65004D9C1B4AC97800B151B8 /* AdvancedRobotCpp.h */,
+				5B3A98BE1B4B116200E30144 /* Fliegerhammer.cpp */,
+				5B3A98BF1B4B116200E30144 /* Fliegerhammer.h */,
 				65004DA91B4AD96400B151B8 /* TurretRobotCpp.cpp */,
 				65004DAA1B4AD96400B151B8 /* TurretRobotCpp.h */,
+				9613D8C31B4AF5CA0009E379 /* AlaskaThunderCpp.cpp */,
+				9613D8C41B4AF5CA0009E379 /* AlaskaThunderCpp.h */,
+				9E21B9461B4AF67B00CAA983 /* FoeReaper4000RobotCpp.cpp */,
+				9E21B9471B4AF67B00CAA983 /* FoeReaper4000RobotCpp.h */,
 				65004DAC1B4AF5DB00B151B8 /* NewAdvancedRobotCpp.cpp */,
 				65004DAD1B4AF5DB00B151B8 /* NewAdvancedRobotCpp.h */,
 				65004E331B4B2E2200B151B8 /* LiveRobotCpp.cpp */,
 				65004E341B4B2E2200B151B8 /* LiveRobotCpp.h */,
-				9613D8C31B4AF5CA0009E379 /* AlaskaThunder.cpp */,
-				9613D8C41B4AF5CA0009E379 /* AlaskaThunder.h */,
 				5B502C7C1B4AF6910040002A /* DoNothingRobotCpp.cpp */,
 				5B502C7D1B4AF6910040002A /* DoNothingRobotCpp.h */,
 				5B502C7F1B4AF9050040002A /* MoveOnlyRobotCpp.cpp */,
@@ -296,6 +305,8 @@
 				71F9F57C1B4B17DE00DDEBB7 /* HarukiRobotCpp.h */,
 				5B3A989F1B4AFD2900E30144 /* ShootOnlyRobotCpp.cpp */,
 				5B3A98A01B4AFD2900E30144 /* ShootOnlyRobotCpp.h */,
+				6922C8021B4AF20E00684A97 /* MitsuRobotCpp.cpp */,
+				6922C8031B4AF20E00684A97 /* MitsuRobotCpp.h */,
 			);
 			name = CppRobots;
 			sourceTree = "<group>";
@@ -563,6 +574,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B3A98C01B4B116200E30144 /* Fliegerhammer.cpp in Sources */,
 				654E591C1B3F96F5004CCACF /* TurretRobot.m in Sources */,
 				65004D521B4A5B2100B151B8 /* RobotCpp.mm in Sources */,
 				9F0564B91B4B186100649A7F /* SuperKen.cpp in Sources */,
@@ -571,12 +583,13 @@
 				65004DAE1B4AF5DB00B151B8 /* NewAdvancedRobotCpp.cpp in Sources */,
 				65004D461B4A41CF00B151B8 /* RobotWrapper.mm in Sources */,
 				650785D1196A20290022192D /* TournamentWonScene.m in Sources */,
-				9613D8C51B4AF5CA0009E379 /* AlaskaThunder.cpp in Sources */,
+				9613D8C51B4AF5CA0009E379 /* AlaskaThunderCpp.cpp in Sources */,
 				BC717229196AF978002FCF86 /* LiveRobot.m in Sources */,
 				6244629A1937DDD300895F2D /* Robot.m in Sources */,
 				5B502C811B4AF9050040002A /* MoveOnlyRobotCpp.cpp in Sources */,
 				65004D561B4A717D00B151B8 /* SimpleRobotCpp.cpp in Sources */,
 				B737893F1807617C0076A88C /* AppDelegate.m in Sources */,
+				6922C8041B4AF20E00684A97 /* MitsuRobotCpp.cpp in Sources */,
 				65004D9D1B4AC97800B151B8 /* AdvancedRobotCpp.cpp in Sources */,
 				B7378994180767190076A88C /* MainScene.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
@@ -588,6 +601,7 @@
 				654E591B1B3F96F5004CCACF /* SimpleRobot.m in Sources */,
 				62E3A32419397BE400BD3F0F /* RobotAction.m in Sources */,
 				62E3A330193D3F3B00BD3F0F /* Bullet.m in Sources */,
+				9E21B9481B4AF67B00CAA983 /* FoeReaper4000RobotCpp.cpp in Sources */,
 				654E591A1B3F96F5004CCACF /* AdvancedRobot.m in Sources */,
 				65004DAB1B4AD96400B151B8 /* TurretRobotCpp.cpp in Sources */,
 				65004E351B4B2E2200B151B8 /* LiveRobotCpp.cpp in Sources */,
