@@ -10,9 +10,9 @@
 #define RobotWar_Configuration_h
 
 static BOOL robotOneIsCpp = YES;
-static BOOL robotTwoIsCpp = YES;
+static BOOL robotTwoIsCpp = NO;
 
-static NSString *robotClass1 = @"AlaskaThunderCpp";
-static NSString *robotClass2 = @"TAMAKI";
+static NSString *robotClass1 = @"SimpleRobotCpp";
+static NSString *robotClass2 = @"TurretRobot";
 
 #endif
