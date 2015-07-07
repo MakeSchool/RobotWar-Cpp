@@ -33,17 +33,19 @@ void FoeReaper4000RobotCpp::run()
 void FoeReaper4000RobotCpp::scannedRobotAtPosition(RWVec position)
 {
 
-    float x = generateRandomNumber(position.x - 50, position.x + 50);
-    float y = generateRandomNumber(position.y - 50, position.y + 50);
+    float x = generateRandomNumber(position.x , position.x );
+    float y = generateRandomNumber(position.y , position.y );
     lastEnemyPos = RWVec(x, y);
+    timesToShort = 2;
     randomWalk(0,360,150,200);
 
 }
 void FoeReaper4000RobotCpp::bulletHitEnemy(RWVec enemyPosition)
 {
-    float x = generateRandomNumber(enemyPosition.x - 50, enemyPosition.x + 50);
-    float y = generateRandomNumber(enemyPosition.y - 50, enemyPosition.y + 50);
+    float x = generateRandomNumber(enemyPosition.x , enemyPosition.x );
+    float y = generateRandomNumber(enemyPosition.y , enemyPosition.y );
     lastEnemyPos = RWVec(x, y);
+    timesToShort = 2;
     randomWalk(0,360,150,200);
 }
 
@@ -136,10 +138,9 @@ float FoeReaper4000RobotCpp::generateRandomNumber(float begin, float end)
 void FoeReaper4000RobotCpp::optimizeGunPosition()
 {
     //TODO: check if scanner find the enemy
-    if (lastEnemyPos.x > 0 and lastEnemyPos.y > 0) {
+    if (timesToShort > 0 ) {
         shootToPos(lastEnemyPos);
-        lastEnemyPos.x = -1;
-        lastEnemyPos.y = -1;
+        timesToShort --;
     }
     
     RWVec robotPos = position();
