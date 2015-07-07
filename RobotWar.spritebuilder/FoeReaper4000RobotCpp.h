@@ -34,6 +34,7 @@ private:
     void optimizeGunPosition();
     RWVec lastEnemyPos;
     void shootToPos(RWVec pos);
+    int timesToShort;
     
 };
 
