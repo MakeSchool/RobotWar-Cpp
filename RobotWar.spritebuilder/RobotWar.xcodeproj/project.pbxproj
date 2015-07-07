@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		037FC65B1B4B54E100719DCA /* TAMAKI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 037FC65A1B4B54E100719DCA /* TAMAKI.cpp */; };
 		5B3A98A11B4AFD2900E30144 /* ShootOnlyRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B3A989F1B4AFD2900E30144 /* ShootOnlyRobotCpp.cpp */; };
-		5B3A99771B4B542E00E30144 /* Fliegerhammer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B3A99751B4B542E00E30144 /* Fliegerhammer.cpp */; };
 		5B502C7E1B4AF6910040002A /* DoNothingRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B502C7C1B4AF6910040002A /* DoNothingRobotCpp.cpp */; };
 		5B502C811B4AF9050040002A /* MoveOnlyRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B502C7F1B4AF9050040002A /* MoveOnlyRobotCpp.cpp */; };
 		6244629A1937DDD300895F2D /* Robot.m in Sources */ = {isa = PBXBuildFile; fileRef = 624462991937DDD300895F2D /* Robot.m */; };
@@ -179,8 +178,6 @@
 		9F0564B61B4B186100649A7F /* SuperKen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SuperKen.cpp; path = Source/ken/SuperKen.cpp; sourceTree = "<group>"; };
 		9F0564B71B4B186100649A7F /* SuperKen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SuperKen.h; path = Source/ken/SuperKen.h; sourceTree = "<group>"; };
 		9F0564F11B4B3E3800649A7F /* KMath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KMath.h; sourceTree = "<group>"; };
-		6922C8021B4AF20E00684A97 /* MitsuRobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MitsuRobotCpp.cpp; path = Source/MitsuRobotCpp.cpp; sourceTree = "<group>"; };
-		6922C8031B4AF20E00684A97 /* MitsuRobotCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MitsuRobotCpp.h; path = Source/MitsuRobotCpp.h; sourceTree = "<group>"; };
 		B71F5907188484E7003F4D28 /* iPad-old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old.png"; path = "Icons/iPad-old.png"; sourceTree = "<group>"; };
 		B71F5908188484E7003F4D28 /* iPad-old@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old@2x.png"; path = "Icons/iPad-old@2x.png"; sourceTree = "<group>"; };
 		B71F5909188484E7003F4D28 /* iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iPad.png; path = Icons/iPad.png; sourceTree = "<group>"; };
@@ -281,31 +278,17 @@
 		65004DA81B4ACEA600B151B8 /* CppRobots */ = {
 			isa = PBXGroup;
 			children = (
+				65004EA91B4B672200B151B8 /* Default */,
+				65004EAE1B4B674000B151B8 /* Testing */,
 				5B3A99751B4B542E00E30144 /* Fliegerhammer.cpp */,
 				5B3A99761B4B542E00E30144 /* Fliegerhammer.h */,
 				9F0564AF1B4B180A00649A7F /* ken */,
-				65004D541B4A717D00B151B8 /* SimpleRobotCpp.cpp */,
-				65004D551B4A717D00B151B8 /* SimpleRobotCpp.h */,
-				65004D9B1B4AC97800B151B8 /* AdvancedRobotCpp.cpp */,
-				65004D9C1B4AC97800B151B8 /* AdvancedRobotCpp.h */,
-				65004DA91B4AD96400B151B8 /* TurretRobotCpp.cpp */,
-				65004DAA1B4AD96400B151B8 /* TurretRobotCpp.h */,
 				9613D8C31B4AF5CA0009E379 /* AlaskaThunderCpp.cpp */,
 				9613D8C41B4AF5CA0009E379 /* AlaskaThunderCpp.h */,
 				9E21B9461B4AF67B00CAA983 /* FoeReaper4000RobotCpp.cpp */,
 				9E21B9471B4AF67B00CAA983 /* FoeReaper4000RobotCpp.h */,
-				65004DAC1B4AF5DB00B151B8 /* NewAdvancedRobotCpp.cpp */,
-				65004DAD1B4AF5DB00B151B8 /* NewAdvancedRobotCpp.h */,
-				65004E331B4B2E2200B151B8 /* LiveRobotCpp.cpp */,
-				65004E341B4B2E2200B151B8 /* LiveRobotCpp.h */,
 				037FC6591B4B54E100719DCA /* TAMAKI.h */,
 				037FC65A1B4B54E100719DCA /* TAMAKI.cpp */,
-				5B502C7C1B4AF6910040002A /* DoNothingRobotCpp.cpp */,
-				5B502C7D1B4AF6910040002A /* DoNothingRobotCpp.h */,
-				5B502C7F1B4AF9050040002A /* MoveOnlyRobotCpp.cpp */,
-				5B502C801B4AF9050040002A /* MoveOnlyRobotCpp.h */,
-				71F9F5821B4B17EB00DDEBB7 /* StoppingRobot.cpp */,
-				71F9F5831B4B17EB00DDEBB7 /* StoppingRobot.h */,
 				71F9F57B1B4B17DE00DDEBB7 /* HarukiRobotCpp.cpp */,
 				71F9F57C1B4B17DE00DDEBB7 /* HarukiRobotCpp.h */,
 				5B3A989F1B4AFD2900E30144 /* ShootOnlyRobotCpp.cpp */,
@@ -314,6 +297,36 @@
 				6922C8031B4AF20E00684A97 /* MitsuRobotCpp.h */,
 			);
 			name = CppRobots;
+			sourceTree = "<group>";
+		};
+		65004EA91B4B672200B151B8 /* Default */ = {
+			isa = PBXGroup;
+			children = (
+				65004D541B4A717D00B151B8 /* SimpleRobotCpp.cpp */,
+				65004D551B4A717D00B151B8 /* SimpleRobotCpp.h */,
+				65004D9B1B4AC97800B151B8 /* AdvancedRobotCpp.cpp */,
+				65004D9C1B4AC97800B151B8 /* AdvancedRobotCpp.h */,
+				65004DA91B4AD96400B151B8 /* TurretRobotCpp.cpp */,
+				65004DAA1B4AD96400B151B8 /* TurretRobotCpp.h */,
+				65004DAC1B4AF5DB00B151B8 /* NewAdvancedRobotCpp.cpp */,
+				65004DAD1B4AF5DB00B151B8 /* NewAdvancedRobotCpp.h */,
+				65004E331B4B2E2200B151B8 /* LiveRobotCpp.cpp */,
+				65004E341B4B2E2200B151B8 /* LiveRobotCpp.h */,
+			);
+			name = Default;
+			sourceTree = "<group>";
+		};
+		65004EAE1B4B674000B151B8 /* Testing */ = {
+			isa = PBXGroup;
+			children = (
+				5B502C7C1B4AF6910040002A /* DoNothingRobotCpp.cpp */,
+				5B502C7D1B4AF6910040002A /* DoNothingRobotCpp.h */,
+				5B502C7F1B4AF9050040002A /* MoveOnlyRobotCpp.cpp */,
+				5B502C801B4AF9050040002A /* MoveOnlyRobotCpp.h */,
+				71F9F5821B4B17EB00DDEBB7 /* StoppingRobot.cpp */,
+				71F9F5831B4B17EB00DDEBB7 /* StoppingRobot.h */,
+			);
+			name = Testing;
 			sourceTree = "<group>";
 		};
 		65CC917619648EEE00838899 /* Robots */ = {
@@ -584,7 +597,7 @@
 				65004DAE1B4AF5DB00B151B8 /* NewAdvancedRobotCpp.cpp in Sources */,
 				65004D461B4A41CF00B151B8 /* RobotWrapper.mm in Sources */,
 				650785D1196A20290022192D /* TournamentWonScene.m in Sources */,
-				9613D8C51B4AF5CA0009E379 /* AlaskaThunder.cpp in Sources */,
+				9613D8C51B4AF5CA0009E379 /* AlaskaThunderCpp.cpp in Sources */,
 				65004E6A1B4B3DDA00B151B8 /* SimpleRobot.swift in Sources */,
 				6244629A1937DDD300895F2D /* Robot.m in Sources */,
 				5B502C811B4AF9050040002A /* MoveOnlyRobotCpp.cpp in Sources */,
