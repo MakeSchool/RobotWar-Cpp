@@ -282,6 +282,14 @@
   }
 }
 
+- (void)_bombHit {
+  self.health -= 3;
+  [self updateHealthBar];
+  if (self.health <= 0) {
+    [self.gameBoard robotDied:self];
+  }
+}
+
 - (void)_bulletHitEnemy:(Bullet*)bullet {
   dispatch_group_async(mainQueueGroup, _mainQueue, ^{
     [self bulletHitEnemy:bullet];
