@@ -1,5 +1,5 @@
 //
-//  MitsuRobotCpp.cpp
+//  RobotTARS.cpp
 //  RobotWar
 //
 //  Created by Mitsushige Komiya on 2015/07/06.
@@ -11,7 +11,7 @@
 #include <string>
 #include <random>
 
-#include "MitsuRobotCpp.h"
+#include "RobotTARS.h"
 
 #define DEBUG_MODE 0
 
@@ -24,9 +24,9 @@
 #pragma mark -
 #pragma mark Lifecycle
 
-MitsuRobotCpp::MitsuRobotCpp()
+RobotTARS::RobotTARS()
 {
-    this->changeState(MitsuRobotCppAction::INITIAL);
+    this->changeState(RobotTARSAction::INITIAL);
     this->damagedPlayer       = 0;
     this->damagedEnemy        = 0;
     this->lastGotHitTimestamp = this->currentTimestamp();
@@ -36,17 +36,17 @@ MitsuRobotCpp::MitsuRobotCpp()
 #pragma mark -
 #pragma mark Robot Delegate Methods
 
-void MitsuRobotCpp::run()
+void RobotTARS::run()
 {
     while (true)
     {
         switch (this->currentState) {
-            case MitsuRobotCppAction::INITIAL:             this->runInitial();          break;
-            case MitsuRobotCppAction::OFFENSE_FIRING:      this->runOffenseFiring();    break;
-            case MitsuRobotCppAction::OFFENSE_SEARCHING:   this->runOffenseSearching(); break;
-            case MitsuRobotCppAction::OFFENSE_TURN_AROUND: break;
-            case MitsuRobotCppAction::ASSAULT_FIRING:      this->runAssaultFiring();    break;
-            case MitsuRobotCppAction::DEBUGGING:           this->runDebugging();        break;
+            case RobotTARSAction::INITIAL:             this->runInitial();          break;
+            case RobotTARSAction::OFFENSE_FIRING:      this->runOffenseFiring();    break;
+            case RobotTARSAction::OFFENSE_SEARCHING:   this->runOffenseSearching(); break;
+            case RobotTARSAction::OFFENSE_TURN_AROUND: break;
+            case RobotTARSAction::ASSAULT_FIRING:      this->runAssaultFiring();    break;
+            case RobotTARSAction::DEBUGGING:           this->runDebugging();        break;
         }
         
         if (this->currentTimestamp() - this->lastGotHitTimestamp > 1.0f)
@@ -56,7 +56,7 @@ void MitsuRobotCpp::run()
     }
 }
 
-void MitsuRobotCpp::gotHit()
+void RobotTARS::gotHit()
 {
     DEBUG_PRINT("got hit!\n");
     this->damagedPlayer++;
@@ -64,7 +64,7 @@ void MitsuRobotCpp::gotHit()
     
     if (this->currentTimestamp() - this->lastKnownPositionTimestamp > 1.0f)
     {
-        this->changeState(MitsuRobotCppAction::OFFENSE_SEARCHING);
+        this->changeState(RobotTARSAction::OFFENSE_SEARCHING);
     }
     else
     {
@@ -74,20 +74,20 @@ void MitsuRobotCpp::gotHit()
         this->shoot();
         this->shoot();
         
-        this->changeState(MitsuRobotCppAction::OFFENSE_SEARCHING);
+        this->changeState(RobotTARSAction::OFFENSE_SEARCHING);
     }
 }
 
-void MitsuRobotCpp::hitWallWithSideAndAngle(RobotWallHitSide::RobotWallHitSide side, float hitAngle)
+void RobotTARS::hitWallWithSideAndAngle(RobotWallHitSide::RobotWallHitSide side, float hitAngle)
 {
     DEBUG_PRINT("hit wall!\n");
     
-    if (this->currentState != MitsuRobotCppAction::OFFENSE_TURN_AROUND)
+    if (this->currentState != RobotTARSAction::OFFENSE_TURN_AROUND)
     {
         this->cancelActiveAction();
         
-        MitsuRobotCppAction::MitsuRobotCppAction previousState = this->currentState;
-        this->changeState(MitsuRobotCppAction::OFFENSE_TURN_AROUND);
+        RobotTARSAction::RobotTARSAction previousState = this->currentState;
+        this->changeState(RobotTARSAction::OFFENSE_TURN_AROUND);
 
         if (hitAngle >= 0)
         {
@@ -103,14 +103,14 @@ void MitsuRobotCpp::hitWallWithSideAndAngle(RobotWallHitSide::RobotWallHitSide s
     }
 }
 
-void MitsuRobotCpp::bulletHitEnemy(RWVec enemyPosition)
+void RobotTARS::bulletHitEnemy(RWVec enemyPosition)
 {
     DEBUG_PRINT("bullet hit enemy!\n");
     
     this->damagedEnemy++;
     DEBUG_PRINT("damaged: %d\n", this->damagedEnemy);
 
-    if (this->currentState == MitsuRobotCppAction::OFFENSE_SEARCHING)
+    if (this->currentState == RobotTARSAction::OFFENSE_SEARCHING)
     {
         this->cancelActiveAction();
     }
@@ -119,23 +119,23 @@ void MitsuRobotCpp::bulletHitEnemy(RWVec enemyPosition)
     this->lastKnownPositionTimestamp = this->currentTimestamp();
     
     if (this->isWinningLife() ||
-        (this->currentState == MitsuRobotCppAction::OFFENSE_SEARCHING && !this->isTargetedByEnemy))
+        (this->currentState == RobotTARSAction::OFFENSE_SEARCHING && !this->isTargetedByEnemy))
     {
         this->cancelActiveAction();
-        this->changeState(MitsuRobotCppAction::ASSAULT_FIRING);
+        this->changeState(RobotTARSAction::ASSAULT_FIRING);
     }
-    else if (this->currentState != MitsuRobotCppAction::OFFENSE_FIRING)
+    else if (this->currentState != RobotTARSAction::OFFENSE_FIRING)
     {
-        this->changeState(MitsuRobotCppAction::OFFENSE_FIRING);
+        this->changeState(RobotTARSAction::OFFENSE_FIRING);
     }
 }
 
-void MitsuRobotCpp::scannedRobotAtPosition(RWVec position)
+void RobotTARS::scannedRobotAtPosition(RWVec position)
 {
     DEBUG_PRINT("scanned enemy!\n");
     
-    if (this->currentState != MitsuRobotCppAction::OFFENSE_FIRING ||
-        this->currentState != MitsuRobotCppAction::ASSAULT_FIRING)
+    if (this->currentState != RobotTARSAction::OFFENSE_FIRING ||
+        this->currentState != RobotTARSAction::ASSAULT_FIRING)
     {
         this->cancelActiveAction();
     }
@@ -143,8 +143,8 @@ void MitsuRobotCpp::scannedRobotAtPosition(RWVec position)
     this->lastKnownPosition = position;
     this->lastKnownPositionTimestamp = this->currentTimestamp();
     
-    if (this->currentState != MitsuRobotCppAction::ASSAULT_FIRING) {
-        this->changeState(MitsuRobotCppAction::OFFENSE_FIRING);
+    if (this->currentState != RobotTARSAction::ASSAULT_FIRING) {
+        this->changeState(RobotTARSAction::OFFENSE_FIRING);
     }
 }
 
@@ -153,18 +153,18 @@ void MitsuRobotCpp::scannedRobotAtPosition(RWVec position)
 
 #pragma mark Running Methods
 
-void MitsuRobotCpp::runInitial()
+void RobotTARS::runInitial()
 {
     this->shoot();
     this->moveAhead(500);
 }
 
-void MitsuRobotCpp::runOffenseFiring()
+void RobotTARS::runOffenseFiring()
 {
     if (this->currentTimestamp() - this->lastKnownPositionTimestamp > 1.0f)
     {
         this->turnGunToAhead();
-        this->changeState(MitsuRobotCppAction::OFFENSE_SEARCHING);
+        this->changeState(RobotTARSAction::OFFENSE_SEARCHING);
     }
     else
     {
@@ -174,7 +174,7 @@ void MitsuRobotCpp::runOffenseFiring()
     }
 }
 
-void MitsuRobotCpp::runOffenseSearching()
+void RobotTARS::runOffenseSearching()
 {
     this->moveAhead(50);
     this->turnRobotLeft(40);
@@ -183,7 +183,7 @@ void MitsuRobotCpp::runOffenseSearching()
     this->turnRobotRight(40);
 }
 
-void MitsuRobotCpp::runAssaultFiring()
+void RobotTARS::runAssaultFiring()
 {
     DEBUG_PRINT("ASSAULT!\n");
     
@@ -194,17 +194,17 @@ void MitsuRobotCpp::runAssaultFiring()
     this->shoot();
     
     if (this->currentTimestamp() - this->lastKnownPositionTimestamp > 1.0f) {
-        this->changeState(MitsuRobotCppAction::OFFENSE_SEARCHING);
+        this->changeState(RobotTARSAction::OFFENSE_SEARCHING);
     }
 }
 
-void MitsuRobotCpp::runDebugging()
+void RobotTARS::runDebugging()
 {
 }
 
 #pragma mark Action Helper Methods
 
-void MitsuRobotCpp::turnGunToAhead()
+void RobotTARS::turnGunToAhead()
 {
     RWVec gunDirection = this->gunHeadingDirection();
     RWVec robotDirection = this->headingDirection();
@@ -229,7 +229,7 @@ void MitsuRobotCpp::turnGunToAhead()
     }
 }
 
-void MitsuRobotCpp::turnGun(float angle)
+void RobotTARS::turnGun(float angle)
 {
     if (angle >= 0)
     {
@@ -241,7 +241,7 @@ void MitsuRobotCpp::turnGun(float angle)
     }
 }
 
-void MitsuRobotCpp::turnRobot(float angle)
+void RobotTARS::turnRobot(float angle)
 {
     if (angle >= 0)
     {
@@ -253,23 +253,23 @@ void MitsuRobotCpp::turnRobot(float angle)
     }
 }
 
-bool MitsuRobotCpp::isWinningLife()
+bool RobotTARS::isWinningLife()
 {
     return (this->damagedEnemy > this->damagedPlayer);
 }
 
-void MitsuRobotCpp::changeState(MitsuRobotCppAction::MitsuRobotCppAction nextState)
+void RobotTARS::changeState(RobotTARSAction::RobotTARSAction nextState)
 {
     this->currentState = nextState;
     
     std::string nextStateStr;
     switch (this->currentState) {
-        case MitsuRobotCppAction::INITIAL:             nextStateStr = "INITIAL";             break;
-        case MitsuRobotCppAction::OFFENSE_FIRING:      nextStateStr = "OFFENSE_FIRING";      break;
-        case MitsuRobotCppAction::OFFENSE_SEARCHING:   nextStateStr = "OFFENSE_SEARCHING";   break;
-        case MitsuRobotCppAction::OFFENSE_TURN_AROUND: nextStateStr = "OFFENSE_TURN_AROUND"; break;
-        case MitsuRobotCppAction::ASSAULT_FIRING:      nextStateStr = "ASSAULT!!";           break;
-        case MitsuRobotCppAction::DEBUGGING:           nextStateStr = "DEBUGGING";           break;
+        case RobotTARSAction::INITIAL:             nextStateStr = "INITIAL";             break;
+        case RobotTARSAction::OFFENSE_FIRING:      nextStateStr = "OFFENSE_FIRING";      break;
+        case RobotTARSAction::OFFENSE_SEARCHING:   nextStateStr = "OFFENSE_SEARCHING";   break;
+        case RobotTARSAction::OFFENSE_TURN_AROUND: nextStateStr = "OFFENSE_TURN_AROUND"; break;
+        case RobotTARSAction::ASSAULT_FIRING:      nextStateStr = "ASSAULT!!";           break;
+        case RobotTARSAction::DEBUGGING:           nextStateStr = "DEBUGGING";           break;
     }
     
     DEBUG_PRINT("change state: %s\n", nextStateStr.c_str());
@@ -277,17 +277,17 @@ void MitsuRobotCpp::changeState(MitsuRobotCppAction::MitsuRobotCppAction nextSta
 
 #pragma mark Math Helper Methods
 
-float MitsuRobotCpp::getVectorLenght(RWVec vec)
+float RobotTARS::getVectorLenght(RWVec vec)
 {
     return pow((vec.x * vec.x) + (vec.y * vec.y), 0.5);
 }
 
-float MitsuRobotCpp::getDotProduct(RWVec vec1, RWVec vec2)
+float RobotTARS::getDotProduct(RWVec vec1, RWVec vec2)
 {
     return vec1.x * vec2.x + vec2.y * vec1.y;
 }
 
-float MitsuRobotCpp::convertRadianToDigree(float radian)
+float RobotTARS::convertRadianToDigree(float radian)
 {
     return radian * 180.0f / M_PI;
 }
