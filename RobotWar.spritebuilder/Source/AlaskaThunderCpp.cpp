@@ -39,37 +39,40 @@ void AlaskaThunderCpp::run()
             
             case AlaskaThunderCppAction::BLAST:
             
-                rnd = rand() % 3 + 3;
-                /*
-                 GO UP
-                 */
-                distance = (dimentions.height - this->position().y - this->robotBoundingBox().size.height / 2) / rnd;
-                for (int i = 0; i < rnd; i++) {
-                    this->moveAhead(distance);
-                    this->shoot();
+                if (this->position().x < this->arenaDimensions().width / 2.0f) {
+                    rnd = rand() % 3 + 3;
+                    distance = (dimentions.height - this->position().y - this->robotBoundingBox().size.height / 2) / rnd;
+                    for (int i = 0; i < rnd; i++) {
+                        this->moveAhead(distance);
+                        this->shoot();
+                    }
+                
+                    rnd = rand() % 3 + 3;
+                    distance = (this->position().y - this->robotBoundingBox().size.height / 2) / rnd;
+                    for (int i = 0; i < rnd; i++) {
+                        this->moveBack(distance);
+                        this->shoot();
+                    }
+                    
+                } else {
+                    rnd = rand() % 3 + 3;
+                    distance = (dimentions.height - this->position().y - this->robotBoundingBox().size.height / 2) / rnd;
+                    for (int i = 0; i < rnd; i++) {
+                        this->moveBack(distance);
+                        this->shoot();
+                    }
+                    
+                    rnd = rand() % 3 + 3;
+                    distance = (this->position().y - this->robotBoundingBox().size.height / 2) / rnd;
+                    for (int i = 0; i < rnd; i++) {
+                        this->moveAhead(distance);
+                        this->shoot();
+                    }
                 }
-                //std::cout << "rnd:" << rnd << ", dist:" << distance << std::endl;
-            
-                /*
-                 GO DOWN
-                 */
-                rnd = rand() % 3 + 3;
-                distance = (this->position().y - this->robotBoundingBox().size.height / 2) / rnd;
-                //std::cout << "rnd:" << rnd << ", dist:" << distance << std::endl;
-                for (int i = 0; i < rnd; i++) {
-                    this->moveBack(distance);
-                    this->shoot();
-                }
-            
                 break;
             
             case AlaskaThunderCppAction::FIRING:
-                if (this->currentTimestamp() - this->timeSinceLastEnemyHit > 7.f) {
-                    this->cancelActiveAction();
-                    this->currentState = AlaskaThunderCppAction::BLAST;
-                    
-                    lookRight();
-                } else if (this->currentTimestamp() - this->timeSinceLastEnemyHit > 3.f) {
+                if (this->currentTimestamp() - this->timeSinceLastEnemyHit > 3.f) {
                     this->cancelActiveAction();
                     this->currentState = AlaskaThunderCppAction::BLAST;
                     
