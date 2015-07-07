@@ -38,8 +38,6 @@
 		71F9F5841B4B17EB00DDEBB7 /* StoppingRobot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71F9F5821B4B17EB00DDEBB7 /* StoppingRobot.cpp */; };
 		71F9F5B11B4B838700DDEBB7 /* Maguro.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71F9F5AF1B4B838700DDEBB7 /* Maguro.cpp */; };
 		9613D8C51B4AF5CA0009E379 /* AlaskaThunderCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9613D8C31B4AF5CA0009E379 /* AlaskaThunderCpp.cpp */; };
-		9E21B9831B4B851E00CAA983 /* FoeReaper4000RobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9E21B9811B4B851E00CAA983 /* FoeReaper4000RobotCpp.cpp */; };
-		9E21B9AA1B4C353700CAA983 /* FoeReaper4000RobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9E21B9A81B4C353700CAA983 /* FoeReaper4000RobotCpp.cpp */; };
 		9F0564B91B4B186100649A7F /* SuperKen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F0564B61B4B186100649A7F /* SuperKen.cpp */; };
 		B71F5911188484E7003F4D28 /* iPad-old.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5907188484E7003F4D28 /* iPad-old.png */; };
 		B71F5912188484E7003F4D28 /* iPad-old@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5908188484E7003F4D28 /* iPad-old@2x.png */; };
@@ -188,9 +186,6 @@
 		71F9F5B01B4B838700DDEBB7 /* Maguro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Maguro.h; path = Source/Maguro.h; sourceTree = "<group>"; };
 		9613D8C31B4AF5CA0009E379 /* AlaskaThunderCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AlaskaThunderCpp.cpp; path = Source/AlaskaThunderCpp.cpp; sourceTree = "<group>"; };
 		9613D8C41B4AF5CA0009E379 /* AlaskaThunderCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlaskaThunderCpp.h; path = Source/AlaskaThunderCpp.h; sourceTree = "<group>"; };
-		9E21B9811B4B851E00CAA983 /* FoeReaper4000RobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FoeReaper4000RobotCpp.cpp; sourceTree = "<group>"; };
-		9E21B9A81B4C353700CAA983 /* FoeReaper4000RobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FoeReaper4000RobotCpp.cpp; sourceTree = "<group>"; };
-		9E21B9A91B4C353700CAA983 /* FoeReaper4000RobotCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoeReaper4000RobotCpp.h; sourceTree = "<group>"; };
 		9F0564B61B4B186100649A7F /* SuperKen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SuperKen.cpp; path = Source/ken/SuperKen.cpp; sourceTree = "<group>"; };
 		9F0564B71B4B186100649A7F /* SuperKen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SuperKen.h; path = Source/ken/SuperKen.h; sourceTree = "<group>"; };
 		9F0564F11B4B3E3800649A7F /* KMath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KMath.h; sourceTree = "<group>"; };
@@ -308,8 +303,6 @@
 				9613D8C31B4AF5CA0009E379 /* AlaskaThunderCpp.cpp */,
 				9613D8C41B4AF5CA0009E379 /* AlaskaThunderCpp.h */,
 				037FC6591B4B54E100719DCA /* TAMAKI.h */,
-				9E21B9A81B4C353700CAA983 /* FoeReaper4000RobotCpp.cpp */,
-				9E21B9A91B4C353700CAA983 /* FoeReaper4000RobotCpp.h */,
 				037FC65A1B4B54E100719DCA /* TAMAKI.cpp */,
 				71F9F57B1B4B17DE00DDEBB7 /* HarukiRobotCpp.cpp */,
 				71F9F57C1B4B17DE00DDEBB7 /* HarukiRobotCpp.h */,
@@ -621,7 +614,6 @@
 				65004E691B4B3DDA00B151B8 /* CamperRobot.swift in Sources */,
 				71F9F5B11B4B838700DDEBB7 /* Maguro.cpp in Sources */,
 				629FCFF4193E71C300896E8C /* GameOverScene.m in Sources */,
-				9E21B9AA1B4C353700CAA983 /* FoeReaper4000RobotCpp.cpp in Sources */,
 				65004DAE1B4AF5DB00B151B8 /* NewAdvancedRobotCpp.cpp in Sources */,
 				65004D461B4A41CF00B151B8 /* RobotWrapper.mm in Sources */,
 				650785D1196A20290022192D /* TournamentWonScene.m in Sources */,
