@@ -15,15 +15,11 @@
 
 - (void)setWinningRobot:(NSString *)winningRobot
 {
-    robotLabel.string = winningRobot;
-    _winningRobot = [winningRobot copy];
+    if (winningRobot)
+    {
+        robotLabel.string = winningRobot;
+        _winningRobot = [winningRobot copy];
+    }
 }
-
-//- (void)onEnterTransitionDidFinish
-//{
-//    [super onEnterTransitionDidFinish];
-//
-//    robotLabel.string = self.winningRobot;
-//}
 
 @end

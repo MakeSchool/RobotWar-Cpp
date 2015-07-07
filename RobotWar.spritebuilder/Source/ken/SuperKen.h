@@ -11,6 +11,7 @@
 
 #include "RobotCpp.h"
 
+
 namespace SuperKenAction {
     
     enum SuperKenAction
@@ -18,7 +19,8 @@ namespace SuperKenAction {
         INIT,
         SCANNING,
         FIRING,
-        ESCAPE
+        HORIZONTAL_ESCAPE,
+        VERTICAL_ESCAPE
     };
 }
 
@@ -30,10 +32,19 @@ public:
     void run() override;
     void bulletHitEnemy(RWVec enemyPosition) override;
     void scannedRobotAtPosition(RWVec position) override;
+    void gotHit() override;
     
 private:
     SuperKenAction::SuperKenAction currentState;
     float timeSinceLastEnemyHit;
+    RWVec lastEnemyPosition;
+    int enemyHitPoint;
+    
+    bool isUp(RWVec point);
+    bool isLeft(RWVec point);
+    void shootPoint(RWVec point);
+    void goToPoint(RWVec point);
+    SuperKenAction::SuperKenAction getRandomEscape();
 
 };
 
