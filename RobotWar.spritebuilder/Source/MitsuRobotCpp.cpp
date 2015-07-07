@@ -13,7 +13,7 @@
 
 #include "MitsuRobotCpp.h"
 
-#define DEBUG_MODE 1
+#define DEBUG_MODE 0
 
 #if DEBUG_MODE == 1
 #define DEBUG_PRINT(format, ...) printf(format, ##__VA_ARGS__)
@@ -64,17 +64,17 @@ void MitsuRobotCpp::gotHit()
     
     if (this->currentTimestamp() - this->lastKnownPositionTimestamp > 1.0f)
     {
-        this->turnRobotLeft(30);
-        this->moveAhead(50);
-        this->turnRobotLeft(20);
-        this->moveAhead(50);
-        this->turnRobotRight(20);
-        
         this->changeState(MitsuRobotCppAction::OFFENSE_SEARCHING);
     }
     else
     {
+        float angle = this->angleBetweenGunHeadingDirectionAndWorldPosition(this->lastKnownPosition);
+        this->turnGun(angle);
         this->shoot();
+        this->shoot();
+        this->shoot();
+        
+        this->changeState(MitsuRobotCppAction::OFFENSE_SEARCHING);
     }
 }
 
@@ -121,6 +121,7 @@ void MitsuRobotCpp::bulletHitEnemy(RWVec enemyPosition)
     if (this->isWinningLife() ||
         (this->currentState == MitsuRobotCppAction::OFFENSE_SEARCHING && !this->isTargetedByEnemy))
     {
+        this->cancelActiveAction();
         this->changeState(MitsuRobotCppAction::ASSAULT_FIRING);
     }
     else if (this->currentState != MitsuRobotCppAction::OFFENSE_FIRING)
@@ -154,6 +155,7 @@ void MitsuRobotCpp::scannedRobotAtPosition(RWVec position)
 
 void MitsuRobotCpp::runInitial()
 {
+    this->shoot();
     this->moveAhead(500);
 }
 
@@ -179,7 +181,6 @@ void MitsuRobotCpp::runOffenseSearching()
     this->shoot();
     this->moveAhead(50);
     this->turnRobotRight(40);
-    this->shoot();
 }
 
 void MitsuRobotCpp::runAssaultFiring()
@@ -192,7 +193,9 @@ void MitsuRobotCpp::runAssaultFiring()
     this->shoot();
     this->shoot();
     
-    this->changeState(MitsuRobotCppAction::OFFENSE_SEARCHING);
+    if (this->currentTimestamp() - this->lastKnownPositionTimestamp > 1.0f) {
+        this->changeState(MitsuRobotCppAction::OFFENSE_SEARCHING);
+    }
 }
 
 void MitsuRobotCpp::runDebugging()
