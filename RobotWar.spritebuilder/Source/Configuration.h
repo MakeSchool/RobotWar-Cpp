@@ -11,10 +11,10 @@
 
 // To use Cpp Robot, robotClass must be @"RobotWrapper"
 
-static NSString *robotClass1 = @"RobotWrapper";
-static NSString *robotClass2 = @"RobotWrapper";
+static BOOL robotOneIsCpp = YES;
+static BOOL robotTwoIsCpp = NO;
 
-#define ROBOT_ONE_CPP_CLASS AdvancedRobotCpp
-#define ROBOT_TWO_CPP_CLASS TurretRobotCpp
+static NSString *robotClass1 = @"SimpleRobotCpp";
+static NSString *robotClass2 = @"TurretRobot";
 
 #endif

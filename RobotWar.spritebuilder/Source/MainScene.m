@@ -56,28 +56,29 @@
     return NSClassFromString(classStringName);
 }
 
-- (void)initWithRobotClassOne:(NSString *)botClass1 andRobotClassTwo:(NSString *)botClass2  {
+- (void)initWithRobotClassOne:(NSString *)botClass1 robotOneIsCpp:(BOOL)robotOneCpp andRobotClassTwo:(NSString *)botClass2 robotTwoIsCpp:(BOOL)robotTwoCpp
+{
   // intantiate two AIs
     
     Robot* robot1;
     Robot* robot2;
     
-  if ([botClass1 isEqualToString:@"RobotWrapper"])
+  if (robotOneCpp)
   {
-      robot1 = (Robot*) [[NSClassFromString(botClass1) alloc] init];
+      robot1 = (Robot*) [[NSClassFromString(@"RobotWrapper") alloc] init];
       RobotWrapper* robotOneWrapper = (RobotWrapper*) robot1;
-      [robotOneWrapper setCppRobotClassForRobot:YES];
+      [robotOneWrapper setCppRobotClassForRobot:botClass1];
   }
   else
   {
       robot1 = (Robot*) [[[self swiftClassFromString:botClass1] alloc] init];
   }
     
-  if ([botClass2 isEqualToString:@"RobotWrapper"])
+  if (robotTwoCpp)
   {
-      robot2 = (Robot*) [[NSClassFromString(botClass2) alloc] init];
+      robot2 = (Robot*) [[NSClassFromString(@"RobotWrapper") alloc] init];
       RobotWrapper* robotTwoWrapper = (RobotWrapper*) robot2;
-      [robotTwoWrapper setCppRobotClassForRobot:NO];
+      [robotTwoWrapper setCppRobotClassForRobot:botClass2];
   }
   else
   {
