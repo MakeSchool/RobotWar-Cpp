@@ -560,11 +560,8 @@
 			files = (
 				654E591C1B3F96F5004CCACF /* TurretRobot.m in Sources */,
 				65004D521B4A5B2100B151B8 /* RobotCpp.mm in Sources */,
-<<<<<<< HEAD
 				9F0564B91B4B186100649A7F /* SuperKen.cpp in Sources */,
-=======
 				71F9F57D1B4B17DE00DDEBB7 /* HarukiRobotCpp.cpp in Sources */,
->>>>>>> de462267412514e9ae31a2b28a1af72ec69a0f02
 				629FCFF4193E71C300896E8C /* GameOverScene.m in Sources */,
 				65004DAE1B4AF5DB00B151B8 /* NewAdvancedRobotCpp.cpp in Sources */,
 				65004D461B4A41CF00B151B8 /* RobotWrapper.mm in Sources */,
