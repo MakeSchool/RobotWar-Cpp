@@ -110,7 +110,7 @@ void SuperKen::gotHit()
         
     } else {
         this->cancelActiveAction();
-        this->currentState = SuperKenAction::VERTICAL_ESCAPE;
+        this->currentState = this->getRandomEscape();
     }
 }
 
@@ -168,4 +168,14 @@ void SuperKen::shootPoint(RWVec point)
     }
 
     this->shoot();
+}
+
+SuperKenAction::SuperKenAction SuperKen::getRandomEscape()
+{
+    int rnd = rand() % 2;
+    if (rnd == 0) {
+        return SuperKenAction::VERTICAL_ESCAPE;
+    } else {
+        return SuperKenAction::HORIZONTAL_ESCAPE;
+    }
 }

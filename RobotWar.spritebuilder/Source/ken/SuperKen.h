@@ -44,6 +44,7 @@ private:
     bool isLeft(RWVec point);
     void shootPoint(RWVec point);
     void goToPoint(RWVec point);
+    SuperKenAction::SuperKenAction getRandomEscape();
 
 };
 
