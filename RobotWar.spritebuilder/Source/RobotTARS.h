@@ -1,19 +1,19 @@
 //
-//  MitsuRobotCpp.h
+//  RobotTARS.h
 //  RobotWar
 //
 //  Created by Mitsushige Komiya on 2015/07/06.
 //  Copyright (c) 2015年 MakeGamesWithUs. All rights reserved.
 //
 
-#ifndef __RobotWar__MitsuRobotCpp__
-#define __RobotWar__MitsuRobotCpp__
+#ifndef __RobotWar__RobotTARS__
+#define __RobotWar__RobotTARS__
 
 #include "RobotCpp.h"
 
-namespace MitsuRobotCppAction {
+namespace RobotTARSAction {
     
-    enum MitsuRobotCppAction
+    enum RobotTARSAction
     {
         INITIAL,
         OFFENSE_FIRING,
@@ -24,10 +24,10 @@ namespace MitsuRobotCppAction {
     };
 }
 
-class MitsuRobotCpp : public RobotCpp
+class RobotTARS : public RobotCpp
 {
 public:
-    MitsuRobotCpp();
+    RobotTARS();
     
     void run() override;
     void gotHit() override;
@@ -36,7 +36,7 @@ public:
     void scannedRobotAtPosition(RWVec position) override;
     
 private:
-    MitsuRobotCppAction::MitsuRobotCppAction currentState;
+    RobotTARSAction::RobotTARSAction currentState;
     int damagedPlayer, damagedEnemy;
     RWVec lastKnownPosition;
     float lastKnownPositionTimestamp, lastGotHitTimestamp;
@@ -54,7 +54,7 @@ private:
     void turnRobot(float angle);
     void turnGun(float angle);
     bool isWinningLife();
-    void changeState(MitsuRobotCppAction::MitsuRobotCppAction nextState);
+    void changeState(RobotTARSAction::RobotTARSAction nextState);
     
     // math helper methods
     float getVectorLenght(RWVec vec);
@@ -62,4 +62,4 @@ private:
     float convertRadianToDigree(float radian);
 };
 
-#endif /* defined(__RobotWar__MitsuRobotCpp__) */
+#endif /* defined(__RobotWar__RobotTARS__) */

@@ -13,16 +13,23 @@
 
 
 namespace SuperKenAction {
-    
     enum SuperKenAction
     {
-        INIT,
         SCANNING,
         FIRING,
-        HORIZONTAL_ESCAPE,
-        VERTICAL_ESCAPE
+        MOVE_OTHERSIDE,
+        MOVE_VERTICAL,
+        MOVE_AND_SHOT
     };
 }
+namespace SuperKenStrategy {
+    enum SuperKenStrategy
+    {
+        ALASKA_THUNDER,
+        CORNER_SHOT
+    };
+}
+
 
 class SuperKen : public RobotCpp
 {
@@ -36,16 +43,29 @@ public:
     
 private:
     SuperKenAction::SuperKenAction currentState;
+    SuperKenStrategy::SuperKenStrategy currentStrategy;
     float timeSinceLastEnemyHit;
     RWVec lastEnemyPosition;
     int enemyHitPoint;
+    int comboDamage;
     
-    bool isUp(RWVec point);
-    bool isLeft(RWVec point);
+    void stepAlaskaThunder();
+    void bulletHitEnemyWithAlaskaThunder(RWVec enemyPosition);
+    void scannedRobotAtPositionWithAlaskaThunder(RWVec position);
+    void gotHitWithAlaskaThunder();
+    
+    void stepCornerShot();
+    void bulletHitEnemyWithCornerShot(RWVec enemyPosition);
+    void scannedRobotAtPositionWithCornerShot(RWVec position);
+    void gotHitWithCornerShot();
+
+    bool isAdvantage();
+    bool isUp(float y);
+    bool isLeft(float x);
+    float getOppositeX(float x);
+    float getOppositeY(float y);
     void shootPoint(RWVec point);
     void goToPoint(RWVec point);
-    SuperKenAction::SuperKenAction getRandomEscape();
-
 };
 
 
