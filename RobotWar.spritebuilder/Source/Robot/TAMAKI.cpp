@@ -149,7 +149,7 @@ void TAMAKI::searchUsingSnipe()
     }
     else
     {
-        firstShootPosition = RWVec(0.0f, arenaSize.height);
+        firstShootPosition = RWVec(0.0f, 0.0f);
     }
 
     int angleToStart = this->angleBetweenGunHeadingDirectionAndWorldPosition(firstShootPosition);
