@@ -26,6 +26,7 @@
 #include "HarukiRobotCpp.h"
 #include "StoppingRobot.h"
 #include "MitsuRobotCpp.h"
+#include "Maguro.h"
 
 #include "Fliegerhammer.h"
 
