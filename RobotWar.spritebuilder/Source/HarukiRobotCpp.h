@@ -26,6 +26,7 @@ public:
     void hitWallWithSideAndAngle(RobotWallHitSide::RobotWallHitSide side, float hitAngle) override;
     void bulletHitEnemy(RWVec enemyPosition) override;
     void printStates();
+    float distance(RWVec pos1, RWVec pos2);
 
 private:
     bool moveUp;
@@ -33,6 +34,7 @@ private:
     HarukiRobotCppAction::HarukiRobotCppAction currentState;
     RWVec lastPosition;
     RWVec lastKnownPosition;
+    float lastHitTimestamp;
     float lastKnownPositionTimestamp;
     float gunAngleMoved;
     int enemysHitPoints;
