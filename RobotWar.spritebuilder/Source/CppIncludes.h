@@ -14,6 +14,7 @@
 #include "AdvancedRobotCpp.h"
 #include "AlaskaThunder.h"
 #include "TurretRobotCpp.h"
+#include "FoeReaper4000RobotCpp.h"
 #include "SuperKen.h"
 #include "NewAdvancedRobotCpp.h"
 #include "LiveRobotCpp.h"
