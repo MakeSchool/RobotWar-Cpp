@@ -13,7 +13,7 @@
 
 @interface RobotWrapper : Robot
 
-- (void)setCppRobotClassForRobot:(BOOL)robotOne;
+- (void)setCppRobotClassForRobot:(NSString*)cppClass;
 
 @end
 
