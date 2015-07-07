@@ -20,7 +20,7 @@
 #include "MoveOnlyRobotCpp.h"
 #include "ShootOnlyRobotCpp.h"
 #include "StoppingRobot.h"
-#include "MitsuRobotCpp.h"
+#include "RobotTARS.h"
 #include "Maguro.h"
 
 #include "AlaskaThunderCpp.h"
@@ -28,7 +28,6 @@
 #include "SuperKen.h"
 #include "TAMAKI.h"
 #include "HarukiRobotCpp.h"
-#include "MitsuRobotCpp.h"
 #include "Fliegerhammer.h"
 
 #endif
