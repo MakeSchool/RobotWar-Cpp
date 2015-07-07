@@ -249,6 +249,7 @@
   CCParticleSystem *explosion = (CCParticleSystem *) [CCBReader load:@"RobotExplosion"];
   [_gameNode addChild:explosion];
   explosion.position = bombPos;
+  explosion.autoRemoveOnFinish = YES;
   
   for (Robot *robot in _robots) {
     if (ccpDistance(robot.position, bombPos) < 65) {
