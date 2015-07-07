@@ -31,7 +31,7 @@
 		65004EE81B4C0CB200B151B8 /* UglyCppBotLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65004EE71B4C0CB200B151B8 /* UglyCppBotLoader.mm */; };
 		650785D1196A20290022192D /* TournamentWonScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 650785D0196A20290022192D /* TournamentWonScene.m */; };
 		65EC9A5F19691E9A002F9DB2 /* TournamentScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 65EC9A5E19691E99002F9DB2 /* TournamentScene.m */; };
-		6922C8041B4AF20E00684A97 /* MitsuRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6922C8021B4AF20E00684A97 /* MitsuRobotCpp.cpp */; };
+		6922C8041B4AF20E00684A97 /* RobotTARS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6922C8021B4AF20E00684A97 /* RobotTARS.cpp */; };
 		71F9F57D1B4B17DE00DDEBB7 /* HarukiRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71F9F57B1B4B17DE00DDEBB7 /* HarukiRobotCpp.cpp */; };
 		71F9F5841B4B17EB00DDEBB7 /* StoppingRobot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71F9F5821B4B17EB00DDEBB7 /* StoppingRobot.cpp */; };
 		71F9F5B11B4B838700DDEBB7 /* Maguro.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71F9F5AF1B4B838700DDEBB7 /* Maguro.cpp */; };
@@ -170,8 +170,8 @@
 		65859D4F196C4E49009F640D /* TournamentConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TournamentConfiguration.h; path = Source/TournamentConfiguration.h; sourceTree = "<group>"; };
 		65EC9A5D19691E99002F9DB2 /* TournamentScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TournamentScene.h; path = Source/TournamentScene.h; sourceTree = "<group>"; };
 		65EC9A5E19691E99002F9DB2 /* TournamentScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TournamentScene.m; path = Source/TournamentScene.m; sourceTree = "<group>"; };
-		6922C8021B4AF20E00684A97 /* MitsuRobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MitsuRobotCpp.cpp; path = Source/MitsuRobotCpp.cpp; sourceTree = "<group>"; };
-		6922C8031B4AF20E00684A97 /* MitsuRobotCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MitsuRobotCpp.h; path = Source/MitsuRobotCpp.h; sourceTree = "<group>"; };
+		6922C8021B4AF20E00684A97 /* RobotTARS.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RobotTARS.cpp; path = Source/RobotTARS.cpp; sourceTree = "<group>"; };
+		6922C8031B4AF20E00684A97 /* RobotTARS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RobotTARS.h; path = Source/RobotTARS.h; sourceTree = "<group>"; };
 		71F9F57B1B4B17DE00DDEBB7 /* HarukiRobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HarukiRobotCpp.cpp; path = Source/HarukiRobotCpp.cpp; sourceTree = "<group>"; };
 		71F9F57C1B4B17DE00DDEBB7 /* HarukiRobotCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HarukiRobotCpp.h; path = Source/HarukiRobotCpp.h; sourceTree = "<group>"; };
 		71F9F5821B4B17EB00DDEBB7 /* StoppingRobot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StoppingRobot.cpp; path = Source/StoppingRobot.cpp; sourceTree = "<group>"; };
@@ -304,8 +304,8 @@
 				71F9F5B01B4B838700DDEBB7 /* Maguro.h */,
 				5B3A989F1B4AFD2900E30144 /* ShootOnlyRobotCpp.cpp */,
 				5B3A98A01B4AFD2900E30144 /* ShootOnlyRobotCpp.h */,
-				6922C8021B4AF20E00684A97 /* MitsuRobotCpp.cpp */,
-				6922C8031B4AF20E00684A97 /* MitsuRobotCpp.h */,
+				6922C8021B4AF20E00684A97 /* RobotTARS.cpp */,
+				6922C8031B4AF20E00684A97 /* RobotTARS.h */,
 			);
 			name = CppRobots;
 			sourceTree = "<group>";
@@ -618,7 +618,7 @@
 				5B502C811B4AF9050040002A /* MoveOnlyRobotCpp.cpp in Sources */,
 				65004D561B4A717D00B151B8 /* SimpleRobotCpp.cpp in Sources */,
 				B737893F1807617C0076A88C /* AppDelegate.m in Sources */,
-				6922C8041B4AF20E00684A97 /* MitsuRobotCpp.cpp in Sources */,
+				6922C8041B4AF20E00684A97 /* RobotTARS.cpp in Sources */,
 				65004D9D1B4AC97800B151B8 /* AdvancedRobotCpp.cpp in Sources */,
 				B7378994180767190076A88C /* MainScene.m in Sources */,
 				037FC65B1B4B54E100719DCA /* TAMAKI.cpp in Sources */,

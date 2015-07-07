@@ -64,15 +64,17 @@ void AlaskaThunderCpp::run()
                 break;
             
             case AlaskaThunderCppAction::FIRING:
-                if (this->currentTimestamp() - this->timeSinceLastEnemyHit > 3.f)
-                {
+                if (this->currentTimestamp() - this->timeSinceLastEnemyHit > 7.f) {
                     this->cancelActiveAction();
                     this->currentState = AlaskaThunderCppAction::BLAST;
                     
                     lookRight();
-                }
-                else
-                {
+                } else if (this->currentTimestamp() - this->timeSinceLastEnemyHit > 3.f) {
+                    this->cancelActiveAction();
+                    this->currentState = AlaskaThunderCppAction::BLAST;
+                    
+                    lookRight();
+                } else {
                     this->shoot();
                 }
             
@@ -87,6 +89,7 @@ void AlaskaThunderCpp::gotHit()
      DONT CARE
      JUST DO WHAT YOU ARE SUPPOSED TO DO
      */
+    this->shoot();
 }
 
 void AlaskaThunderCpp::hitWallWithSideAndAngle(RobotWallHitSide::RobotWallHitSide side, float hitAngle)
@@ -101,6 +104,21 @@ void AlaskaThunderCpp::bulletHitEnemy(RWVec enemyPosition)
     /*
      YEAY
      */
+    float angleBetweenTurretAndEnemy = this->angleBetweenGunHeadingDirectionAndWorldPosition(enemyPosition);
+    this->gunAngleMoved += angleBetweenTurretAndEnemy;
+    
+    if (angleBetweenTurretAndEnemy > GUN_ANGLE_TOLERANCE)
+    {
+        this->turnGunRight(fabsf(angleBetweenTurretAndEnemy));
+    }
+    else if (angleBetweenTurretAndEnemy < -GUN_ANGLE_TOLERANCE)
+    {
+        this->turnGunLeft(fabsf(angleBetweenTurretAndEnemy));
+    }
+
+    this->timeSinceLastEnemyHit = this->currentTimestamp();
+    this->currentState = AlaskaThunderCppAction::FIRING;
+    this->shoot();
 }
 
 void AlaskaThunderCpp::scannedRobotAtPosition(RWVec position)
