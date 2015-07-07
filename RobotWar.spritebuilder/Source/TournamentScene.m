@@ -43,13 +43,45 @@ static NSMutableDictionary* schedule;
             if (!schedule)
             {
                 // No tournament on disk, so make a new one
-                NSArray* allRobots = ClassGetSubclasses([Robot class]);
+                
+                // This autoloads all subclasses of Robot - doesn't work with RobotWrapper though
+//                NSArray* allSwiftRobots = ClassGetSubclasses([Robot class]);
                 
                 // Swift classes seem to prepend with BundleName (format seems to be BundleName.ClassName now)
                 // So remove the BundleName. part so that we can load the Swift classes later
-                NSArray* robotClassStrings = [self convertClassArrayToClassNameArrayRemovingBundleID:allRobots];
+//                NSArray* swiftRobotClassStrings = [self convertClassArrayToClassNameArrayRemovingBundleID:allSwiftRobots];
                 
-                schedule = [NSMutableDictionary dictionaryWithDictionary:[self createTournamentScheduleWithBots:robotClassStrings]];
+                NSArray* swiftRobotClassStrings = @[
+                                                    @"AdvancedRobot",
+                                                    @"CamperRobot",
+                                                    @"SimpleRobot",
+                                                    @"TurretRobot"
+                                                    ];
+                
+                // TODO: This doesn't really belong here...
+                NSArray* allCppRobots =      @[
+                                               @"SimpleRobotCpp",
+                                               @"AdvancedRobotCpp",
+                                               @"TurretRobotCpp",
+                                               @"NewAdvancedRobotCpp",
+                                               @"LiveRobotCpp"
+                                              ];
+                
+                NSMutableArray* allRobots = [NSMutableArray array];
+                
+                for (NSString* cppRobotName in allCppRobots)
+                {
+                    NSDictionary* robot = @{@"robotName": cppRobotName, @"isCPP": @YES};
+                    [allRobots addObject:robot];
+                }
+                
+                for (NSString* swiftRobotName in swiftRobotClassStrings)
+                {
+                    NSDictionary* robot = @{@"robotName": swiftRobotName, @"isCPP": @NO};
+                    [allRobots addObject:robot];
+                }
+                
+                schedule = [NSMutableDictionary dictionaryWithDictionary:[self createTournamentScheduleWithBots:allRobots]];
                 tournamentOver = NO;
             }
         });
@@ -170,15 +202,21 @@ NSArray *ClassGetSubclasses(Class parentClass)
     
     for (int i = 0; i < robotNames.count; ++i)
     {
-        NSString* robotOneClassString = robotNames[i];
+        NSDictionary* robotOneDictionary = robotNames[i];
+        NSString* robotOneClassString = robotOneDictionary[@"robotName"];
+        NSNumber* robotOneIsCpp = robotOneDictionary[@"isCPP"];
         
         for (int j = i + 1; j < robotNames.count; ++j)
         {
-            NSString* robotTwoClassString = robotNames[j];
+            NSDictionary* robotTwoDictionary = robotNames[j];
+            NSString* robotTwoClassString = robotTwoDictionary[@"robotName"];
+            NSNumber* robotTwoIsCpp = robotTwoDictionary[@"isCPP"];
             
             NSDictionary* match = @{@"Match": @(matchNumber),
                                     @"RobotOne": robotOneClassString,
+                                    @"RobotOneIsCpp": robotOneIsCpp,
                                     @"RobotTwo": robotTwoClassString,
+                                    @"RobotTwoIsCpp": robotTwoIsCpp,
                                     @"Winner": @""};
             
             [matches addObject:match];
@@ -281,12 +319,17 @@ NSArray *ClassGetSubclasses(Class parentClass)
     
     if (randPosition == 0)
     {
-        // TODO: FIX THIS!!!
-        [nextMatch initWithRobotClassOne: [match objectForKey:@"RobotOne"] robotOneIsCpp:YES andRobotClassTwo:[match objectForKey:@"RobotTwo"] robotTwoIsCpp:YES];
+        [nextMatch initWithRobotClassOne:match[@"RobotOne"]
+                           robotOneIsCpp:[match[@"RobotOneIsCpp"] boolValue]
+                        andRobotClassTwo:match[@"RobotTwo"]
+                           robotTwoIsCpp:[match[@"RobotTwoIsCpp"] boolValue]];
     }
     else
     {
-        [nextMatch initWithRobotClassOne: [match objectForKey:@"RobotTwo"] robotOneIsCpp:YES andRobotClassTwo:[match objectForKey:@"RobotOne"] robotTwoIsCpp:YES];
+        [nextMatch initWithRobotClassOne:match[@"RobotTwo"]
+                           robotOneIsCpp:[match[@"RobotTwoIsCpp"] boolValue]
+                        andRobotClassTwo:match[@"RobotOne"]
+                           robotTwoIsCpp:[match[@"RobotOneIsCpp"] boolValue]];
     }
     
     CCScene* nextMatchScene = [CCScene node];
