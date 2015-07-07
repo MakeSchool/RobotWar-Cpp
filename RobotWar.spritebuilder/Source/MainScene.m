@@ -360,43 +360,30 @@
 #pragma mark - Util Methods/Functions
 
 - (void)updateScoreLabels {
-  Robot* robot1 = nil;
-  Robot* robot2 = nil;
-    
-  if (_robots.count > 0) robot1 = (Robot*) _robots[0];
-  if (_robots.count > 1) robot2 = (Robot*) _robots[1];
-    
-  if (robot1)
-  {
-      // check if Cpp Robot to update label
-      if ([robot1 isKindOfClass:[RobotWrapper class]])
-      {
-        NSString* robotOneName = [NSString stringWithUTF8String:TOSTRING(ROBOT_ONE_CPP_CLASS)];
-        robot1.robotClass = robotOneName;
-      }
 
-      _robot1Label.string = [NSString stringWithFormat:@"%@ %ld", robot1.robotClass, (long)[robot1 hitPoints]];
-  }
-  else
+  if (_robots.count > 1)
   {
-      _robot1Label.string = @"DEAD";
-  }
-    
-  if (robot2)
-  {
-      // check if Cpp Robot to update label
-      if ([robot2 isKindOfClass:[RobotWrapper class]])
+      Robot* robot1 = (Robot*) _robots[0];
+      Robot* robot2 = (Robot*) _robots[1];
+        
+      if (robot1)
       {
-          NSString* robotTwoName = [NSString stringWithUTF8String:TOSTRING(ROBOT_TWO_CPP_CLASS)];
-          robot2.robotClass = robotTwoName;
+          _robot1Label.string = [NSString stringWithFormat:@"%@ %ld", robot1.robotClass, (long)[robot1 hitPoints]];
       }
-      
-      _robot2Label.string = [NSString stringWithFormat:@"%@ %ld", robot2.robotClass, (long)[robot2 hitPoints]];
-  }
-  else
-  {
-      _robot2Label.string = @"DEAD";
-  }
+      else
+      {
+          _robot1Label.string = @"DEAD";
+      }
+        
+      if (robot2)
+      {
+          _robot2Label.string = [NSString stringWithFormat:@"%@ %ld", robot2.robotClass, (long)[robot2 hitPoints]];
+      }
+      else
+      {
+          _robot2Label.string = @"DEAD";
+      }
+   }
 }
 
 - (void)updateTimeSinceBomb:(CGFloat)pTimeSinceBomb {
