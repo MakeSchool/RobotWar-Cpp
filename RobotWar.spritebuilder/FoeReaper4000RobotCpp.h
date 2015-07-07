@@ -11,6 +11,10 @@
 
 #include "RobotCpp.h"
 
+namespace FoeReaper4000RobotConstant {
+    static const int ROBOT_WITHD = 50;
+}
+
 class FoeReaper4000RobotCpp : public RobotCpp
 {
 public:
@@ -19,13 +23,17 @@ public:
     void run() override;
     void gotHit() override;
     void hitWallWithSideAndAngle(RobotWallHitSide::RobotWallHitSide side, float hitAngle) override;
- //   void bulletHitEnemy(RWVec enemyPosition) override;
- //   void scannedRobotAtPosition(RWVec position) override;
+    void bulletHitEnemy(RWVec enemyPosition) override;
+    void scannedRobotAtPosition(RWVec position) override;
 private:
     int generateRandomNumber(int begin, int end);
+    float generateRandomNumber(float begin, float end);
     void optimizeMove(int degree, int distance);
-    void randomWalk(int beginDegree = 0, int endDegree = 360, int beginDistance = 0, int EndDistance = 100);
+    void randomWalk(int beginDegree = 0, int endDegree = 360, int beginDistance = 100, int EndDistance = 200);
     void showLog();
+    void optimizeGunPosition();
+    RWVec lastEnemyPos;
+    void shootToPos(RWVec pos);
     
 };
 
