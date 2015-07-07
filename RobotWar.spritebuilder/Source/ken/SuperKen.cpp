@@ -7,50 +7,51 @@
 //
 
 #include "SuperKen.h"
+#include "KMath.h"
 #include <math.h>
 #include <stdlib.h>
 
-static const float GUN_ANGLE_TOLERANCE = 2.0f;
+using namespace SuperKenMath;
+
+//static const float GUN_ANGLE_TOLERANCE = 2.0f;
 
 SuperKen::SuperKen()
 {
     this->currentState = SuperKenAction::INIT;
-}
 
-void SuperKen::scannedRobotAtPosition(RWVec position)
-{
-    float angleBetweenTurretAndEnemy = this->angleBetweenGunHeadingDirectionAndWorldPosition(position);
-    
-    if (angleBetweenTurretAndEnemy > GUN_ANGLE_TOLERANCE)
-    {
-        this->cancelActiveAction();
-        this->turnGunRight(fabsf(angleBetweenTurretAndEnemy));
-    }
-    else if (angleBetweenTurretAndEnemy < -GUN_ANGLE_TOLERANCE)
-    {
-        this->cancelActiveAction();
-        this->turnGunLeft(fabsf(angleBetweenTurretAndEnemy));
-    }
-    
-    this->timeSinceLastEnemyHit = this->currentTimestamp();
-    this->currentState = SuperKenAction::FIRING;
+    // unsure
+    this->enemyHitPoint = this->hitPoints();
 }
 
 void SuperKen::run()
 {
     auto dimentions = this->arenaDimensions();
-    float distance;
+    auto box = this->robotBoundingBox();
+    RWVec position;
+    float targetX, targetY;
     int rnd;
-    
     
     while (true)
     {
         switch (this->currentState)
         {
             case SuperKenAction::INIT:
-                this->turnRobotLeft(90);
-                this->turnGunRight(90);
                 this->currentState = SuperKenAction::SCANNING;
+                position = this->position();
+                targetY = (this->isUp(position)) ? dimentions.height - box.size.height / 2 : box.size.height / 2;
+                this->goToPoint(RWVec(position.x, targetY));
+                break;
+            case SuperKenAction::VERTICAL_ESCAPE:
+                this->currentState = SuperKenAction::SCANNING;
+                position = this->position();
+                targetY = (this->isUp(position)) ? box.size.height / 2 : dimentions.height - box.size.height / 2;
+                this->goToPoint(RWVec(position.x, targetY));
+                break;
+            case SuperKenAction::HORIZONTAL_ESCAPE:
+                this->currentState = SuperKenAction::VERTICAL_ESCAPE;
+                position = this->position();
+                targetX = (this->isLeft(position)) ? dimentions.width - box.size.width / 2 : box.size.width / 2;
+                this->goToPoint(RWVec(targetX, position.y));
                 break;
             case SuperKenAction::FIRING:
                 if (this->currentTimestamp() - this->timeSinceLastEnemyHit > 2.5f)
@@ -60,23 +61,21 @@ void SuperKen::run()
                 }
                 else
                 {
-                    this->shoot();
+                    this->shootPoint(this->lastEnemyPosition);
                 }
                 break;
                 
             case SuperKenAction::SCANNING:
-                rnd = rand() % 5 + 5;
-                distance = (dimentions.height - this->position().y - this->robotBoundingBox().size.height / 2) / rnd;
-                for (int i = 0; i < rnd; i++) {
-                    this->moveAhead(distance);
-                    this->shoot();
+                targetX = (this->isLeft(position)) ? dimentions.width - box.size.width / 2 : box.size.width / 2;
+                rnd = rand() % 30 + 30;
+                for (float y = box.size.width / 2; y <= dimentions.height - box.size.width / 2; y += rnd) {
+                    shootPoint(RWVec(targetX, y));
+                    if (this->currentState != SuperKenAction::SCANNING) {
+                        break;
+                    }
                 }
-                
-                rnd = rand() % 5 + 5;
-                distance = (this->position().y - this->robotBoundingBox().size.height / 2) / rnd;
-                for (int i = 0; i < rnd; i++) {
-                    this->moveBack(distance);
-                    this->shoot();
+                if (this->currentState == SuperKenAction::SCANNING) {
+                    this->currentState = SuperKenAction::VERTICAL_ESCAPE;
                 }
                 break;
             default:
@@ -85,7 +84,88 @@ void SuperKen::run()
     }
 }
 
+#pragma - delegate
+
 void SuperKen::bulletHitEnemy(RWVec enemyPosition)
 {
+    this->lastEnemyPosition = enemyPosition;
     this->timeSinceLastEnemyHit = this->currentTimestamp();
+    if (this->currentState != SuperKenAction::FIRING) {
+        this->cancelActiveAction();
+    }
+    this->currentState = SuperKenAction::FIRING;
+}
+
+void SuperKen::scannedRobotAtPosition(RWVec position)
+{
+    this->cancelActiveAction();
+    this->lastEnemyPosition = position;
+    this->timeSinceLastEnemyHit = this->currentTimestamp();
+    this->currentState = SuperKenAction::FIRING;
+}
+
+void SuperKen::gotHit()
+{
+    if (this->currentState == SuperKenAction::FIRING && this->hitPoints() > this->enemyHitPoint) {
+        
+    } else {
+        this->cancelActiveAction();
+        this->currentState = SuperKenAction::VERTICAL_ESCAPE;
+    }
+}
+
+#pragma - other method
+
+void SuperKen::goToPoint(RWVec point)
+{
+    auto firstState = this->currentState;
+    float angle = this->angleBetweenHeadingDirectionAndWorldPosition(point);
+    if (angle < 0) {
+        this->turnRobotLeft(-angle);
+    } else if (angle > 0) {
+        this->turnRobotRight(angle);
+    }
+    if (firstState != this->currentState) {
+        return;
+    }
+    
+   float d = KMath::distance(point, this->position());
+    moveAhead(d);
+    
+}
+
+bool SuperKen::isUp(RWVec point)
+{
+    auto dimentions = this->arenaDimensions();
+    if (point.y > dimentions.height / 2) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+bool SuperKen::isLeft(RWVec point)
+{
+    auto dimentions = this->arenaDimensions();
+    if (point.x < dimentions.width / 2) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+void SuperKen::shootPoint(RWVec point)
+{
+    auto firstState = this->currentState;
+    float angle = this->angleBetweenGunHeadingDirectionAndWorldPosition(point);
+        if (angle < 0) {
+        this->turnGunLeft(-angle);
+    } else if (angle > 0) {
+        this->turnGunRight(angle);
+    }
+        if (firstState != this->currentState) {
+        return;
+    }
+
+    this->shoot();
 }
