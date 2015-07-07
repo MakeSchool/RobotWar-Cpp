@@ -8,6 +8,7 @@
 
 #import "RobotWrapper.h"
 #import "Bullet.h"
+#import "UglyCppBotLoader.h"
 #include "CppInterface.h"
 #include "CppIncludes.h"
 #include "Configuration.h"
@@ -20,18 +21,14 @@
 #pragma mark -
 #pragma mark Lifecycle
 
-- (void)setCppRobotClassForRobot:(BOOL)robotOne
+- (void)setCppRobotClassForRobot:(NSString*)cppClass
 {
-    if (robotOne)
-    {
-        delegate = new ROBOT_ONE_CPP_CLASS();
-    }
-    else
-    {
-        delegate = new ROBOT_TWO_CPP_CLASS();
-    }
+    delegate = [[UglyCppBotLoader sharedInstance] constructBotWithName:cppClass];
     
-    delegate->setObjCRobot(self);
+    if (delegate)
+    {
+        delegate->setObjCRobot(self);
+    }
 }
 
 - (void)dealloc

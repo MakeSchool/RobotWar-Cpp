@@ -27,6 +27,7 @@
 		65004E691B4B3DDA00B151B8 /* CamperRobot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65004E651B4B3DDA00B151B8 /* CamperRobot.swift */; };
 		65004E6A1B4B3DDA00B151B8 /* SimpleRobot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65004E661B4B3DDA00B151B8 /* SimpleRobot.swift */; };
 		65004E6B1B4B3DDA00B151B8 /* TurretRobot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65004E671B4B3DDA00B151B8 /* TurretRobot.swift */; };
+		65004EE81B4C0CB200B151B8 /* UglyCppBotLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65004EE71B4C0CB200B151B8 /* UglyCppBotLoader.mm */; };
 		650785D1196A20290022192D /* TournamentWonScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 650785D0196A20290022192D /* TournamentWonScene.m */; };
 		65EC9A5F19691E9A002F9DB2 /* TournamentScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 65EC9A5E19691E99002F9DB2 /* TournamentScene.m */; };
 		6922C8041B4AF20E00684A97 /* MitsuRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6922C8021B4AF20E00684A97 /* MitsuRobotCpp.cpp */; };
@@ -161,6 +162,8 @@
 		65004E661B4B3DDA00B151B8 /* SimpleRobot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleRobot.swift; sourceTree = "<group>"; };
 		65004E671B4B3DDA00B151B8 /* TurretRobot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TurretRobot.swift; sourceTree = "<group>"; };
 		65004E721B4B4ADE00B151B8 /* RobotWar-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "RobotWar-Bridging-Header.h"; path = "Source/Robot/RobotWar-Bridging-Header.h"; sourceTree = "<group>"; };
+		65004EE61B4C0CB200B151B8 /* UglyCppBotLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UglyCppBotLoader.h; path = Source/UglyCppBotLoader.h; sourceTree = "<group>"; };
+		65004EE71B4C0CB200B151B8 /* UglyCppBotLoader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = UglyCppBotLoader.mm; path = Source/UglyCppBotLoader.mm; sourceTree = "<group>"; };
 		650785CF196A20290022192D /* TournamentWonScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TournamentWonScene.h; path = Source/TournamentWonScene.h; sourceTree = "<group>"; };
 		650785D0196A20290022192D /* TournamentWonScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TournamentWonScene.m; path = Source/TournamentWonScene.m; sourceTree = "<group>"; };
 		65859D4F196C4E49009F640D /* TournamentConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TournamentConfiguration.h; path = Source/TournamentConfiguration.h; sourceTree = "<group>"; };
@@ -274,6 +277,8 @@
 				65004D451B4A41CF00B151B8 /* RobotWrapper.mm */,
 				65004D501B4A5B2100B151B8 /* RobotCpp.mm */,
 				65004D511B4A5B2100B151B8 /* RobotCpp.h */,
+				65004EE61B4C0CB200B151B8 /* UglyCppBotLoader.h */,
+				65004EE71B4C0CB200B151B8 /* UglyCppBotLoader.mm */,
 			);
 			name = Cpp;
 			sourceTree = "<group>";
@@ -330,6 +335,8 @@
 				5B502C801B4AF9050040002A /* MoveOnlyRobotCpp.h */,
 				71F9F5821B4B17EB00DDEBB7 /* StoppingRobot.cpp */,
 				71F9F5831B4B17EB00DDEBB7 /* StoppingRobot.h */,
+				5B3A989F1B4AFD2900E30144 /* ShootOnlyRobotCpp.cpp */,
+				5B3A98A01B4AFD2900E30144 /* ShootOnlyRobotCpp.h */,
 			);
 			name = Testing;
 			sourceTree = "<group>";
@@ -594,6 +601,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65004D521B4A5B2100B151B8 /* RobotCpp.mm in Sources */,
+				65004EE81B4C0CB200B151B8 /* UglyCppBotLoader.mm in Sources */,
 				9F0564B91B4B186100649A7F /* SuperKen.cpp in Sources */,
 				71F9F57D1B4B17DE00DDEBB7 /* HarukiRobotCpp.cpp in Sources */,
 				65004E6B1B4B3DDA00B151B8 /* TurretRobot.swift in Sources */,
