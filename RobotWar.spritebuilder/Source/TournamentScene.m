@@ -281,11 +281,12 @@ NSArray *ClassGetSubclasses(Class parentClass)
     
     if (randPosition == 0)
     {
-        [nextMatch initWithRobotClassOne: [match objectForKey:@"RobotOne"] andRobotClassTwo:[match objectForKey:@"RobotTwo"]];
+        // TODO: FIX THIS!!!
+        [nextMatch initWithRobotClassOne: [match objectForKey:@"RobotOne"] robotOneIsCpp:YES andRobotClassTwo:[match objectForKey:@"RobotTwo"] robotTwoIsCpp:YES];
     }
     else
     {
-        [nextMatch initWithRobotClassOne: [match objectForKey:@"RobotTwo"] andRobotClassTwo:[match objectForKey:@"RobotOne"]];
+        [nextMatch initWithRobotClassOne: [match objectForKey:@"RobotTwo"] robotOneIsCpp:YES andRobotClassTwo:[match objectForKey:@"RobotOne"] robotTwoIsCpp:YES];
     }
     
     CCScene* nextMatchScene = [CCScene node];
