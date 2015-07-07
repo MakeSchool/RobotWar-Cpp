@@ -17,6 +17,12 @@
 
 #import "RobotWrapper.h"
 
+// weird preprocessor stuff for CPP labels
+#define STRINGIFY(x) #x
+#define TOSTRING(x) STRINGIFY(x)
+#define AT __FILE__ ":" TOSTRING(__LINE__)
+
+
 @implementation MainScene {
   CGFloat timeSinceLastEvent;
   NSMutableArray *_bullets;
@@ -294,14 +300,36 @@
   if (_robots.count > 1) robot2 = (Robot*) _robots[1];
     
   if (robot1)
+  {
+      // check if Cpp Robot to update label
+      if ([robot1 isKindOfClass:[RobotWrapper class]])
+      {
+        NSString* robotOneName = [NSString stringWithUTF8String:TOSTRING(ROBOT_ONE_CPP_CLASS)];
+        robot1.robotClass = robotOneName;
+      }
+
       _robot1Label.string = [NSString stringWithFormat:@"%@ %ld", robot1.robotClass, (long)[robot1 hitPoints]];
+  }
   else
+  {
       _robot1Label.string = @"DEAD";
-      
+  }
+    
   if (robot2)
+  {
+      // check if Cpp Robot to update label
+      if ([robot2 isKindOfClass:[RobotWrapper class]])
+      {
+          NSString* robotTwoName = [NSString stringWithUTF8String:TOSTRING(ROBOT_TWO_CPP_CLASS)];
+          robot2.robotClass = robotTwoName;
+      }
+      
       _robot2Label.string = [NSString stringWithFormat:@"%@ %ld", robot2.robotClass, (long)[robot2 hitPoints]];
+  }
   else
+  {
       _robot2Label.string = @"DEAD";
+  }
 }
 
 - (void)cleanupBullet:(CCNode *)bullet {

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B3A98A11B4AFD2900E30144 /* ShootOnlyRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B3A989F1B4AFD2900E30144 /* ShootOnlyRobotCpp.cpp */; };
+		5B502C7E1B4AF6910040002A /* DoNothingRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B502C7C1B4AF6910040002A /* DoNothingRobotCpp.cpp */; };
+		5B502C811B4AF9050040002A /* MoveOnlyRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B502C7F1B4AF9050040002A /* MoveOnlyRobotCpp.cpp */; };
 		6244629A1937DDD300895F2D /* Robot.m in Sources */ = {isa = PBXBuildFile; fileRef = 624462991937DDD300895F2D /* Robot.m */; };
 		629FCFF4193E71C300896E8C /* GameOverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 629FCFF3193E71C300896E8C /* GameOverScene.m */; };
 		62C4F430194141DE0047553C /* Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C4F42F194141DE0047553C /* Helpers.m */; };
@@ -15,11 +18,18 @@
 		65004D461B4A41CF00B151B8 /* RobotWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65004D451B4A41CF00B151B8 /* RobotWrapper.mm */; };
 		65004D521B4A5B2100B151B8 /* RobotCpp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65004D501B4A5B2100B151B8 /* RobotCpp.mm */; };
 		65004D561B4A717D00B151B8 /* SimpleRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65004D541B4A717D00B151B8 /* SimpleRobotCpp.cpp */; };
+		65004D9D1B4AC97800B151B8 /* AdvancedRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65004D9B1B4AC97800B151B8 /* AdvancedRobotCpp.cpp */; };
+		65004DAB1B4AD96400B151B8 /* TurretRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65004DA91B4AD96400B151B8 /* TurretRobotCpp.cpp */; };
+		65004DAE1B4AF5DB00B151B8 /* NewAdvancedRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65004DAC1B4AF5DB00B151B8 /* NewAdvancedRobotCpp.cpp */; };
 		650785D1196A20290022192D /* TournamentWonScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 650785D0196A20290022192D /* TournamentWonScene.m */; };
 		654E591A1B3F96F5004CCACF /* AdvancedRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = 654E59151B3F96F5004CCACF /* AdvancedRobot.m */; };
 		654E591B1B3F96F5004CCACF /* SimpleRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = 654E59171B3F96F5004CCACF /* SimpleRobot.m */; };
 		654E591C1B3F96F5004CCACF /* TurretRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = 654E59191B3F96F5004CCACF /* TurretRobot.m */; };
 		65EC9A5F19691E9A002F9DB2 /* TournamentScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 65EC9A5E19691E99002F9DB2 /* TournamentScene.m */; };
+		71F9F57D1B4B17DE00DDEBB7 /* HarukiRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71F9F57B1B4B17DE00DDEBB7 /* HarukiRobotCpp.cpp */; };
+		71F9F5841B4B17EB00DDEBB7 /* StoppingRobot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71F9F5821B4B17EB00DDEBB7 /* StoppingRobot.cpp */; };
+		9613D8C51B4AF5CA0009E379 /* AlaskaThunder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9613D8C31B4AF5CA0009E379 /* AlaskaThunder.cpp */; };
+		9F0564B91B4B186100649A7F /* SuperKen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F0564B61B4B186100649A7F /* SuperKen.cpp */; };
 		B71F5911188484E7003F4D28 /* iPad-old.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5907188484E7003F4D28 /* iPad-old.png */; };
 		B71F5912188484E7003F4D28 /* iPad-old@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5908188484E7003F4D28 /* iPad-old@2x.png */; };
 		B71F5913188484E7003F4D28 /* iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5909188484E7003F4D28 /* iPad.png */; };
@@ -54,6 +64,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		65004DA21B4AC97900B151B8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B7378940180761A80076A88C /* cocos2d-ios.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2FEB74F194F6C9E00FC0574;
+			remoteInfo = cocos2dAndroid;
+		};
+		65004DA41B4AC97900B151B8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B7378940180761A80076A88C /* cocos2d-ios.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7A4037A819E37038007B6E8F;
+			remoteInfo = "cocos2d-mac";
+		};
+		65004DA61B4AC97900B151B8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B7378940180761A80076A88C /* cocos2d-ios.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B7E7DE341A76DB7D004234B7;
+			remoteInfo = cocos2dMacFramework;
+		};
 		B737894A180761A90076A88C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B7378940180761A80076A88C /* cocos2d-ios.xcodeproj */;
@@ -83,6 +114,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5B3A989F1B4AFD2900E30144 /* ShootOnlyRobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ShootOnlyRobotCpp.cpp; path = Source/Robot/ShootOnlyRobotCpp.cpp; sourceTree = "<group>"; };
+		5B3A98A01B4AFD2900E30144 /* ShootOnlyRobotCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShootOnlyRobotCpp.h; path = Source/Robot/ShootOnlyRobotCpp.h; sourceTree = "<group>"; };
+		5B502C7C1B4AF6910040002A /* DoNothingRobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DoNothingRobotCpp.cpp; path = Source/Robot/DoNothingRobotCpp.cpp; sourceTree = "<group>"; };
+		5B502C7D1B4AF6910040002A /* DoNothingRobotCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DoNothingRobotCpp.h; path = Source/Robot/DoNothingRobotCpp.h; sourceTree = "<group>"; };
+		5B502C7F1B4AF9050040002A /* MoveOnlyRobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MoveOnlyRobotCpp.cpp; path = Source/Robot/MoveOnlyRobotCpp.cpp; sourceTree = "<group>"; };
+		5B502C801B4AF9050040002A /* MoveOnlyRobotCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoveOnlyRobotCpp.h; path = Source/Robot/MoveOnlyRobotCpp.h; sourceTree = "<group>"; };
 		624462981937DDD300895F2D /* Robot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Robot.h; path = Source/Robot.h; sourceTree = "<group>"; };
 		624462991937DDD300895F2D /* Robot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Robot.m; path = Source/Robot.m; sourceTree = "<group>"; };
 		624A3880193E79620054705C /* Robot_Framework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Robot_Framework.h; path = Source/Robot_Framework.h; sourceTree = "<group>"; };
@@ -101,9 +138,15 @@
 		65004D4F1B4A4DCE00B151B8 /* CppInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CppInterface.h; path = Source/CppInterface.h; sourceTree = "<group>"; };
 		65004D501B4A5B2100B151B8 /* RobotCpp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RobotCpp.mm; path = Source/RobotCpp.mm; sourceTree = "<group>"; };
 		65004D511B4A5B2100B151B8 /* RobotCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RobotCpp.h; path = Source/RobotCpp.h; sourceTree = "<group>"; };
-		65004D531B4A712600B151B8 /* CppConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CppConfiguration.h; path = Source/CppConfiguration.h; sourceTree = "<group>"; };
+		65004D531B4A712600B151B8 /* CppIncludes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CppIncludes.h; path = Source/CppIncludes.h; sourceTree = "<group>"; };
 		65004D541B4A717D00B151B8 /* SimpleRobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SimpleRobotCpp.cpp; path = Source/SimpleRobotCpp.cpp; sourceTree = "<group>"; };
 		65004D551B4A717D00B151B8 /* SimpleRobotCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleRobotCpp.h; path = Source/SimpleRobotCpp.h; sourceTree = "<group>"; };
+		65004D9B1B4AC97800B151B8 /* AdvancedRobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AdvancedRobotCpp.cpp; path = Source/AdvancedRobotCpp.cpp; sourceTree = "<group>"; };
+		65004D9C1B4AC97800B151B8 /* AdvancedRobotCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdvancedRobotCpp.h; path = Source/AdvancedRobotCpp.h; sourceTree = "<group>"; };
+		65004DA91B4AD96400B151B8 /* TurretRobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TurretRobotCpp.cpp; path = Source/TurretRobotCpp.cpp; sourceTree = "<group>"; };
+		65004DAA1B4AD96400B151B8 /* TurretRobotCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TurretRobotCpp.h; path = Source/TurretRobotCpp.h; sourceTree = "<group>"; };
+		65004DAC1B4AF5DB00B151B8 /* NewAdvancedRobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NewAdvancedRobotCpp.cpp; path = Source/NewAdvancedRobotCpp.cpp; sourceTree = "<group>"; };
+		65004DAD1B4AF5DB00B151B8 /* NewAdvancedRobotCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewAdvancedRobotCpp.h; path = Source/NewAdvancedRobotCpp.h; sourceTree = "<group>"; };
 		650785CF196A20290022192D /* TournamentWonScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TournamentWonScene.h; path = Source/TournamentWonScene.h; sourceTree = "<group>"; };
 		650785D0196A20290022192D /* TournamentWonScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TournamentWonScene.m; path = Source/TournamentWonScene.m; sourceTree = "<group>"; };
 		654E59141B3F96F5004CCACF /* AdvancedRobot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvancedRobot.h; sourceTree = "<group>"; };
@@ -115,6 +158,14 @@
 		65859D4F196C4E49009F640D /* TournamentConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TournamentConfiguration.h; path = Source/TournamentConfiguration.h; sourceTree = "<group>"; };
 		65EC9A5D19691E99002F9DB2 /* TournamentScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TournamentScene.h; path = Source/TournamentScene.h; sourceTree = "<group>"; };
 		65EC9A5E19691E99002F9DB2 /* TournamentScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TournamentScene.m; path = Source/TournamentScene.m; sourceTree = "<group>"; };
+		71F9F57B1B4B17DE00DDEBB7 /* HarukiRobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HarukiRobotCpp.cpp; path = Source/HarukiRobotCpp.cpp; sourceTree = "<group>"; };
+		71F9F57C1B4B17DE00DDEBB7 /* HarukiRobotCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HarukiRobotCpp.h; path = Source/HarukiRobotCpp.h; sourceTree = "<group>"; };
+		71F9F5821B4B17EB00DDEBB7 /* StoppingRobot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StoppingRobot.cpp; path = Source/StoppingRobot.cpp; sourceTree = "<group>"; };
+		71F9F5831B4B17EB00DDEBB7 /* StoppingRobot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoppingRobot.h; path = Source/StoppingRobot.h; sourceTree = "<group>"; };
+		9613D8C31B4AF5CA0009E379 /* AlaskaThunder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AlaskaThunder.cpp; path = Source/AlaskaThunder.cpp; sourceTree = "<group>"; };
+		9613D8C41B4AF5CA0009E379 /* AlaskaThunder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlaskaThunder.h; path = Source/AlaskaThunder.h; sourceTree = "<group>"; };
+		9F0564B61B4B186100649A7F /* SuperKen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SuperKen.cpp; path = Source/ken/SuperKen.cpp; sourceTree = "<group>"; };
+		9F0564B71B4B186100649A7F /* SuperKen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SuperKen.h; path = Source/ken/SuperKen.h; sourceTree = "<group>"; };
 		B71F5907188484E7003F4D28 /* iPad-old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old.png"; path = "Icons/iPad-old.png"; sourceTree = "<group>"; };
 		B71F5908188484E7003F4D28 /* iPad-old@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old@2x.png"; path = "Icons/iPad-old@2x.png"; sourceTree = "<group>"; };
 		B71F5909188484E7003F4D28 /* iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iPad.png; path = Icons/iPad.png; sourceTree = "<group>"; };
@@ -206,16 +257,42 @@
 		65004D4E1B4A492800B151B8 /* Cpp */ = {
 			isa = PBXGroup;
 			children = (
-				65004D531B4A712600B151B8 /* CppConfiguration.h */,
+				65004D531B4A712600B151B8 /* CppIncludes.h */,
 				65004D4F1B4A4DCE00B151B8 /* CppInterface.h */,
 				65004D441B4A41CF00B151B8 /* RobotWrapper.h */,
 				65004D451B4A41CF00B151B8 /* RobotWrapper.mm */,
 				65004D501B4A5B2100B151B8 /* RobotCpp.mm */,
 				65004D511B4A5B2100B151B8 /* RobotCpp.h */,
-				65004D541B4A717D00B151B8 /* SimpleRobotCpp.cpp */,
-				65004D551B4A717D00B151B8 /* SimpleRobotCpp.h */,
 			);
 			name = Cpp;
+			sourceTree = "<group>";
+		};
+		65004DA81B4ACEA600B151B8 /* CppRobots */ = {
+			isa = PBXGroup;
+			children = (
+				9F0564AF1B4B180A00649A7F /* ken */,
+				65004D541B4A717D00B151B8 /* SimpleRobotCpp.cpp */,
+				65004D551B4A717D00B151B8 /* SimpleRobotCpp.h */,
+				65004D9B1B4AC97800B151B8 /* AdvancedRobotCpp.cpp */,
+				65004D9C1B4AC97800B151B8 /* AdvancedRobotCpp.h */,
+				65004DA91B4AD96400B151B8 /* TurretRobotCpp.cpp */,
+				65004DAA1B4AD96400B151B8 /* TurretRobotCpp.h */,
+				65004DAC1B4AF5DB00B151B8 /* NewAdvancedRobotCpp.cpp */,
+				65004DAD1B4AF5DB00B151B8 /* NewAdvancedRobotCpp.h */,
+				9613D8C31B4AF5CA0009E379 /* AlaskaThunder.cpp */,
+				9613D8C41B4AF5CA0009E379 /* AlaskaThunder.h */,
+				5B502C7C1B4AF6910040002A /* DoNothingRobotCpp.cpp */,
+				5B502C7D1B4AF6910040002A /* DoNothingRobotCpp.h */,
+				5B502C7F1B4AF9050040002A /* MoveOnlyRobotCpp.cpp */,
+				5B502C801B4AF9050040002A /* MoveOnlyRobotCpp.h */,
+				71F9F5821B4B17EB00DDEBB7 /* StoppingRobot.cpp */,
+				71F9F5831B4B17EB00DDEBB7 /* StoppingRobot.h */,
+				71F9F57B1B4B17DE00DDEBB7 /* HarukiRobotCpp.cpp */,
+				71F9F57C1B4B17DE00DDEBB7 /* HarukiRobotCpp.h */,
+				5B3A989F1B4AFD2900E30144 /* ShootOnlyRobotCpp.cpp */,
+				5B3A98A01B4AFD2900E30144 /* ShootOnlyRobotCpp.h */,
+			);
+			name = CppRobots;
 			sourceTree = "<group>";
 		};
 		65CC917619648EEE00838899 /* Robots */ = {
@@ -227,12 +304,6 @@
 				654E59171B3F96F5004CCACF /* SimpleRobot.m */,
 				654E59181B3F96F5004CCACF /* TurretRobot.h */,
 				654E59191B3F96F5004CCACF /* TurretRobot.m */,
-				65CC917719648EEE00838899 /* AdvancedRobot.h */,
-				65CC917819648EEE00838899 /* AdvancedRobot.m */,
-				65CC917919648EEE00838899 /* SimpleRobot.h */,
-				65CC917A19648EEE00838899 /* SimpleRobot.m */,
-				65CC917B19648EEE00838899 /* TurretRobot.h */,
-				65CC917C19648EEE00838899 /* TurretRobot.m */,
 				BC0E62DA196A0CB600AED4CF /* NewAdvancedRobot.h */,
 				BC0E62DB196A0CB600AED4CF /* NewAdvancedRobot.m */,
 				BC717227196AF978002FCF86 /* LiveRobot.h */,
@@ -250,6 +321,15 @@
 			name = libs;
 			sourceTree = "<group>";
 		};
+		9F0564AF1B4B180A00649A7F /* ken */ = {
+			isa = PBXGroup;
+			children = (
+				9F0564B61B4B186100649A7F /* SuperKen.cpp */,
+				9F0564B71B4B186100649A7F /* SuperKen.h */,
+			);
+			name = ken;
+			sourceTree = "<group>";
+		};
 		B737893C1807616C0076A88C /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -257,6 +337,7 @@
 				624A3886193E86140054705C /* GameConstants.h */,
 				65859D4F196C4E49009F640D /* TournamentConfiguration.h */,
 				65004D4E1B4A492800B151B8 /* Cpp */,
+				65004DA81B4ACEA600B151B8 /* CppRobots */,
 				62C4F42D1941413E0047553C /* Engine */,
 				65CC917619648EEE00838899 /* Robots */,
 			);
@@ -267,6 +348,9 @@
 			isa = PBXGroup;
 			children = (
 				B737894B180761A90076A88C /* libcocos2d.a */,
+				65004DA31B4AC97900B151B8 /* libcocos2dAndroid.a */,
+				65004DA51B4AC97900B151B8 /* libcocos2d-mac.a */,
+				65004DA71B4AC97900B151B8 /* cocos2dMacFramework.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -381,7 +465,7 @@
 				ORGANIZATIONNAME = MakeGamesWithUs;
 				TargetAttributes = {
 					B77F1B2D17B978D7009739AE = {
-						DevelopmentTeam = SBVP8ED765;
+						DevelopmentTeam = M8QSFKHKKE;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 0;
@@ -414,6 +498,27 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		65004DA31B4AC97900B151B8 /* libcocos2dAndroid.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libcocos2dAndroid.a;
+			remoteRef = 65004DA21B4AC97900B151B8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		65004DA51B4AC97900B151B8 /* libcocos2d-mac.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libcocos2d-mac.a";
+			remoteRef = 65004DA41B4AC97900B151B8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		65004DA71B4AC97900B151B8 /* cocos2dMacFramework.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = cocos2dMacFramework.framework;
+			remoteRef = 65004DA61B4AC97900B151B8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		B737894B180761A90076A88C /* libcocos2d.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -455,26 +560,34 @@
 			files = (
 				654E591C1B3F96F5004CCACF /* TurretRobot.m in Sources */,
 				65004D521B4A5B2100B151B8 /* RobotCpp.mm in Sources */,
-				629FCFF4193E71C300896E8C /* GameOverScene.m in Sources */,
 <<<<<<< HEAD
+				9F0564B91B4B186100649A7F /* SuperKen.cpp in Sources */,
+=======
+				71F9F57D1B4B17DE00DDEBB7 /* HarukiRobotCpp.cpp in Sources */,
+>>>>>>> de462267412514e9ae31a2b28a1af72ec69a0f02
+				629FCFF4193E71C300896E8C /* GameOverScene.m in Sources */,
+				65004DAE1B4AF5DB00B151B8 /* NewAdvancedRobotCpp.cpp in Sources */,
 				65004D461B4A41CF00B151B8 /* RobotWrapper.mm in Sources */,
 				650785D1196A20290022192D /* TournamentWonScene.m in Sources */,
+				9613D8C51B4AF5CA0009E379 /* AlaskaThunder.cpp in Sources */,
 				BC717229196AF978002FCF86 /* LiveRobot.m in Sources */,
-=======
-				BC717229196AF978002FCF86 /* LiveRobot.m in Sources */,
-				650785D1196A20290022192D /* TournamentWonScene.m in Sources */,
->>>>>>> ed83d7d8fc1801f12c91c0d6e36d0a9a2a548e88
 				6244629A1937DDD300895F2D /* Robot.m in Sources */,
+				5B502C811B4AF9050040002A /* MoveOnlyRobotCpp.cpp in Sources */,
 				65004D561B4A717D00B151B8 /* SimpleRobotCpp.cpp in Sources */,
 				B737893F1807617C0076A88C /* AppDelegate.m in Sources */,
+				65004D9D1B4AC97800B151B8 /* AdvancedRobotCpp.cpp in Sources */,
 				B7378994180767190076A88C /* MainScene.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
+				71F9F5841B4B17EB00DDEBB7 /* StoppingRobot.cpp in Sources */,
+				5B502C7E1B4AF6910040002A /* DoNothingRobotCpp.cpp in Sources */,
 				62C4F430194141DE0047553C /* Helpers.m in Sources */,
 				65EC9A5F19691E9A002F9DB2 /* TournamentScene.m in Sources */,
+				5B3A98A11B4AFD2900E30144 /* ShootOnlyRobotCpp.cpp in Sources */,
 				654E591B1B3F96F5004CCACF /* SimpleRobot.m in Sources */,
 				62E3A32419397BE400BD3F0F /* RobotAction.m in Sources */,
 				62E3A330193D3F3B00BD3F0F /* Bullet.m in Sources */,
 				654E591A1B3F96F5004CCACF /* AdvancedRobot.m in Sources */,
+				65004DAB1B4AD96400B151B8 /* TurretRobotCpp.cpp in Sources */,
 				BC0E62DC196A0CB600AED4CF /* NewAdvancedRobot.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -553,6 +666,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -569,7 +683,8 @@
 					"\"Source/libs/cocos2d-iphone/external/ObjectAL\"/**",
 				);
 				INFOPLIST_FILE = Source/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-lz",
@@ -577,7 +692,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = RobotWar;
-				PROVISIONING_PROFILE = "18D84403-392D-4C50-BA7D-C45F153D06AB";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -586,6 +701,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -601,14 +717,15 @@
 					"\"Source/libs/cocos2d-iphone/external/ObjectAL\"/**",
 				);
 				INFOPLIST_FILE = Source/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-lsqlite3",
 					"-ObjC",
 				);
 				PRODUCT_NAME = RobotWar;
-				PROVISIONING_PROFILE = "18D84403-392D-4C50-BA7D-C45F153D06AB";
+				PROVISIONING_PROFILE = "";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
