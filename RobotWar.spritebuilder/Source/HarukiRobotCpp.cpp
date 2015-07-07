@@ -84,7 +84,6 @@ void HarukiRobotCpp::run() {
                     this->turnGunRight(120.0f);
                 } else {
                     float move = (rand() % 4) + 5.0f;
-                    DEBUG_PRINT(move);
                     this->gunAngleMoved += move;
                     this->turnGunLeft(move);
                 }
@@ -166,10 +165,20 @@ void HarukiRobotCpp::bulletHitEnemy(RWVec enemyPosition) {
     this->enemysHitPoints--;
     this->lastKnownPosition = enemyPosition;
     this->lastKnownPositionTimestamp = this->currentTimestamp();
+    DEBUG_PRINT("distance:" << this->distance(position(), enemyPosition));
 }
 
 void HarukiRobotCpp::printStates() {
     DEBUG_PRINT("Position: " << this->position().x << ", " << this->position().y);
     DEBUG_PRINT("Gun head direction: " << this->gunHeadingDirection().x << ", " << this->gunHeadingDirection().y);
     DEBUG_PRINT("Gun angle: " << this->angleBetweenGunHeadingDirectionAndWorldPosition(this->headingDirection()));
+}
+
+float HarukiRobotCpp::distance(RWVec pos1, RWVec pos2) {
+    float x1 = pos1.x;
+    float x2 = pos2.y;
+    float y1 = pos1.x;
+    float y2 = pos2.y;
+
+    return pow((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1), 0.5);
 }
