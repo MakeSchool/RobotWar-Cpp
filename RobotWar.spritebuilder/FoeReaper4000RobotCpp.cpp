@@ -34,16 +34,18 @@ void FoeReaper4000RobotCpp::run()
 
 void FoeReaper4000RobotCpp::scannedRobotAtPosition(RWVec position)
 {
+    this->cancelActiveAction();
     lastEnemyPos = position;
     keepStay = true;
-    randomWalk(0,360,150,200);
+    randomWalk();
 
 }
 void FoeReaper4000RobotCpp::bulletHitEnemy(RWVec enemyPosition)
 {
+    this->cancelActiveAction();
     lastEnemyPos = enemyPosition;
     keepStay = true;
-    randomWalk(0,360,150,200);
+    randomWalk();
 }
 
 void FoeReaper4000RobotCpp::hitWallWithSideAndAngle(RobotWallHitSide::RobotWallHitSide side, float hitAngle)
@@ -54,7 +56,7 @@ void FoeReaper4000RobotCpp::hitWallWithSideAndAngle(RobotWallHitSide::RobotWallH
     {
         case RobotWallHitSide::FRONT:
         {
-            float x = generateRandomNumber(0.0f, (areaSize.width));
+            float x = generateRandomNumber(areaSize.width/4,areaSize.width/4*3);
             float y = 0.0f;
             int angle = (int) angleBetweenHeadingDirectionAndWorldPosition(RWVec(x, y));
             randomWalk(angle,angle,150,200);
@@ -63,7 +65,7 @@ void FoeReaper4000RobotCpp::hitWallWithSideAndAngle(RobotWallHitSide::RobotWallH
             
         case RobotWallHitSide::REAR:
         {
-            float x = generateRandomNumber(0.0f, (areaSize.width));
+            float x = generateRandomNumber(areaSize.width/4,areaSize.width/4*3);
             float y = areaSize.height;
             int angle = (int) angleBetweenHeadingDirectionAndWorldPosition(RWVec(x, y));
             randomWalk(angle,angle,150,200);
@@ -74,7 +76,7 @@ void FoeReaper4000RobotCpp::hitWallWithSideAndAngle(RobotWallHitSide::RobotWallH
         case RobotWallHitSide::LEFT:
         {
             float x = 0.0;
-            float y = generateRandomNumber(0.0f, (areaSize.height));
+            float y = generateRandomNumber(areaSize.height/4, areaSize.height/4*3);
             int angle = (int) angleBetweenHeadingDirectionAndWorldPosition(RWVec(x, y));
             randomWalk(angle,angle,150,200);
 
@@ -83,7 +85,7 @@ void FoeReaper4000RobotCpp::hitWallWithSideAndAngle(RobotWallHitSide::RobotWallH
         case RobotWallHitSide::RIGHT:
         {
             float x = areaSize.width;
-            float y = generateRandomNumber(0.0f, (areaSize.height));
+            float y = generateRandomNumber(areaSize.height/4, areaSize.height/4*3);
             int angle = (int) angleBetweenHeadingDirectionAndWorldPosition(RWVec(x, y));
             randomWalk(angle,angle,150,200);
 
@@ -139,6 +141,7 @@ void FoeReaper4000RobotCpp::optimizeGunPosition()
     //TODO: check if scanner find the enemy
     if (keepStay) {
         shootToPos(lastEnemyPos);
+        return;
     }
     
     RWVec robotPos = position();
