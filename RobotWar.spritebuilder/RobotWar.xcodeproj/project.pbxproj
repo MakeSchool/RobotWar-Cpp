@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		037FC65B1B4B54E100719DCA /* TAMAKI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 037FC65A1B4B54E100719DCA /* TAMAKI.cpp */; };
 		5B3A98A11B4AFD2900E30144 /* ShootOnlyRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B3A989F1B4AFD2900E30144 /* ShootOnlyRobotCpp.cpp */; };
+		5B3A99A41B4C30CA00E30144 /* AkiRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B3A99A21B4C30CA00E30144 /* AkiRobotCpp.cpp */; };
 		5B502C7E1B4AF6910040002A /* DoNothingRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B502C7C1B4AF6910040002A /* DoNothingRobotCpp.cpp */; };
 		5B502C811B4AF9050040002A /* MoveOnlyRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B502C7F1B4AF9050040002A /* MoveOnlyRobotCpp.cpp */; };
 		6244629A1937DDD300895F2D /* Robot.m in Sources */ = {isa = PBXBuildFile; fileRef = 624462991937DDD300895F2D /* Robot.m */; };
@@ -120,8 +121,8 @@
 		037FC65A1B4B54E100719DCA /* TAMAKI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TAMAKI.cpp; path = Source/Robot/TAMAKI.cpp; sourceTree = "<group>"; };
 		5B3A989F1B4AFD2900E30144 /* ShootOnlyRobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ShootOnlyRobotCpp.cpp; path = Source/Robot/ShootOnlyRobotCpp.cpp; sourceTree = "<group>"; };
 		5B3A98A01B4AFD2900E30144 /* ShootOnlyRobotCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShootOnlyRobotCpp.h; path = Source/Robot/ShootOnlyRobotCpp.h; sourceTree = "<group>"; };
-		5B3A99751B4B542E00E30144 /* Fliegerhammer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Fliegerhammer.cpp; path = Source/Fliegerhammer.cpp; sourceTree = "<group>"; };
-		5B3A99761B4B542E00E30144 /* Fliegerhammer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Fliegerhammer.h; path = Source/Fliegerhammer.h; sourceTree = "<group>"; };
+		5B3A99A21B4C30CA00E30144 /* AkiRobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AkiRobotCpp.cpp; path = Source/AkiRobotCpp.cpp; sourceTree = "<group>"; };
+		5B3A99A31B4C30CA00E30144 /* AkiRobotCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AkiRobotCpp.h; path = Source/AkiRobotCpp.h; sourceTree = "<group>"; };
 		5B502C7C1B4AF6910040002A /* DoNothingRobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DoNothingRobotCpp.cpp; path = Source/Robot/DoNothingRobotCpp.cpp; sourceTree = "<group>"; };
 		5B502C7D1B4AF6910040002A /* DoNothingRobotCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DoNothingRobotCpp.h; path = Source/Robot/DoNothingRobotCpp.h; sourceTree = "<group>"; };
 		5B502C7F1B4AF9050040002A /* MoveOnlyRobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MoveOnlyRobotCpp.cpp; path = Source/Robot/MoveOnlyRobotCpp.cpp; sourceTree = "<group>"; };
@@ -278,10 +279,10 @@
 		65004DA81B4ACEA600B151B8 /* CppRobots */ = {
 			isa = PBXGroup;
 			children = (
+				5B3A99A21B4C30CA00E30144 /* AkiRobotCpp.cpp */,
+				5B3A99A31B4C30CA00E30144 /* AkiRobotCpp.h */,
 				65004EA91B4B672200B151B8 /* Default */,
 				65004EAE1B4B674000B151B8 /* Testing */,
-				5B3A99751B4B542E00E30144 /* Fliegerhammer.cpp */,
-				5B3A99761B4B542E00E30144 /* Fliegerhammer.h */,
 				9F0564AF1B4B180A00649A7F /* ken */,
 				9613D8C31B4AF5CA0009E379 /* AlaskaThunderCpp.cpp */,
 				9613D8C41B4AF5CA0009E379 /* AlaskaThunderCpp.h */,
@@ -614,6 +615,7 @@
 				65EC9A5F19691E9A002F9DB2 /* TournamentScene.m in Sources */,
 				5B3A98A11B4AFD2900E30144 /* ShootOnlyRobotCpp.cpp in Sources */,
 				62E3A32419397BE400BD3F0F /* RobotAction.m in Sources */,
+				5B3A99A41B4C30CA00E30144 /* AkiRobotCpp.cpp in Sources */,
 				65004E681B4B3DDA00B151B8 /* AdvancedRobot.swift in Sources */,
 				62E3A330193D3F3B00BD3F0F /* Bullet.m in Sources */,
 				65004DAB1B4AD96400B151B8 /* TurretRobotCpp.cpp in Sources */,
