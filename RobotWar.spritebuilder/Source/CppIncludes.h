@@ -23,4 +23,6 @@
 #include "HarukiRobotCpp.h"
 #include "StoppingRobot.h"
 
+#include "Fliegerhammer.h"
+
 #endif

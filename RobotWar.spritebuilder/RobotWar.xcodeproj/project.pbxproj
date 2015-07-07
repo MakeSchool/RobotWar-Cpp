@@ -278,6 +278,8 @@
 				65004D551B4A717D00B151B8 /* SimpleRobotCpp.h */,
 				65004D9B1B4AC97800B151B8 /* AdvancedRobotCpp.cpp */,
 				65004D9C1B4AC97800B151B8 /* AdvancedRobotCpp.h */,
+				5B3A98BE1B4B116200E30144 /* Fliegerhammer.cpp */,
+				5B3A98BF1B4B116200E30144 /* Fliegerhammer.h */,
 				65004DA91B4AD96400B151B8 /* TurretRobotCpp.cpp */,
 				65004DAA1B4AD96400B151B8 /* TurretRobotCpp.h */,
 				65004DAC1B4AF5DB00B151B8 /* NewAdvancedRobotCpp.cpp */,
@@ -563,6 +565,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B3A98C01B4B116200E30144 /* Fliegerhammer.cpp in Sources */,
 				654E591C1B3F96F5004CCACF /* TurretRobot.m in Sources */,
 				65004D521B4A5B2100B151B8 /* RobotCpp.mm in Sources */,
 				9F0564B91B4B186100649A7F /* SuperKen.cpp in Sources */,
