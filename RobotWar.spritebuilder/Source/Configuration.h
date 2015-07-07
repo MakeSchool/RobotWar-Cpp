@@ -14,9 +14,7 @@
 static NSString *robotClass1 = @"RobotWrapper";
 static NSString *robotClass2 = @"RobotWrapper";
 
-#define ROBOT_ONE_CPP_CLASS AlaskaThunderCpp
-//#define ROBOT_TWO_CPP_CLASS TurretRobotCpp
-#define ROBOT_TWO_CPP_CLASS AdvancedRobotCpp
-
+#define ROBOT_ONE_CPP_CLASS AdvancedRobotCpp
+#define ROBOT_TWO_CPP_CLASS TurretRobotCpp
 
 #endif
