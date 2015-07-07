@@ -301,7 +301,6 @@
 				71F9F57C1B4B17DE00DDEBB7 /* HarukiRobotCpp.h */,
 				5B3A989F1B4AFD2900E30144 /* ShootOnlyRobotCpp.cpp */,
 				5B3A98A01B4AFD2900E30144 /* ShootOnlyRobotCpp.h */,
->>>>>>> 59830d0efac3c856ef2e7035d90e3baed99444f9
 			);
 			name = CppRobots;
 			sourceTree = "<group>";
