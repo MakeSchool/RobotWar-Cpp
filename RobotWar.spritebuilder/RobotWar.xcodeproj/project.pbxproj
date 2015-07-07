@@ -31,6 +31,7 @@
 		71F9F57D1B4B17DE00DDEBB7 /* HarukiRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71F9F57B1B4B17DE00DDEBB7 /* HarukiRobotCpp.cpp */; };
 		71F9F5841B4B17EB00DDEBB7 /* StoppingRobot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71F9F5821B4B17EB00DDEBB7 /* StoppingRobot.cpp */; };
 		9F0564B91B4B186100649A7F /* SuperKen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F0564B61B4B186100649A7F /* SuperKen.cpp */; };
+		6922C8041B4AF20E00684A97 /* MitsuRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6922C8021B4AF20E00684A97 /* MitsuRobotCpp.cpp */; };
 		B71F5911188484E7003F4D28 /* iPad-old.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5907188484E7003F4D28 /* iPad-old.png */; };
 		B71F5912188484E7003F4D28 /* iPad-old@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5908188484E7003F4D28 /* iPad-old@2x.png */; };
 		B71F5913188484E7003F4D28 /* iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5909188484E7003F4D28 /* iPad.png */; };
@@ -171,6 +172,8 @@
 		71F9F5831B4B17EB00DDEBB7 /* StoppingRobot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoppingRobot.h; path = Source/StoppingRobot.h; sourceTree = "<group>"; };
 		9F0564B61B4B186100649A7F /* SuperKen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SuperKen.cpp; path = Source/ken/SuperKen.cpp; sourceTree = "<group>"; };
 		9F0564B71B4B186100649A7F /* SuperKen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SuperKen.h; path = Source/ken/SuperKen.h; sourceTree = "<group>"; };
+		6922C8021B4AF20E00684A97 /* MitsuRobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MitsuRobotCpp.cpp; path = Source/MitsuRobotCpp.cpp; sourceTree = "<group>"; };
+		6922C8031B4AF20E00684A97 /* MitsuRobotCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MitsuRobotCpp.h; path = Source/MitsuRobotCpp.h; sourceTree = "<group>"; };
 		B71F5907188484E7003F4D28 /* iPad-old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old.png"; path = "Icons/iPad-old.png"; sourceTree = "<group>"; };
 		B71F5908188484E7003F4D28 /* iPad-old@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old@2x.png"; path = "Icons/iPad-old@2x.png"; sourceTree = "<group>"; };
 		B71F5909188484E7003F4D28 /* iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iPad.png; path = Icons/iPad.png; sourceTree = "<group>"; };
@@ -302,6 +305,8 @@
 				71F9F57C1B4B17DE00DDEBB7 /* HarukiRobotCpp.h */,
 				5B3A989F1B4AFD2900E30144 /* ShootOnlyRobotCpp.cpp */,
 				5B3A98A01B4AFD2900E30144 /* ShootOnlyRobotCpp.h */,
+				6922C8021B4AF20E00684A97 /* MitsuRobotCpp.cpp */,
+				6922C8031B4AF20E00684A97 /* MitsuRobotCpp.h */,
 			);
 			name = CppRobots;
 			sourceTree = "<group>";
@@ -584,6 +589,7 @@
 				5B502C811B4AF9050040002A /* MoveOnlyRobotCpp.cpp in Sources */,
 				65004D561B4A717D00B151B8 /* SimpleRobotCpp.cpp in Sources */,
 				B737893F1807617C0076A88C /* AppDelegate.m in Sources */,
+				6922C8041B4AF20E00684A97 /* MitsuRobotCpp.cpp in Sources */,
 				65004D9D1B4AC97800B151B8 /* AdvancedRobotCpp.cpp in Sources */,
 				B7378994180767190076A88C /* MainScene.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,

@@ -23,6 +23,7 @@
 #include "ShootOnlyRobotCpp.h"
 #include "HarukiRobotCpp.h"
 #include "StoppingRobot.h"
+#include "MitsuRobotCpp.h"
 
 #include "Fliegerhammer.h"
 
