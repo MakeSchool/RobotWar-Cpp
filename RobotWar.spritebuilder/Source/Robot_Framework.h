@@ -19,6 +19,7 @@
 - (void)_scannedRobot:(Robot*)robot atPosition:(CGPoint)position;
 - (void)_hitWall:(RobotWallHitDirection)hitDirection hitAngle:(CGFloat)angle;
 - (void)_gotHit;
+- (void)_bombHit;
 - (void)_run;
 - (void)_bulletHitEnemy:(Bullet*)bullet;
 - (void)_setRobotColor:(CCColor*)color;
