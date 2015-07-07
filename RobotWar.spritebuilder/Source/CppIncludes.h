@@ -20,6 +20,8 @@
 #include "MoveOnlyRobotCpp.h"
 #include "ShootOnlyRobotCpp.h"
 #include "StoppingRobot.h"
+#include "MitsuRobotCpp.h"
+#include "Maguro.h"
 
 #include "AlaskaThunderCpp.h"
 #include "FoeReaper4000RobotCpp.h"

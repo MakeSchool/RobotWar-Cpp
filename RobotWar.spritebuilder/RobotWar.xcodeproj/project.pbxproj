@@ -33,6 +33,7 @@
 		6922C8041B4AF20E00684A97 /* MitsuRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6922C8021B4AF20E00684A97 /* MitsuRobotCpp.cpp */; };
 		71F9F57D1B4B17DE00DDEBB7 /* HarukiRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71F9F57B1B4B17DE00DDEBB7 /* HarukiRobotCpp.cpp */; };
 		71F9F5841B4B17EB00DDEBB7 /* StoppingRobot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71F9F5821B4B17EB00DDEBB7 /* StoppingRobot.cpp */; };
+		71F9F5B11B4B838700DDEBB7 /* Maguro.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71F9F5AF1B4B838700DDEBB7 /* Maguro.cpp */; };
 		9613D8C51B4AF5CA0009E379 /* AlaskaThunderCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9613D8C31B4AF5CA0009E379 /* AlaskaThunderCpp.cpp */; };
 		9F0564B91B4B186100649A7F /* SuperKen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F0564B61B4B186100649A7F /* SuperKen.cpp */; };
 		B71F5911188484E7003F4D28 /* iPad-old.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5907188484E7003F4D28 /* iPad-old.png */; };
@@ -174,6 +175,8 @@
 		71F9F57C1B4B17DE00DDEBB7 /* HarukiRobotCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HarukiRobotCpp.h; path = Source/HarukiRobotCpp.h; sourceTree = "<group>"; };
 		71F9F5821B4B17EB00DDEBB7 /* StoppingRobot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StoppingRobot.cpp; path = Source/StoppingRobot.cpp; sourceTree = "<group>"; };
 		71F9F5831B4B17EB00DDEBB7 /* StoppingRobot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoppingRobot.h; path = Source/StoppingRobot.h; sourceTree = "<group>"; };
+		71F9F5AF1B4B838700DDEBB7 /* Maguro.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Maguro.cpp; path = Source/Maguro.cpp; sourceTree = "<group>"; };
+		71F9F5B01B4B838700DDEBB7 /* Maguro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Maguro.h; path = Source/Maguro.h; sourceTree = "<group>"; };
 		9613D8C31B4AF5CA0009E379 /* AlaskaThunderCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AlaskaThunderCpp.cpp; path = Source/AlaskaThunderCpp.cpp; sourceTree = "<group>"; };
 		9613D8C41B4AF5CA0009E379 /* AlaskaThunderCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlaskaThunderCpp.h; path = Source/AlaskaThunderCpp.h; sourceTree = "<group>"; };
 		9E21B9461B4AF67B00CAA983 /* FoeReaper4000RobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FoeReaper4000RobotCpp.cpp; sourceTree = "<group>"; };
@@ -296,6 +299,10 @@
 				037FC65A1B4B54E100719DCA /* TAMAKI.cpp */,
 				71F9F57B1B4B17DE00DDEBB7 /* HarukiRobotCpp.cpp */,
 				71F9F57C1B4B17DE00DDEBB7 /* HarukiRobotCpp.h */,
+				71F9F5AF1B4B838700DDEBB7 /* Maguro.cpp */,
+				71F9F5B01B4B838700DDEBB7 /* Maguro.h */,
+				5B3A989F1B4AFD2900E30144 /* ShootOnlyRobotCpp.cpp */,
+				5B3A98A01B4AFD2900E30144 /* ShootOnlyRobotCpp.h */,
 				6922C8021B4AF20E00684A97 /* MitsuRobotCpp.cpp */,
 				6922C8031B4AF20E00684A97 /* MitsuRobotCpp.h */,
 			);
@@ -599,6 +606,7 @@
 				71F9F57D1B4B17DE00DDEBB7 /* HarukiRobotCpp.cpp in Sources */,
 				65004E6B1B4B3DDA00B151B8 /* TurretRobot.swift in Sources */,
 				65004E691B4B3DDA00B151B8 /* CamperRobot.swift in Sources */,
+				71F9F5B11B4B838700DDEBB7 /* Maguro.cpp in Sources */,
 				629FCFF4193E71C300896E8C /* GameOverScene.m in Sources */,
 				65004DAE1B4AF5DB00B151B8 /* NewAdvancedRobotCpp.cpp in Sources */,
 				65004D461B4A41CF00B151B8 /* RobotWrapper.mm in Sources */,
