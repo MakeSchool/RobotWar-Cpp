@@ -63,9 +63,7 @@ void Maguro::scannedRobotAtPosition(RWVec position) {
 }
 
 void Maguro::gotHit() {
-    if (this->currentTimestamp() - lastHitTimestamp < 5.0f) {
-        this->currentState = MaguroAction::ESCAPE;
-    }
+    this->currentState = MaguroAction::ESCAPE;
     this->lastHitTimestamp = this->currentTimestamp();
 }
 
