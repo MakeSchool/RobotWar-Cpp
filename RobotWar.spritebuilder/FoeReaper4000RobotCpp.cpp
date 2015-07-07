@@ -10,10 +10,12 @@
 #include <random>
 #include <iostream>
 
+
 FoeReaper4000RobotCpp::FoeReaper4000RobotCpp()
 {
     lastEnemyPos.x = -1;
     lastEnemyPos.y = -1;
+    keepStay = false;
 }
 
 //Size of the robot 50*35
@@ -32,20 +34,15 @@ void FoeReaper4000RobotCpp::run()
 
 void FoeReaper4000RobotCpp::scannedRobotAtPosition(RWVec position)
 {
-
-    float x = generateRandomNumber(position.x , position.x );
-    float y = generateRandomNumber(position.y , position.y );
-    lastEnemyPos = RWVec(x, y);
-    timesToShort = 2;
+    lastEnemyPos = position;
+    keepStay = true;
     randomWalk(0,360,150,200);
 
 }
 void FoeReaper4000RobotCpp::bulletHitEnemy(RWVec enemyPosition)
 {
-    float x = generateRandomNumber(enemyPosition.x , enemyPosition.x );
-    float y = generateRandomNumber(enemyPosition.y , enemyPosition.y );
-    lastEnemyPos = RWVec(x, y);
-    timesToShort = 2;
+    lastEnemyPos = enemyPosition;
+    keepStay = true;
     randomWalk(0,360,150,200);
 }
 
@@ -102,6 +99,7 @@ void FoeReaper4000RobotCpp::hitWallWithSideAndAngle(RobotWallHitSide::RobotWallH
 //if got hit, make a random move
 void FoeReaper4000RobotCpp::gotHit() {
     //TODO: if enemy is in the area of scanner, do not move to enemy?
+   keepStay = false;
    randomWalk(0,360,150,200);
     
 }
@@ -116,8 +114,9 @@ void FoeReaper4000RobotCpp::randomWalk(int beginDegree, int endDegree, int begin
 {
     int nextDistance = generateRandomNumber(beginDistance, endDistance);
     int nextDegree = generateRandomNumber(beginDegree, endDegree);
-    //do not move to sde
-    optimizeMove(nextDegree,nextDistance);
+    if (! keepStay) {
+        optimizeMove(nextDegree,nextDistance);
+    }
     optimizeGunPosition();
 }
 
@@ -138,9 +137,8 @@ float FoeReaper4000RobotCpp::generateRandomNumber(float begin, float end)
 void FoeReaper4000RobotCpp::optimizeGunPosition()
 {
     //TODO: check if scanner find the enemy
-    if (timesToShort > 0 ) {
+    if (keepStay) {
         shootToPos(lastEnemyPos);
-        timesToShort --;
     }
     
     RWVec robotPos = position();
