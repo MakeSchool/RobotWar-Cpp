@@ -16,7 +16,7 @@ static CGFloat const ROBOT_DISTANCE_PER_SECOND = 100;
 static NSInteger const ROBOT_INITIAL_LIFES = 20;
 static CGFloat const SCAN_DISTANCE = 150.f;
 static CGFloat const SCAN_FIELD_OF_VIEW = 90.f;
-static CGFloat const START_BOMBS = 10.f;
-static CGFloat const BETWEEN_BOMBS = 4.f;
+static CGFloat const START_BOMBS = 30.f;
+static CGFloat const BETWEEN_BOMBS = 5.f;
 
 #endif
