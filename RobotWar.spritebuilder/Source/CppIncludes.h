@@ -28,7 +28,7 @@
 #include "SuperKen.h"
 #include "TAMAKI.h"
 #include "HarukiRobotCpp.h"
-#include "MitsuRobotCpp.h"
 #include "AkiRobotCpp.h"
+#include "CookieRobotCpp.h"
 
 #endif
