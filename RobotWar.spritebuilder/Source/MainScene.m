@@ -46,23 +46,38 @@
   _robots = [NSMutableArray array];
 }
 
+- (Class)swiftClassFromString:(NSString *)className {
+    NSString *appName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"];
+    NSString *classStringName = [NSString stringWithFormat:@"_TtC%lu%@%lu%@", (unsigned long)appName.length, appName, (unsigned long)className.length, className];
+    return NSClassFromString(classStringName);
+}
+
 - (void)initWithRobotClassOne:(NSString *)botClass1 andRobotClassTwo:(NSString *)botClass2  {
   // intantiate two AIs
     
-  Robot *robot1 = (Robot*) [[NSClassFromString(botClass1) alloc] init];
-
+    Robot* robot1;
+    Robot* robot2;
+    
   if ([botClass1 isEqualToString:@"RobotWrapper"])
   {
+      robot1 = (Robot*) [[NSClassFromString(botClass1) alloc] init];
       RobotWrapper* robotOneWrapper = (RobotWrapper*) robot1;
       [robotOneWrapper setCppRobotClassForRobot:YES];
   }
-    
-  Robot *robot2 = (Robot*) [[NSClassFromString(botClass2) alloc] init];
+  else
+  {
+      robot1 = (Robot*) [[[self swiftClassFromString:botClass1] alloc] init];
+  }
     
   if ([botClass2 isEqualToString:@"RobotWrapper"])
   {
+      robot2 = (Robot*) [[NSClassFromString(botClass2) alloc] init];
       RobotWrapper* robotTwoWrapper = (RobotWrapper*) robot2;
       [robotTwoWrapper setCppRobotClassForRobot:NO];
+  }
+  else
+  {
+      robot2 = (Robot*) [[[self swiftClassFromString:botClass2] alloc] init];
   }
     
   _robots = [NSMutableArray arrayWithArray:@[robot1, robot2]];
@@ -197,13 +212,13 @@
         continue;
       } else if (ccpDistance(robot.robotNode.position, otherRobot.robotNode.position)  < SCAN_DISTANCE) {
         if (timeSinceLastEvent > 0.5f/GAME_SPEED) {
-          if (fabsf([robot angleBetweenGunHeadingDirectionAndWorldPosition:otherRobot.position]) < SCAN_FIELD_OF_VIEW/2) {
+          if (fabsf( (float) [robot angleBetweenGunHeadingDirectionAndWorldPosition:otherRobot.position]) < SCAN_FIELD_OF_VIEW/2) {
             [robot _scannedRobot:[otherRobot copy] atPosition:otherRobot.robotNode.positionInPoints];
             [robot _updateFOVScaned:YES];
           } else {
             [robot _updateFOVScaned:NO];
           }
-          if (fabsf([otherRobot angleBetweenGunHeadingDirectionAndWorldPosition:robot.position]) < SCAN_FIELD_OF_VIEW/2) {
+          if (fabsf( (float) [otherRobot angleBetweenGunHeadingDirectionAndWorldPosition:robot.position]) < SCAN_FIELD_OF_VIEW/2) {
             [otherRobot _scannedRobot:[robot copy] atPosition:robot.robotNode.positionInPoints];
             [otherRobot _updateFOVScaned:YES];
           } else {

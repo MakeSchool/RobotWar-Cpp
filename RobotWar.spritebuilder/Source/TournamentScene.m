@@ -44,7 +44,12 @@ static NSMutableDictionary* schedule;
             {
                 // No tournament on disk, so make a new one
                 NSArray* allRobots = ClassGetSubclasses([Robot class]);
-                schedule = [NSMutableDictionary dictionaryWithDictionary:[self createTournamentScheduleWithBots:allRobots]];
+                
+                // Swift classes seem to prepend with BundleName (format seems to be BundleName.ClassName now)
+                // So remove the BundleName. part so that we can load the Swift classes later
+                NSArray* robotClassStrings = [self convertClassArrayToClassNameArrayRemovingBundleID:allRobots];
+                
+                schedule = [NSMutableDictionary dictionaryWithDictionary:[self createTournamentScheduleWithBots:robotClassStrings]];
                 tournamentOver = NO;
             }
         });
@@ -126,22 +131,50 @@ NSArray *ClassGetSubclasses(Class parentClass)
     return result;
 }
 
-- (NSDictionary*)createTournamentScheduleWithBots:(NSArray*)robots
+- (NSArray*) convertClassArrayToClassNameArrayRemovingBundleID:(NSArray*) classArray
 {
-    NSMutableArray* matches = [NSMutableArray arrayWithCapacity:(robots.count / 2) * (robots.count - 1)];
-    NSMutableDictionary* records = [NSMutableDictionary dictionaryWithCapacity:robots.count];
+    NSString* appName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"];
+    
+    NSString* bundleNameWithDot = [NSString stringWithFormat:@"%@.", appName];
+    
+    NSMutableArray* allRobotsFixed = [NSMutableArray arrayWithCapacity:classArray.count];
+    
+    for (Class class in classArray)
+    {
+        const char* className = class_getName(class);
+        NSString* classString = [NSString stringWithUTF8String:className];
+        
+        NSRange replaceRange = [classString rangeOfString:bundleNameWithDot];
+        
+        if (replaceRange.location != NSNotFound)
+        {
+            NSString* fixedRobotClassString = [classString stringByReplacingCharactersInRange:replaceRange withString:@""];
+            [allRobotsFixed addObject:fixedRobotClassString];
+        }
+        else
+        {
+            [allRobotsFixed addObject:classString];
+        }
+    }
+    
+    return allRobotsFixed;
+}
+
+
+- (NSDictionary*)createTournamentScheduleWithBots:(NSArray*)robotNames
+{
+    NSMutableArray* matches = [NSMutableArray arrayWithCapacity:(robotNames.count / 2) * (robotNames.count - 1)];
+    NSMutableDictionary* records = [NSMutableDictionary dictionaryWithCapacity:robotNames.count];
     
     int matchNumber = 0;
     
-    for (int i = 0; i < robots.count; ++i)
+    for (int i = 0; i < robotNames.count; ++i)
     {
-        const char* robotOneClassName = class_getName(robots[i]);
-        NSString* robotOneClassString = [NSString stringWithUTF8String:robotOneClassName];
+        NSString* robotOneClassString = robotNames[i];
         
-        for (int j = i + 1; j < robots.count; ++j)
+        for (int j = i + 1; j < robotNames.count; ++j)
         {
-            const char* robotTwoClassName = class_getName(robots[j]);
-            NSString* robotTwoClassString = [NSString stringWithUTF8String:robotTwoClassName];
+            NSString* robotTwoClassString = robotNames[j];
             
             NSDictionary* match = @{@"Match": @(matchNumber),
                                     @"RobotOne": robotOneClassString,
