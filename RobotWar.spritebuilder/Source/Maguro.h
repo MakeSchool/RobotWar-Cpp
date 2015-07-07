@@ -27,6 +27,7 @@ public:
     void bulletHitEnemy(RWVec enemyPosition) override;
 
 private:
+    bool is1P;
     bool moveUp;
     MaguroAction::MaguroAction currentState;
     RWVec lastKnownPosition;

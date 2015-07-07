@@ -40,11 +40,21 @@ void Maguro::run() {
 
             case MaguroAction::AIMING:
                 RWSize size = this->arenaDimensions();
-                RWVec pos = RWVec(size.width, size.height);
-                RWVec pos2 = RWVec(size.width, 0.0f);
-                float angle = this->angleBetweenGunHeadingDirectionAndWorldPosition(pos) + shotCount * 2.0f;
-                shotTo(angle);
-                shotCount = angle > angleBetweenGunHeadingDirectionAndWorldPosition(pos2) ? 0 : shotCount + 1;
+                RWVec pos, pos2;
+                float angle;
+                if (is1P) {
+                    pos = RWVec(size.width, size.height);
+                    pos2 = RWVec(size.width, 0.0f);
+                    angle = this->angleBetweenGunHeadingDirectionAndWorldPosition(pos) + shotCount * 2.0f;
+                    shotTo(angle);
+                    shotCount = angle > angleBetweenGunHeadingDirectionAndWorldPosition(pos2) ? 0 : shotCount + 1;
+                } else {
+                    pos = RWVec(0, size.height);
+                    pos2 = RWVec(0, 0.0f);
+                    angle = this->angleBetweenGunHeadingDirectionAndWorldPosition(pos) - shotCount * 2.0f;
+                    shotTo(angle);
+                    shotCount = angle < angleBetweenGunHeadingDirectionAndWorldPosition(pos2) ? 0 : shotCount + 1;
+                }
                 break;
         }
     }
@@ -71,6 +81,7 @@ void Maguro::hitWallWithSideAndAngle(RobotWallHitSide::RobotWallHitSide side, fl
     this->cancelActiveAction();
 
     if (this->currentState == MaguroAction::INIT) {
+        is1P = (this->arenaDimensions().width / 2) > position().x;
         this->turnRobotLeft(90);
         this->currentState = MaguroAction::AIMING;
     } else if (this->currentState == MaguroAction::ESCAPE) {
