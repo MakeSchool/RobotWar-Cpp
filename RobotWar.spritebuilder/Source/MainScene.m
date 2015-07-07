@@ -23,6 +23,8 @@
     
   CCLabelTTF* _robot1Label;
   CCLabelTTF* _robot2Label;
+  
+  CGFloat timeSinceBomb;
 }
 
 #pragma mark - Lifecycle / Scene Transitions
@@ -32,7 +34,8 @@
 }
 
 - (void)didLoadFromCCB {
-    
+  timeSinceBomb = 0.f;
+  
   _bullets = [NSMutableArray array];
   
   _robots = [NSMutableArray array];
@@ -97,6 +100,7 @@
 - (void)update:(CCTime)delta {
   timeSinceLastEvent += delta * GAME_SPEED;
   self.currentTimestamp += delta * GAME_SPEED;
+  timeSinceBomb += delta * GAME_SPEED;
   
   for (Robot *robot in _robots) {
     if (!CGRectContainsRect(self.boundingBox, robot.robotNode.boundingBox)) {
@@ -161,6 +165,11 @@
       }
     }
   }
+  
+  if (self.currentTimestamp > START_BOMBS && timeSinceBomb > BETWEEN_BOMBS) {
+      [self dropBomb];
+      timeSinceBomb = 0;
+  }
     
   if (labelsNeedUpdate)
       [self updateScoreLabels];
@@ -207,6 +216,47 @@
     [robot _hitWall:direction hitAngle:collisionAngle];
     timeSinceLastEvent = 0.f;
   }
+}
+
+- (void)dropBomb {
+  CGSize dim = [self dimensions];
+  
+  int corner = arc4random_uniform(4);
+  int angle = arc4random_uniform(90);
+  int distance = arc4random_uniform([self dimensions].width/2);
+  CGPoint cornerPosition = ccp(0, 0);
+  
+  switch (corner) {
+    case 0: //bottom-left
+      break;
+    case 1: //top-left
+      cornerPosition = ccpAdd(cornerPosition, ccp(0, dim.height));
+      angle += 270;
+      break;
+    case 2: //top-right
+      cornerPosition = ccpAdd(cornerPosition, ccp(dim.width, dim.height));
+      angle += 180;
+      break;
+    case 3: //bottom-right
+      cornerPosition = ccpAdd(cornerPosition, ccp(dim.width, 0));
+      angle += 90;
+      break;
+  }
+  
+  CGPoint diffFromCorner = ccpMult(ccpForAngle(CC_DEGREES_TO_RADIANS(angle)), distance);
+  CGPoint bombPos = ccpAdd(cornerPosition, diffFromCorner);
+  
+  CCParticleSystem *explosion = (CCParticleSystem *) [CCBReader load:@"RobotExplosion"];
+  [_gameNode addChild:explosion];
+  explosion.position = bombPos;
+  
+  for (Robot *robot in _robots) {
+    if (ccpDistance(robot.position, bombPos) < 65) {
+      [robot _bombHit];
+    }
+  }
+  
+  [self updateScoreLabels];
 }
 
 #pragma mark - GameBoard Protocol
