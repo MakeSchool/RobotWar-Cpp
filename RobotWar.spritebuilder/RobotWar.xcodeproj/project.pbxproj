@@ -177,6 +177,9 @@
 		9E21B9471B4AF67B00CAA983 /* FoeReaper4000RobotCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoeReaper4000RobotCpp.h; sourceTree = "<group>"; };
 		9F0564B61B4B186100649A7F /* SuperKen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SuperKen.cpp; path = Source/ken/SuperKen.cpp; sourceTree = "<group>"; };
 		9F0564B71B4B186100649A7F /* SuperKen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SuperKen.h; path = Source/ken/SuperKen.h; sourceTree = "<group>"; };
+		9F0564F11B4B3E3800649A7F /* KMath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KMath.h; sourceTree = "<group>"; };
+		6922C8021B4AF20E00684A97 /* MitsuRobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MitsuRobotCpp.cpp; path = Source/MitsuRobotCpp.cpp; sourceTree = "<group>"; };
+		6922C8031B4AF20E00684A97 /* MitsuRobotCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MitsuRobotCpp.h; path = Source/MitsuRobotCpp.h; sourceTree = "<group>"; };
 		B71F5907188484E7003F4D28 /* iPad-old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old.png"; path = "Icons/iPad-old.png"; sourceTree = "<group>"; };
 		B71F5908188484E7003F4D28 /* iPad-old@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old@2x.png"; path = "Icons/iPad-old@2x.png"; sourceTree = "<group>"; };
 		B71F5909188484E7003F4D28 /* iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iPad.png; path = Icons/iPad.png; sourceTree = "<group>"; };
@@ -345,6 +348,7 @@
 			children = (
 				9F0564B61B4B186100649A7F /* SuperKen.cpp */,
 				9F0564B71B4B186100649A7F /* SuperKen.h */,
+				9F0564F11B4B3E3800649A7F /* KMath.h */,
 			);
 			name = ken;
 			sourceTree = "<group>";
