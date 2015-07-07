@@ -19,6 +19,7 @@ namespace TAMAKIAction {
         SEARCH_USING_SNIPE,
         SEARCH_USING_SNIPE_CLOSE_TO_LAST_ENEMY_POSITION,
         SNIPE,
+        ESCAPE,
     };
 }
 
@@ -38,11 +39,13 @@ private:
     std::vector<RWVec> enemyPositions;
     int enemyHitpoint;
     time_t lastHitTime;
+    int escapeCounter;
 
     void prepareForSnipe();
     void searchUsingSnipe();
     void searchUsingSnipeCloseToLastEnemyPosition();
     void snipe();
+    void escape();
 
     void setState(TAMAKIAction::TAMAKIAction state);
 

@@ -37,7 +37,7 @@ void TAMAKI::run()
                 this->searchUsingSnipe();
                 break;
             case TAMAKIAction::SNIPE:
-                if (this->lastHitTime < std::time(nullptr) - 1)
+                if (this->lastHitTime < std::time(nullptr) - 1.5)
                 {
                     this->setState(TAMAKIAction::SEARCH_USING_SNIPE_CLOSE_TO_LAST_ENEMY_POSITION);
                     break;
@@ -46,6 +46,9 @@ void TAMAKI::run()
                 break;
             case TAMAKIAction::SEARCH_USING_SNIPE_CLOSE_TO_LAST_ENEMY_POSITION:
                 this->searchUsingSnipeCloseToLastEnemyPosition();
+                break;
+            case TAMAKIAction::ESCAPE:
+                this->escape();
                 break;
 
             default:
@@ -63,7 +66,12 @@ void TAMAKI::scannedRobotAtPosition(RWVec position)
 
 void TAMAKI::gotHit()
 {
-
+    this->escapeCounter++;
+    if (this->escapeCounter > 3)
+    {
+        this->escapeCounter = 0;
+        this->setState(TAMAKIAction::ESCAPE);
+    }
 }
 
 void TAMAKI::hitWallWithSideAndAngle(RobotWallHitSide::RobotWallHitSide side, float hitAngle)
@@ -105,36 +113,32 @@ void TAMAKI::bulletHitEnemy(RWVec enemyPosition)
 void TAMAKI::prepareForSnipe()
 {
     RWSize arenaSize = this->arenaDimensions();
-    RWVec headingDirection = this->headingDirection();
 
-    this->printRWSize(arenaSize);
-    this->printRWVec(this->position());
-
-    int degreeToRotate = this->radianToDegree(std::asin(headingDirection.y));
-    int directionToRotate = this->radianToDegree(std::acos(headingDirection.x));
-
-//    std::cout << degreeToRotate << std::endl;
-//    std::cout << directionToRotate << std::endl;
-
-    if (directionToRotate > 0)
+    RWVec toVec;
+    int toDegree;
+    if (this->position().x < arenaSize.width / 2.0f)
     {
-        this->turnRobotLeft(degreeToRotate);
+        toVec = RWVec(arenaSize.width - 50.0f, this->position().y);
+        toDegree = this->angleBetweenHeadingDirectionAndWorldPosition(toVec);
     }
     else
     {
-        this->turnRobotRight(degreeToRotate);
+        toVec = RWVec(50.0f, this->position().y);
+        toDegree = this->angleBetweenHeadingDirectionAndWorldPosition(toVec);
+    }
+    if (toDegree < 0)
+    {
+        this->turnRobotLeft(abs(toDegree));
+    }
+    else
+    {
+        this->turnRobotRight(toDegree);
     }
 
-    // TODO: something wrong
-//    float arenaSizeWidthHalved = arenaSize.width / 2.0f;
-//    float distanceToMoveBack = floor(arenaSizeWidthHalved - fabsf(this->position().x - arenaSizeWidthHalved/* avoid collision */));
-//    std::cout << distanceToMoveBack << std::endl;
-//    this->moveBack(20);
+    float arenaSizeWidthHalved = arenaSize.width / 2.0f;
+    float distanceToMoveBack = floor(arenaSizeWidthHalved - fabsf(this->position().x - arenaSizeWidthHalved/* avoid collision */));
+    this->moveBack(distanceToMoveBack);
 
-//    this->printRWVec(this->position());
-
-    this->turnRobotLeft(90);
-    this->turnGunRight(90);
     this->setState(TAMAKIAction::SEARCH_USING_SNIPE);
 }
 
@@ -142,19 +146,21 @@ void TAMAKI::searchUsingSnipe()
 {
     RWSize arenaSize = this->arenaDimensions();
 
-    RWVec firstShootPosition;
+    RWVec firstShootPosition, endShootPosition;
     if (this->position().x < arenaSize.width / 2.0f)
     {
         firstShootPosition = RWVec(arenaSize.width, arenaSize.height);
+        endShootPosition = RWVec(arenaSize.width, 0.0f);
     }
     else
     {
         firstShootPosition = RWVec(0.0f, 0.0f);
+        endShootPosition = RWVec(0.0f, arenaSize.height);
     }
 
     int angleToStart = this->angleBetweenGunHeadingDirectionAndWorldPosition(firstShootPosition);
     int startDegree = this->degreeBetweenRWVecs(this->position(), firstShootPosition);
-    int endDegree = this->degreeBetweenRWVecs(this->position(), RWVec(arenaSize.width / 2.0f, 0.0f));
+    int endDegree = this->degreeBetweenRWVecs(this->position(), endShootPosition);
 
     if (angleToStart < 0)
     {
@@ -167,7 +173,7 @@ void TAMAKI::searchUsingSnipe()
     this->shoot();
 
     int totalDeltaDegree = abs(startDegree) + abs(endDegree);
-    const int deltaDegree = 10;
+    const int deltaDegree = 8;
     for (int deg = 0; deg < totalDeltaDegree; deg += deltaDegree)
     {
         if (this->state != TAMAKIAction::SEARCH_USING_SNIPE)
@@ -182,20 +188,20 @@ void TAMAKI::searchUsingSnipe()
 
 void TAMAKI::searchUsingSnipeCloseToLastEnemyPosition()
 {
-    const int angleRange = 40;
+    const int angleRange = 20;
+    const int deltaDegree = 5;
 
     int angleToStart = this->angleBetweenGunHeadingDirectionAndWorldPosition(this->enemyPositions.back());
     if (angleToStart < 0)
     {
-        this->turnGunLeft(abs(angleToStart) + 20);
+        this->turnGunLeft(abs(angleToStart) + angleRange / 2);
     }
     else
     {
-        this->turnGunRight(angleToStart + 20);
+        this->turnGunRight(angleToStart + angleRange / 2);
     }
     this->shoot();
 
-    const int deltaDegree = 7;
     for (int deg = 0; deg < angleRange; deg += deltaDegree)
     {
         if (this->state != TAMAKIAction::SEARCH_USING_SNIPE_CLOSE_TO_LAST_ENEMY_POSITION)
@@ -234,10 +240,22 @@ void TAMAKI::snipe()
     this->shoot();
 }
 
+void TAMAKI::escape()
+{
+    RWSize arenaSize = this->arenaDimensions();
+    this->moveAhead(arenaSize.width - 70);
+    this->setState(TAMAKIAction::PREPARE_FOR_SNIPE);
+}
+
 #pragma mark - Accessor
 
 void TAMAKI::setState(TAMAKIAction::TAMAKIAction state)
 {
+    if (this->state == TAMAKIAction::ESCAPE && state != TAMAKIAction::PREPARE_FOR_SNIPE)
+    {
+        return;
+    }
+
     this->state = state;
     switch (state) {
         case TAMAKIAction::SNIPE:
