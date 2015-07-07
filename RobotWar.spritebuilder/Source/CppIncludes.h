@@ -28,6 +28,7 @@
 #include "SuperKen.h"
 #include "TAMAKI.h"
 #include "HarukiRobotCpp.h"
-#include "Fliegerhammer.h"
+#include "MitsuRobotCpp.h"
+#include "AkiRobotCpp.h"
 
 #endif
