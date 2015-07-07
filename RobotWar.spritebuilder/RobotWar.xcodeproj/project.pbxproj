@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		037FC65B1B4B54E100719DCA /* TAMAKI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 037FC65A1B4B54E100719DCA /* TAMAKI.cpp */; };
 		5B3A98A11B4AFD2900E30144 /* ShootOnlyRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B3A989F1B4AFD2900E30144 /* ShootOnlyRobotCpp.cpp */; };
 		5B3A99771B4B542E00E30144 /* Fliegerhammer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B3A99751B4B542E00E30144 /* Fliegerhammer.cpp */; };
 		5B502C7E1B4AF6910040002A /* DoNothingRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B502C7C1B4AF6910040002A /* DoNothingRobotCpp.cpp */; };
@@ -117,6 +118,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		037FC6591B4B54E100719DCA /* TAMAKI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TAMAKI.h; path = Source/Robot/TAMAKI.h; sourceTree = "<group>"; };
+		037FC65A1B4B54E100719DCA /* TAMAKI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TAMAKI.cpp; path = Source/Robot/TAMAKI.cpp; sourceTree = "<group>"; };
 		5B3A989F1B4AFD2900E30144 /* ShootOnlyRobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ShootOnlyRobotCpp.cpp; path = Source/Robot/ShootOnlyRobotCpp.cpp; sourceTree = "<group>"; };
 		5B3A98A01B4AFD2900E30144 /* ShootOnlyRobotCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShootOnlyRobotCpp.h; path = Source/Robot/ShootOnlyRobotCpp.h; sourceTree = "<group>"; };
 		5B3A99751B4B542E00E30144 /* Fliegerhammer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Fliegerhammer.cpp; path = Source/Fliegerhammer.cpp; sourceTree = "<group>"; };
@@ -301,6 +304,8 @@
 				65004DAD1B4AF5DB00B151B8 /* NewAdvancedRobotCpp.h */,
 				65004E331B4B2E2200B151B8 /* LiveRobotCpp.cpp */,
 				65004E341B4B2E2200B151B8 /* LiveRobotCpp.h */,
+				037FC6591B4B54E100719DCA /* TAMAKI.h */,
+				037FC65A1B4B54E100719DCA /* TAMAKI.cpp */,
 				5B502C7C1B4AF6910040002A /* DoNothingRobotCpp.cpp */,
 				5B502C7D1B4AF6910040002A /* DoNothingRobotCpp.h */,
 				5B502C7F1B4AF9050040002A /* MoveOnlyRobotCpp.cpp */,
@@ -598,6 +603,7 @@
 				6922C8041B4AF20E00684A97 /* MitsuRobotCpp.cpp in Sources */,
 				65004D9D1B4AC97800B151B8 /* AdvancedRobotCpp.cpp in Sources */,
 				B7378994180767190076A88C /* MainScene.m in Sources */,
+				037FC65B1B4B54E100719DCA /* TAMAKI.cpp in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				71F9F5841B4B17EB00DDEBB7 /* StoppingRobot.cpp in Sources */,
 				5B502C7E1B4AF6910040002A /* DoNothingRobotCpp.cpp in Sources */,
