@@ -14,5 +14,13 @@
 #include "AdvancedRobotCpp.h"
 #include "AlaskaThunderCpp.h"
 #include "TurretRobotCpp.h"
+#include "SuperKen.h"
+#include "NewAdvancedRobotCpp.h"
+#include "LiveRobotCpp.h"
+#include "DoNothingRobotCpp.h"
+#include "MoveOnlyRobotCpp.h"
+#include "ShootOnlyRobotCpp.h"
+#include "HarukiRobotCpp.h"
+#include "StoppingRobot.h"
 
 #endif
