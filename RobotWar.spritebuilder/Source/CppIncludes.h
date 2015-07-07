@@ -12,21 +12,23 @@
 // List all Cpp bots here:
 #include "SimpleRobotCpp.h"
 #include "AdvancedRobotCpp.h"
-#include "AlaskaThunderCpp.h"
 #include "TurretRobotCpp.h"
-#include "FoeReaper4000RobotCpp.h"
-#include "SuperKen.h"
 #include "NewAdvancedRobotCpp.h"
 #include "LiveRobotCpp.h"
 
-#include "TAMAKI.h"
 #include "DoNothingRobotCpp.h"
 #include "MoveOnlyRobotCpp.h"
 #include "ShootOnlyRobotCpp.h"
-#include "HarukiRobotCpp.h"
 #include "StoppingRobot.h"
-#include "MitsuRobotCpp.h"
+#include "RobotTARS.h"
+#include "Maguro.h"
 
-#include "Fliegerhammer.h"
+#include "AlaskaThunderCpp.h"
+#include "FoeReaper4000RobotCpp.h"
+#include "SuperKen.h"
+#include "TAMAKI.h"
+#include "HarukiRobotCpp.h"
+#include "MitsuRobotCpp.h"
+#include "AkiRobotCpp.h"
 
 #endif

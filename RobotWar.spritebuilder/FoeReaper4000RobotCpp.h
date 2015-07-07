@@ -30,10 +30,10 @@ private:
     float generateRandomNumber(float begin, float end);
     void optimizeMove(int degree, int distance);
     void randomWalk(int beginDegree = 0, int endDegree = 360, int beginDistance = 100, int EndDistance = 200);
-    void showLog();
     void optimizeGunPosition();
     RWVec lastEnemyPos;
     void shootToPos(RWVec pos);
+    bool keepStay;
     
 };
 

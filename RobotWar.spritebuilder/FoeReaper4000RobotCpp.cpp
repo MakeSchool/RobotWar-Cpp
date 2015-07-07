@@ -10,10 +10,12 @@
 #include <random>
 #include <iostream>
 
+
 FoeReaper4000RobotCpp::FoeReaper4000RobotCpp()
 {
     lastEnemyPos.x = -1;
     lastEnemyPos.y = -1;
+    keepStay = false;
 }
 
 //Size of the robot 50*35
@@ -32,19 +34,18 @@ void FoeReaper4000RobotCpp::run()
 
 void FoeReaper4000RobotCpp::scannedRobotAtPosition(RWVec position)
 {
-
-    float x = generateRandomNumber(position.x - 50, position.x + 50);
-    float y = generateRandomNumber(position.y - 50, position.y + 50);
-    lastEnemyPos = RWVec(x, y);
-    randomWalk(0,360,150,200);
+    this->cancelActiveAction();
+    lastEnemyPos = position;
+    keepStay = true;
+    randomWalk();
 
 }
 void FoeReaper4000RobotCpp::bulletHitEnemy(RWVec enemyPosition)
 {
-    float x = generateRandomNumber(enemyPosition.x - 50, enemyPosition.x + 50);
-    float y = generateRandomNumber(enemyPosition.y - 50, enemyPosition.y + 50);
-    lastEnemyPos = RWVec(x, y);
-    randomWalk(0,360,150,200);
+    this->cancelActiveAction();
+    lastEnemyPos = enemyPosition;
+    keepStay = true;
+    randomWalk();
 }
 
 void FoeReaper4000RobotCpp::hitWallWithSideAndAngle(RobotWallHitSide::RobotWallHitSide side, float hitAngle)
@@ -55,7 +56,7 @@ void FoeReaper4000RobotCpp::hitWallWithSideAndAngle(RobotWallHitSide::RobotWallH
     {
         case RobotWallHitSide::FRONT:
         {
-            float x = generateRandomNumber(0.0f, (areaSize.width));
+            float x = generateRandomNumber(areaSize.width/4,areaSize.width/4*3);
             float y = 0.0f;
             int angle = (int) angleBetweenHeadingDirectionAndWorldPosition(RWVec(x, y));
             randomWalk(angle,angle,150,200);
@@ -64,7 +65,7 @@ void FoeReaper4000RobotCpp::hitWallWithSideAndAngle(RobotWallHitSide::RobotWallH
             
         case RobotWallHitSide::REAR:
         {
-            float x = generateRandomNumber(0.0f, (areaSize.width));
+            float x = generateRandomNumber(areaSize.width/4,areaSize.width/4*3);
             float y = areaSize.height;
             int angle = (int) angleBetweenHeadingDirectionAndWorldPosition(RWVec(x, y));
             randomWalk(angle,angle,150,200);
@@ -75,7 +76,7 @@ void FoeReaper4000RobotCpp::hitWallWithSideAndAngle(RobotWallHitSide::RobotWallH
         case RobotWallHitSide::LEFT:
         {
             float x = 0.0;
-            float y = generateRandomNumber(0.0f, (areaSize.height));
+            float y = generateRandomNumber(areaSize.height/4, areaSize.height/4*3);
             int angle = (int) angleBetweenHeadingDirectionAndWorldPosition(RWVec(x, y));
             randomWalk(angle,angle,150,200);
 
@@ -84,7 +85,7 @@ void FoeReaper4000RobotCpp::hitWallWithSideAndAngle(RobotWallHitSide::RobotWallH
         case RobotWallHitSide::RIGHT:
         {
             float x = areaSize.width;
-            float y = generateRandomNumber(0.0f, (areaSize.height));
+            float y = generateRandomNumber(areaSize.height/4, areaSize.height/4*3);
             int angle = (int) angleBetweenHeadingDirectionAndWorldPosition(RWVec(x, y));
             randomWalk(angle,angle,150,200);
 
@@ -100,6 +101,7 @@ void FoeReaper4000RobotCpp::hitWallWithSideAndAngle(RobotWallHitSide::RobotWallH
 //if got hit, make a random move
 void FoeReaper4000RobotCpp::gotHit() {
     //TODO: if enemy is in the area of scanner, do not move to enemy?
+   keepStay = false;
    randomWalk(0,360,150,200);
     
 }
@@ -114,8 +116,9 @@ void FoeReaper4000RobotCpp::randomWalk(int beginDegree, int endDegree, int begin
 {
     int nextDistance = generateRandomNumber(beginDistance, endDistance);
     int nextDegree = generateRandomNumber(beginDegree, endDegree);
-    //do not move to sde
-    optimizeMove(nextDegree,nextDistance);
+    if (! keepStay) {
+        optimizeMove(nextDegree,nextDistance);
+    }
     optimizeGunPosition();
 }
 
@@ -136,10 +139,9 @@ float FoeReaper4000RobotCpp::generateRandomNumber(float begin, float end)
 void FoeReaper4000RobotCpp::optimizeGunPosition()
 {
     //TODO: check if scanner find the enemy
-    if (lastEnemyPos.x > 0 and lastEnemyPos.y > 0) {
+    if (keepStay) {
         shootToPos(lastEnemyPos);
-        lastEnemyPos.x = -1;
-        lastEnemyPos.y = -1;
+        return;
     }
     
     RWVec robotPos = position();

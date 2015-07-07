@@ -1,5 +1,5 @@
 //
-//  Fliegerhammer.h
+//  AkiRobotCpp.h
 //  RobotWar
 //
 //  Created by Akihito OKUHATA on 2015/07/06.
@@ -17,7 +17,9 @@ namespace FliegerhammerAction {
         DEFAULT,
         TURN_AROUND,
         SEARCHING,
-        FIRING
+        RESET_SEARCHING,
+        FIRING,
+        RESET_FIRING
     };
 };
 
@@ -31,10 +33,10 @@ namespace FliegerhammerArea {
 };
 
 
-class Fliegerhammer : public RobotCpp
+class AkiRobotCpp : public RobotCpp
 {
 public:
-    Fliegerhammer();
+    AkiRobotCpp();
 
     void run() override;
     void gotHit() override;
@@ -57,16 +59,22 @@ private:
     float bulletHitTimestampInSearch;
     std::vector<RWVec> enemyPositionsInFiring;
     std::vector<float> bulletHitTimestampList;
+    std::vector<float> gotHitTimestampList;
 
     FliegerhammerArea::FliegerhammerArea getAreaFromPosition(RWVec position);
 
-    FliegerhammerArea::FliegerhammerArea getNextCorner(FliegerhammerArea::FliegerhammerArea area, bool counterClockwise = true);
+    FliegerhammerArea::FliegerhammerArea getNextCorner(FliegerhammerArea::FliegerhammerArea area, bool counterClockwise = false);
     void moveToTriangle(FliegerhammerArea::FliegerhammerArea currentArea, int numOfCornder);
     void moveToCorner(FliegerhammerArea::FliegerhammerArea area);
     RWVec getCornerCoordinateByArea(FliegerhammerArea::FliegerhammerArea area);
     void barrage();
 
     std::default_random_engine randomGenerator;
+
+    int enemyHp;
+    int ownHp;
+
+    bool emergencyActing;
 
 };
 
