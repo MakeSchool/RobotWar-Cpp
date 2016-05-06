@@ -21,5 +21,6 @@
 #include "EtsukoMiyazato.hpp"
 #include "WatanabeRobotCpp.hpp"
 #include "EijiRobotCpp.hpp"
+#include "NoriyukiRobot.hpp"
 
 #endif

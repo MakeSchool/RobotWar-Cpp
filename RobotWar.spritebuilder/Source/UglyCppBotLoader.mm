@@ -86,6 +86,10 @@ static UglyCppBotLoader *_sharedInstance = nil;
     {
         returnRobot = new EijiRobotCpp();
     }
+    else if ([name isEqualToString:@"NoriyukiRobot"])
+    {
+        returnRobot = new NoriyukiRobot();
+    }
     
     return returnRobot;
 }
