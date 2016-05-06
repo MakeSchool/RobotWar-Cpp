@@ -12,12 +12,7 @@
 static BOOL robotOneIsCpp = YES;
 static BOOL robotTwoIsCpp = YES;
 
-<<<<<<< HEAD
 static NSString *robotClass1 = @"TurretRobotCpp";
 static NSString *robotClass2 = @"TurretRobotCpp";
-=======
-static NSString *robotClass1 = @"KotanikiRobot";
-static NSString *robotClass2 = @"SimpleRobot";
->>>>>>> kotani-master
 
 #endif

@@ -15,7 +15,6 @@
 #include "TurretRobotCpp.h"
 #include "NewAdvancedRobotCpp.h"
 #include "LiveRobotCpp.h"
-<<<<<<< HEAD
 #include "AmaAmaCpp.h"
 #include "AsadaRobotCpp.hpp"
 #include "Tokutya.hpp"
@@ -25,8 +24,6 @@
 #include "NoriyukiRobot.hpp"
 #include "TakeRobotCpp.hpp"
 #include "KobayashiRobot.h"
-=======
 #include "KotanikiRobot.hpp"
->>>>>>> kotani-master
 
 #endif

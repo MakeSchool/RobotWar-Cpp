@@ -478,7 +478,7 @@
 				ORGANIZATIONNAME = MakeGamesWithUs;
 				TargetAttributes = {
 					B77F1B2D17B978D7009739AE = {
-						DevelopmentTeam = 857D8CUDA3;
+						DevelopmentTeam = SBVP8ED765;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 0;
