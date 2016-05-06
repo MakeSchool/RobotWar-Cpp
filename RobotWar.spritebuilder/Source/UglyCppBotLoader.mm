@@ -78,6 +78,10 @@ static UglyCppBotLoader *_sharedInstance = nil;
     {
         returnRobot = new EtsukoMiyazato();
     }
+    else if ([name isEqualToString:@"WatanabeRobotCpp"])
+    {
+        returnRobot = new WatanabeRobotCpp();
+    }
     
     return returnRobot;
 }

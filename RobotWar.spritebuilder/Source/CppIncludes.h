@@ -19,5 +19,6 @@
 #include "AsadaRobotCpp.hpp"
 #include "Tokutya.hpp"
 #include "EtsukoMiyazato.hpp"
+#include "WatanabeRobotCpp.hpp"
 
 #endif
