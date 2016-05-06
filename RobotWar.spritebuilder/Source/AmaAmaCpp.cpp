@@ -4,7 +4,7 @@
 
 AmaAmaCpp::AmaAmaCpp()
 {
-    this->currentState = AmaAmaCppAction::DEFAULT;
+    this->currentState = AmaAmaCppAction::START;
     this->actionIndex = 0;
 }
 
@@ -28,7 +28,23 @@ void AmaAmaCpp::run()
         {
             this->performNextDefaultAction();
         }
+        
+        while (this->currentState == AmaAmaCppAction::START)
+        {
+            this->performNextStartAction();
+        }
     }
+}
+
+void AmaAmaCpp::performNextStartAction()
+{
+    printf("\nArenaSize: %f, %f", this->arenaDimensions().width, this->arenaDimensions().height);
+    printf("\nrobotBoundingBox: %f, %f", this->robotBoundingBox().size.width, this->robotBoundingBox().size.height);
+
+    this->setCurrentState(AmaAmaCppAction::SEARCHING);
+    this->shoot();
+    this->turnRobot(90);
+    this->moveAhead(500);
 }
 
 void AmaAmaCpp::performNextDefaultAction()

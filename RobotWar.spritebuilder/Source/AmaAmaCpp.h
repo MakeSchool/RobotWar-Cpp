@@ -10,7 +10,8 @@ namespace AmaAmaCppAction {
         DEFAULT,
         TURN_AROUND,
         FIRING,
-        SEARCHING
+        SEARCHING,
+        START
     };
 }
 
@@ -34,6 +35,7 @@ private:
     void performNextFiringAction();
     void performNextSearchingAction();
     void performNextDefaultAction();
+    void performNextStartAction();
     
     void setCurrentState(AmaAmaCppAction::AmaAmaCppAction newState);
     
