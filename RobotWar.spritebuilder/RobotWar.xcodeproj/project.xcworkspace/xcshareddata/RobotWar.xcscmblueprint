@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "9D4C4AA9AFB1EFB2F4FE750B829C2C8E1B979B45",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "11DBC894FED6E883D7D31BFE3A10A2A6A7BB67C7" : 0,
+    "9D4C4AA9AFB1EFB2F4FE750B829C2C8E1B979B45" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "EDE2E269-E6A3-48F0-8D25-7F66BF290A76",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "11DBC894FED6E883D7D31BFE3A10A2A6A7BB67C7" : "",
+    "9D4C4AA9AFB1EFB2F4FE750B829C2C8E1B979B45" : "RobotWar-Cpp\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "RobotWar",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "RobotWar.spritebuilder\/RobotWar.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Musasin\/RobotWar-Cpp.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "11DBC894FED6E883D7D31BFE3A10A2A6A7BB67C7"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Musasin\/RobotWar-Cpp.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9D4C4AA9AFB1EFB2F4FE750B829C2C8E1B979B45"
+    }
+  ]
+}
