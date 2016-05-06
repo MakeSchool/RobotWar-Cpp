@@ -55,6 +55,7 @@
 		B77F1B4017B978D7009739AE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3F17B978D7009739AE /* CoreGraphics.framework */; };
 		B77F1B4217B978D7009739AE /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B4117B978D7009739AE /* CoreText.framework */; };
 		BCA5F346195BD4DA00F1A2DF /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA5F345195BD4DA00F1A2DF /* GLKit.framework */; };
+		C920366E1CDC6F7900F21065 /* KotanikiRobot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C920366C1CDC6F7900F21065 /* KotanikiRobot.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -183,6 +184,8 @@
 		B77F1B4117B978D7009739AE /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		B7B3713D180358F1007369CC /* libObjectiveChipmunk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libObjectiveChipmunk.a; path = "../libs/cocos2d-iphone/external/Chipmunk/xcode/build/Debug-iphoneos/libObjectiveChipmunk.a"; sourceTree = "<group>"; };
 		BCA5F345195BD4DA00F1A2DF /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		C920366C1CDC6F7900F21065 /* KotanikiRobot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = KotanikiRobot.cpp; sourceTree = "<group>"; };
+		C920366D1CDC6F7900F21065 /* KotanikiRobot.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = KotanikiRobot.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +264,8 @@
 				65004DAD1B4AF5DB00B151B8 /* NewAdvancedRobotCpp.h */,
 				65004E331B4B2E2200B151B8 /* LiveRobotCpp.cpp */,
 				65004E341B4B2E2200B151B8 /* LiveRobotCpp.h */,
+				C920366C1CDC6F7900F21065 /* KotanikiRobot.cpp */,
+				C920366D1CDC6F7900F21065 /* KotanikiRobot.hpp */,
 			);
 			name = CppRobots;
 			sourceTree = "<group>";
@@ -423,7 +428,7 @@
 				ORGANIZATIONNAME = MakeGamesWithUs;
 				TargetAttributes = {
 					B77F1B2D17B978D7009739AE = {
-						DevelopmentTeam = SBVP8ED765;
+						DevelopmentTeam = 857D8CUDA3;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 0;
@@ -537,6 +542,7 @@
 				65004E681B4B3DDA00B151B8 /* AdvancedRobot.swift in Sources */,
 				62E3A330193D3F3B00BD3F0F /* Bullet.m in Sources */,
 				65004DAB1B4AD96400B151B8 /* TurretRobotCpp.cpp in Sources */,
+				C920366E1CDC6F7900F21065 /* KotanikiRobot.cpp in Sources */,
 				65004E351B4B2E2200B151B8 /* LiveRobotCpp.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -641,7 +647,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = RobotWar;
-				PROVISIONING_PROFILE = "18D84403-392D-4C50-BA7D-C45F153D06AB";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Source/Robot/RobotWar-Bridging-Header.h";
 				WRAPPER_EXTENSION = app;
 			};
@@ -675,7 +681,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = RobotWar;
-				PROVISIONING_PROFILE = "18D84403-392D-4C50-BA7D-C45F153D06AB";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Source/Robot/RobotWar-Bridging-Header.h";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
