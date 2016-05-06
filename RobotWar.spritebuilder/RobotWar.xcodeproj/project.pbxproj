@@ -428,7 +428,7 @@
 				ORGANIZATIONNAME = MakeGamesWithUs;
 				TargetAttributes = {
 					B77F1B2D17B978D7009739AE = {
-						DevelopmentTeam = AWLQMQN8QE;
+						DevelopmentTeam = SBVP8ED765;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 0;
@@ -647,7 +647,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = RobotWar;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "18D84403-392D-4C50-BA7D-C45F153D06AB";
 				SWIFT_OBJC_BRIDGING_HEADER = "Source/Robot/RobotWar-Bridging-Header.h";
 				WRAPPER_EXTENSION = app;
 			};
@@ -681,7 +681,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = RobotWar;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "18D84403-392D-4C50-BA7D-C45F153D06AB";
 				SWIFT_OBJC_BRIDGING_HEADER = "Source/Robot/RobotWar-Bridging-Header.h";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
