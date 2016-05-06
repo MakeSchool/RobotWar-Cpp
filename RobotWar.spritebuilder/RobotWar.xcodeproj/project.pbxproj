@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5BFAA9591CDC6F5D005A1F25 /* Tokutya.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BFAA9571CDC6F5D005A1F25 /* Tokutya.cpp */; };
 		6244629A1937DDD300895F2D /* Robot.m in Sources */ = {isa = PBXBuildFile; fileRef = 624462991937DDD300895F2D /* Robot.m */; };
 		629FCFF4193E71C300896E8C /* GameOverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 629FCFF3193E71C300896E8C /* GameOverScene.m */; };
 		62C4F430194141DE0047553C /* Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C4F42F194141DE0047553C /* Helpers.m */; };
@@ -108,6 +109,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5BFAA9571CDC6F5D005A1F25 /* Tokutya.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tokutya.cpp; sourceTree = "<group>"; };
+		5BFAA9581CDC6F5D005A1F25 /* Tokutya.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Tokutya.hpp; sourceTree = "<group>"; };
 		624462981937DDD300895F2D /* Robot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Robot.h; path = Source/Robot.h; sourceTree = "<group>"; };
 		624462991937DDD300895F2D /* Robot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Robot.m; path = Source/Robot.m; sourceTree = "<group>"; };
 		624A3880193E79620054705C /* Robot_Framework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Robot_Framework.h; path = Source/Robot_Framework.h; sourceTree = "<group>"; };
@@ -261,6 +264,8 @@
 				65004DAD1B4AF5DB00B151B8 /* NewAdvancedRobotCpp.h */,
 				65004E331B4B2E2200B151B8 /* LiveRobotCpp.cpp */,
 				65004E341B4B2E2200B151B8 /* LiveRobotCpp.h */,
+				5BFAA9571CDC6F5D005A1F25 /* Tokutya.cpp */,
+				5BFAA9581CDC6F5D005A1F25 /* Tokutya.hpp */,
 			);
 			name = CppRobots;
 			sourceTree = "<group>";
@@ -517,6 +522,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65004D521B4A5B2100B151B8 /* RobotCpp.mm in Sources */,
+				5BFAA9591CDC6F5D005A1F25 /* Tokutya.cpp in Sources */,
 				65004EE81B4C0CB200B151B8 /* UglyCppBotLoader.mm in Sources */,
 				65004E6B1B4B3DDA00B151B8 /* TurretRobot.swift in Sources */,
 				65004E691B4B3DDA00B151B8 /* CamperRobot.swift in Sources */,
