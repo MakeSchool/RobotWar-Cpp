@@ -55,6 +55,7 @@
 		B77F1B4017B978D7009739AE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3F17B978D7009739AE /* CoreGraphics.framework */; };
 		B77F1B4217B978D7009739AE /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B4117B978D7009739AE /* CoreText.framework */; };
 		BCA5F346195BD4DA00F1A2DF /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA5F345195BD4DA00F1A2DF /* GLKit.framework */; };
+		CADB0D691CDC71E10092E4F5 /* AmaAmaCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CADB0D671CDC71E10092E4F5 /* AmaAmaCpp.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -183,6 +184,8 @@
 		B77F1B4117B978D7009739AE /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		B7B3713D180358F1007369CC /* libObjectiveChipmunk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libObjectiveChipmunk.a; path = "../libs/cocos2d-iphone/external/Chipmunk/xcode/build/Debug-iphoneos/libObjectiveChipmunk.a"; sourceTree = "<group>"; };
 		BCA5F345195BD4DA00F1A2DF /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		CADB0D671CDC71E10092E4F5 /* AmaAmaCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AmaAmaCpp.cpp; path = Source/AmaAmaCpp.cpp; sourceTree = "<group>"; };
+		CADB0D681CDC71E10092E4F5 /* AmaAmaCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmaAmaCpp.h; path = Source/AmaAmaCpp.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +254,8 @@
 		65004DA81B4ACEA600B151B8 /* CppRobots */ = {
 			isa = PBXGroup;
 			children = (
+				CADB0D671CDC71E10092E4F5 /* AmaAmaCpp.cpp */,
+				CADB0D681CDC71E10092E4F5 /* AmaAmaCpp.h */,
 				65004D541B4A717D00B151B8 /* SimpleRobotCpp.cpp */,
 				65004D551B4A717D00B151B8 /* SimpleRobotCpp.h */,
 				65004D9B1B4AC97800B151B8 /* AdvancedRobotCpp.cpp */,
@@ -423,7 +428,7 @@
 				ORGANIZATIONNAME = MakeGamesWithUs;
 				TargetAttributes = {
 					B77F1B2D17B978D7009739AE = {
-						DevelopmentTeam = SBVP8ED765;
+						DevelopmentTeam = AWLQMQN8QE;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 0;
@@ -531,6 +536,7 @@
 				65004D9D1B4AC97800B151B8 /* AdvancedRobotCpp.cpp in Sources */,
 				B7378994180767190076A88C /* MainScene.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
+				CADB0D691CDC71E10092E4F5 /* AmaAmaCpp.cpp in Sources */,
 				62C4F430194141DE0047553C /* Helpers.m in Sources */,
 				65EC9A5F19691E9A002F9DB2 /* TournamentScene.m in Sources */,
 				62E3A32419397BE400BD3F0F /* RobotAction.m in Sources */,
@@ -641,7 +647,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = RobotWar;
-				PROVISIONING_PROFILE = "18D84403-392D-4C50-BA7D-C45F153D06AB";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Source/Robot/RobotWar-Bridging-Header.h";
 				WRAPPER_EXTENSION = app;
 			};
@@ -675,7 +681,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = RobotWar;
-				PROVISIONING_PROFILE = "18D84403-392D-4C50-BA7D-C45F153D06AB";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Source/Robot/RobotWar-Bridging-Header.h";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
