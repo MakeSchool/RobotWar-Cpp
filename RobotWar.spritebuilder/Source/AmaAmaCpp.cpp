@@ -1,5 +1,6 @@
 #include "AmaAmaCpp.h"
 #include <math.h>
+#include <stdio.h>
 
 AmaAmaCpp::AmaAmaCpp()
 {
@@ -10,7 +11,7 @@ AmaAmaCpp::AmaAmaCpp()
 void AmaAmaCpp::run()
 {
     this->actionIndex = 0;
-    
+
     while (true)
     {
         while (this->currentState == AmaAmaCppAction::FIRING)
@@ -38,7 +39,7 @@ void AmaAmaCpp::performNextDefaultAction()
             this->moveAhead(100);
             break;
     }
-    
+
     this->actionIndex++;
 }
 
@@ -46,21 +47,16 @@ void AmaAmaCpp::performNextFiringAction()
 {
     if (this->currentTimestamp() - this->lastKnownPositionTimestamp > 1.0f)
     {
+        RWVec target(this->position().x + this->headingDirection().x, this->position().y + this->headingDirection().y);
+        float angle = this->angleBetweenGunHeadingDirectionAndWorldPosition(target);
+        printf("\nangle: %f", angle);
+        this->turnGun(angle);
         this->setCurrentState(AmaAmaCppAction::SEARCHING);
     }
     else
     {
         float angle = this->angleBetweenGunHeadingDirectionAndWorldPosition(this->lastKnownPosition);
-        
-        if (angle >= 0)
-        {
-            this->turnGunRight(fabsf(angle));
-        }
-        else
-        {
-            this->turnGunLeft(fabsf(angle));
-        }
-        
+        this->turnGun(angle);
         this->shoot();
     }
 }
@@ -70,7 +66,7 @@ void AmaAmaCpp::performNextSearchingAction()
     switch (this->actionIndex % 4)
     {
         case 0: this->moveAhead(50); break;
-        case 1: this->turnRobotLeft(20); break;
+        case 1: this->turnRobotLeft(40); break;
         case 2: this->moveAhead(50); break;
         case 3: this->turnRobotRight(20); break;
     }
@@ -80,7 +76,7 @@ void AmaAmaCpp::performNextSearchingAction()
 
 void AmaAmaCpp::gotHit()
 {
-    this->shoot();
+    //this->shoot();
     this->turnRobotLeft(45);
     this->moveAhead(100);
 }
@@ -94,14 +90,10 @@ void AmaAmaCpp::hitWallWithSideAndAngle(RobotWallHitSide::RobotWallHitSide side,
         AmaAmaCppAction::AmaAmaCppAction previousState = this->currentState;
         this->setCurrentState(AmaAmaCppAction::TURN_AROUND);
         
-        if (hitAngle >= 0)
-        {
-            this->turnRobotLeft(fabs(hitAngle));
-        }
-        else
-        {
-            this->turnRobotRight(fabs(hitAngle));
-        }
+        float angle;
+        angle = fabs(hitAngle) / 2.0f;
+        
+        this->turnRobot(angle);
         
         this->moveAhead(20);
         
@@ -111,7 +103,11 @@ void AmaAmaCpp::hitWallWithSideAndAngle(RobotWallHitSide::RobotWallHitSide side,
 
 void AmaAmaCpp::bulletHitEnemy(RWVec enemyPosition)
 {
-    
+    if (this->currentState != AmaAmaCppAction::FIRING)
+    {
+        this->cancelActiveAction();
+    }
+    this->setCurrentState(AmaAmaCppAction::FIRING);
 }
 
 void AmaAmaCpp::scannedRobotAtPosition(RWVec position)
@@ -131,6 +127,37 @@ void AmaAmaCpp::scannedRobotAtPosition(RWVec position)
 void AmaAmaCpp::setCurrentState(AmaAmaCppAction::AmaAmaCppAction newState)
 {
     this->currentState = newState;
-    
     this->actionIndex = 0;
+    
+    switch (newState) {
+        case AmaAmaCppAction::SEARCHING :
+        break;
+            
+        default:
+            break;
+    }
+}
+
+void AmaAmaCpp::turnGun(float angle)
+{
+    if (angle >= 0)
+    {
+        this->turnGunRight(fabsf(angle));
+    }
+    else
+    {
+        this->turnGunLeft(fabsf(angle));
+    }
+}
+
+void AmaAmaCpp::turnRobot(float angle)
+{
+    if (angle >= 0)
+    {
+        this->turnRobotRight(fabsf(angle));
+    }
+    else
+    {
+        this->turnRobotLeft(fabsf(angle));
+    }
 }

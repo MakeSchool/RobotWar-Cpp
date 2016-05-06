@@ -36,6 +36,9 @@ private:
     void performNextDefaultAction();
     
     void setCurrentState(AmaAmaCppAction::AmaAmaCppAction newState);
+    
+    void turnGun(float angle);
+    void turnRobot(float angle);
 };
 
 #endif /* defined(__RobotWar__AmaAmaCpp__) */
