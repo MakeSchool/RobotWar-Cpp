@@ -14,6 +14,7 @@
 EijiRobotCpp::EijiRobotCpp()
 {
     hitWallCount = 0;
+    isAhead = false;
     
     RWSize size = this->arenaDimensions();
     RWVec vec = this->position();
@@ -33,6 +34,7 @@ void EijiRobotCpp::run()
 {
     while (true)
     {
+        isAhead = false;
         this->moveBack(1000);
     }
 }
@@ -45,22 +47,53 @@ void EijiRobotCpp::scannedRobotAtPosition(RWVec position)
 {
     RWVec myVec = this->position();
     
-    //自機　敵機
-    if(myVec.x < (position.x - 20))
+    switch(nowMovement)
     {
-        if(nowMovement == Movement::LEFT)
-            myBack();
-        return;
-    //敵機　自機
-    } else if(myVec.x > (position.x + 20))
+        case Movement::DOWN:
+            if(myVec.y < (position.y - 20))
+            {
+                myBack();
+                return;
+            }
+            break;
+        case Movement::UP:
+            if(myVec.y > (position.y + 20))
+            {
+                myBack();
+                return;
+            }
+            break;
+        case Movement::LEFT:
+            if(myVec.x < (position.x - 20))
+            {
+                myBack();
+                return;
+            }
+            break;
+        case Movement::RIGHT:
+            if(myVec.x > (position.x + 20))
+            {
+                myBack();
+                return;
+            }
+            break;
+        case Movement::STOP:
+            break;
+    }
+    
+    if((myVec.x > (position.x - 20)) && (myVec.x < (position.x + 20)))
     {
-        if(nowMovement == Movement::RIGHT)
-            myBack();
-        return;
-    } else {
         this->cancelActiveAction();
         shoot();
+        return;
     }
+    if((myVec.y > (position.y - 20)) && ((myVec.y < (position.y + 20))))
+    {
+        this->cancelActiveAction();
+        shoot();
+        return;
+    }
+    
 }
 
 void EijiRobotCpp::myBack()
@@ -75,29 +108,45 @@ void EijiRobotCpp::myBack()
         nowMovement = Movement::LEFT;
     
     this->cancelActiveAction();
-    this->moveAhead(10);
+    
+    if(isAhead)
+    {
+        this->moveBack(10);
+        isAhead = false;
+    }
+    else
+    {
+        this->moveAhead(10);
+        isAhead = true;
+    }
+    
 }
 
 void EijiRobotCpp::hitWallWithSideAndAngle(RobotWallHitSide::RobotWallHitSide side, float hitAngle)
 {
     this->cancelActiveAction();
     
-    switch (side)
+    if(hitWallCount == 0) {
+        this->turnGunRight(90);
+    }
+    hitWallCount++;
+    this->turnRobotLeft(90);
+            
+    switch(nowMovement)
     {
-        case RobotWallHitSide::REAR:
-        case RobotWallHitSide::FRONT:
-        case RobotWallHitSide::LEFT:
-        case RobotWallHitSide::RIGHT:
-            
-            if(hitWallCount == 0) {
-                this->turnGunRight(90);
-            }
-            hitWallCount++;
-            this->turnRobotLeft(90);
-            
-            break;
-            
-        case RobotWallHitSide::NONE:
+        case Movement::DOWN:
+            nowMovement = Movement::UP;
+            return;
+        case Movement::UP:
+            nowMovement = Movement::DOWN;
+            return;
+        case Movement::LEFT:
+            nowMovement = Movement::RIGHT;
+            return;
+        case Movement::RIGHT:
+            nowMovement = Movement::LEFT;
+            return;
+        case Movement::STOP:
             break;
     }
 }

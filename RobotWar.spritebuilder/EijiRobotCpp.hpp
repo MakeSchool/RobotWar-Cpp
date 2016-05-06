@@ -23,6 +23,7 @@ public:
 protected:
     int hitWallCount;
     void myBack();
+    bool isAhead;
     
     enum Movement
     {
