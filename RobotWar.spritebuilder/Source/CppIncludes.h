@@ -17,5 +17,6 @@
 #include "LiveRobotCpp.h"
 #include "AmaAmaCpp.h"
 #include "AsadaRobotCpp.hpp"
+#include "Tokutya.hpp"
 
 #endif

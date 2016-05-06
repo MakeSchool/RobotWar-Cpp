@@ -70,6 +70,10 @@ static UglyCppBotLoader *_sharedInstance = nil;
     {
         returnRobot = new AsadaRobotCpp();
     }
+    else if ([name isEqualToString:@"Tokutya"])
+    {
+        returnRobot = new Tokutya();
+    }
     
     return returnRobot;
 }
