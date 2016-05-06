@@ -55,7 +55,8 @@ static NSMutableDictionary* schedule;
                                                     @"AdvancedRobot",
                                                     @"CamperRobot",
                                                     @"SimpleRobot",
-                                                    @"TurretRobot"
+                                                    @"TurretRobot",
+                                                    @"AsadaRobot"
                                                     ];
                 
                 // TODO: This doesn't really belong here...
@@ -64,7 +65,8 @@ static NSMutableDictionary* schedule;
                                                @"AdvancedRobotCpp",
                                                @"TurretRobotCpp",
                                                @"NewAdvancedRobotCpp",
-                                               @"LiveRobotCpp"
+                                               @"LiveRobotCpp",
+                                               @"AsadaRobot",
                                               ];
                 
                 NSMutableArray* allRobots = [NSMutableArray array];
