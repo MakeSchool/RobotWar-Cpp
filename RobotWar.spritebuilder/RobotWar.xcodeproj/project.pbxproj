@@ -32,6 +32,7 @@
 		A8782D0A1CDC6A1C0038BF47 /* AsadaRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8782D081CDC6A1C0038BF47 /* AsadaRobotCpp.cpp */; };
 		6FD8CED21CDC6FA700022EBA /* EtsukoMiyazato.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6FD8CED01CDC6FA700022EBA /* EtsukoMiyazato.cpp */; };
 		7013A05C1CDC6EE500E4BEE9 /* EijiRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7013A05A1CDC6EE500E4BEE9 /* EijiRobotCpp.cpp */; };
+		73F3E4F71CDC6F7600D34459 /* TakeRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 73F3E4F51CDC6F7600D34459 /* TakeRobotCpp.cpp */; };
 		B71F5911188484E7003F4D28 /* iPad-old.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5907188484E7003F4D28 /* iPad-old.png */; };
 		B71F5912188484E7003F4D28 /* iPad-old@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5908188484E7003F4D28 /* iPad-old@2x.png */; };
 		B71F5913188484E7003F4D28 /* iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5909188484E7003F4D28 /* iPad.png */; };
@@ -168,6 +169,8 @@
 		6FD8CED11CDC6FA700022EBA /* EtsukoMiyazato.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = EtsukoMiyazato.hpp; sourceTree = "<group>"; };
 		7013A05A1CDC6EE500E4BEE9 /* EijiRobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EijiRobotCpp.cpp; sourceTree = "<group>"; };
 		7013A05B1CDC6EE500E4BEE9 /* EijiRobotCpp.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = EijiRobotCpp.hpp; sourceTree = "<group>"; };
+		73F3E4F51CDC6F7600D34459 /* TakeRobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TakeRobotCpp.cpp; sourceTree = "<group>"; };
+		73F3E4F61CDC6F7600D34459 /* TakeRobotCpp.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TakeRobotCpp.hpp; sourceTree = "<group>"; };
 		B71F5907188484E7003F4D28 /* iPad-old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old.png"; path = "Icons/iPad-old.png"; sourceTree = "<group>"; };
 		B71F5908188484E7003F4D28 /* iPad-old@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old@2x.png"; path = "Icons/iPad-old@2x.png"; sourceTree = "<group>"; };
 		B71F5909188484E7003F4D28 /* iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iPad.png; path = Icons/iPad.png; sourceTree = "<group>"; };
@@ -296,6 +299,8 @@
 				7013A05B1CDC6EE500E4BEE9 /* EijiRobotCpp.hpp */,
 				2A73855E1CDC6E0E0007F425 /* NoriyukiRobot.cpp */,
 				2A73855F1CDC6E0E0007F425 /* NoriyukiRobot.hpp */,
+				73F3E4F51CDC6F7600D34459 /* TakeRobotCpp.cpp */,
+				73F3E4F61CDC6F7600D34459 /* TakeRobotCpp.hpp */,
 			);
 			name = CppRobots;
 			sourceTree = "<group>";
@@ -569,6 +574,7 @@
 				B737893F1807617C0076A88C /* AppDelegate.m in Sources */,
 				65004D9D1B4AC97800B151B8 /* AdvancedRobotCpp.cpp in Sources */,
 				2A7385601CDC6E0E0007F425 /* NoriyukiRobot.cpp in Sources */,
+				73F3E4F71CDC6F7600D34459 /* TakeRobotCpp.cpp in Sources */,
 				B7378994180767190076A88C /* MainScene.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				CADB0D691CDC71E10092E4F5 /* AmaAmaCpp.cpp in Sources */,
