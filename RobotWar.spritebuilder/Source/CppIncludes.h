@@ -16,5 +16,6 @@
 #include "NewAdvancedRobotCpp.h"
 #include "LiveRobotCpp.h"
 #include "AmaAmaCpp.h"
+#include "AsadaRobotCpp.hpp"
 
 #endif
