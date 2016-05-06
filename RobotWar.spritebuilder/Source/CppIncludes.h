@@ -18,5 +18,6 @@
 #include "AmaAmaCpp.h"
 #include "AsadaRobotCpp.hpp"
 #include "Tokutya.hpp"
+#include "EtsukoMiyazato.hpp"
 
 #endif
