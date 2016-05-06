@@ -33,6 +33,8 @@
 		6FD8CED21CDC6FA700022EBA /* EtsukoMiyazato.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6FD8CED01CDC6FA700022EBA /* EtsukoMiyazato.cpp */; };
 		7013A05C1CDC6EE500E4BEE9 /* EijiRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7013A05A1CDC6EE500E4BEE9 /* EijiRobotCpp.cpp */; };
 		73F3E4F71CDC6F7600D34459 /* TakeRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 73F3E4F51CDC6F7600D34459 /* TakeRobotCpp.cpp */; };
+		7D9FBE3C1CDC6D86000786B3 /* TestRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D9FBE3A1CDC6D86000786B3 /* TestRobotCpp.cpp */; };
+		7D9FBE461CDC6F63000786B3 /* KobayashiRobot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D9FBE441CDC6F63000786B3 /* KobayashiRobot.cpp */; };
 		B71F5911188484E7003F4D28 /* iPad-old.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5907188484E7003F4D28 /* iPad-old.png */; };
 		B71F5912188484E7003F4D28 /* iPad-old@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5908188484E7003F4D28 /* iPad-old@2x.png */; };
 		B71F5913188484E7003F4D28 /* iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5909188484E7003F4D28 /* iPad.png */; };
@@ -171,6 +173,10 @@
 		7013A05B1CDC6EE500E4BEE9 /* EijiRobotCpp.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = EijiRobotCpp.hpp; sourceTree = "<group>"; };
 		73F3E4F51CDC6F7600D34459 /* TakeRobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TakeRobotCpp.cpp; sourceTree = "<group>"; };
 		73F3E4F61CDC6F7600D34459 /* TakeRobotCpp.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TakeRobotCpp.hpp; sourceTree = "<group>"; };
+		7D9FBE3A1CDC6D86000786B3 /* TestRobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestRobotCpp.cpp; path = Source/TestRobotCpp.cpp; sourceTree = "<group>"; };
+		7D9FBE3B1CDC6D86000786B3 /* TestRobotCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestRobotCpp.h; path = Source/TestRobotCpp.h; sourceTree = "<group>"; };
+		7D9FBE441CDC6F63000786B3 /* KobayashiRobot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = KobayashiRobot.cpp; path = Source/KobayashiRobot.cpp; sourceTree = "<group>"; };
+		7D9FBE451CDC6F63000786B3 /* KobayashiRobot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KobayashiRobot.h; path = Source/KobayashiRobot.h; sourceTree = "<group>"; };
 		B71F5907188484E7003F4D28 /* iPad-old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old.png"; path = "Icons/iPad-old.png"; sourceTree = "<group>"; };
 		B71F5908188484E7003F4D28 /* iPad-old@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old@2x.png"; path = "Icons/iPad-old@2x.png"; sourceTree = "<group>"; };
 		B71F5909188484E7003F4D28 /* iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iPad.png; path = Icons/iPad.png; sourceTree = "<group>"; };
@@ -282,6 +288,8 @@
 				13DEE3E81CDC6C5F006ABB3E /* WatanabeRobotCpp.hpp */,
 				65004D551B4A717D00B151B8 /* SimpleRobotCpp.h */,
 				65004D9B1B4AC97800B151B8 /* AdvancedRobotCpp.cpp */,
+				7D9FBE441CDC6F63000786B3 /* KobayashiRobot.cpp */,
+				7D9FBE451CDC6F63000786B3 /* KobayashiRobot.h */,
 				65004D9C1B4AC97800B151B8 /* AdvancedRobotCpp.h */,
 				65004DA91B4AD96400B151B8 /* TurretRobotCpp.cpp */,
 				65004DAA1B4AD96400B151B8 /* TurretRobotCpp.h */,
@@ -301,6 +309,8 @@
 				2A73855F1CDC6E0E0007F425 /* NoriyukiRobot.hpp */,
 				73F3E4F51CDC6F7600D34459 /* TakeRobotCpp.cpp */,
 				73F3E4F61CDC6F7600D34459 /* TakeRobotCpp.hpp */,
+				7D9FBE3A1CDC6D86000786B3 /* TestRobotCpp.cpp */,
+				7D9FBE3B1CDC6D86000786B3 /* TestRobotCpp.h */,
 			);
 			name = CppRobots;
 			sourceTree = "<group>";
@@ -565,6 +575,7 @@
 				65004E691B4B3DDA00B151B8 /* CamperRobot.swift in Sources */,
 				629FCFF4193E71C300896E8C /* GameOverScene.m in Sources */,
 				65004DAE1B4AF5DB00B151B8 /* NewAdvancedRobotCpp.cpp in Sources */,
+				7D9FBE3C1CDC6D86000786B3 /* TestRobotCpp.cpp in Sources */,
 				65004D461B4A41CF00B151B8 /* RobotWrapper.mm in Sources */,
 				650785D1196A20290022192D /* TournamentWonScene.m in Sources */,
 				6FD8CED21CDC6FA700022EBA /* EtsukoMiyazato.cpp in Sources */,
@@ -580,6 +591,7 @@
 				CADB0D691CDC71E10092E4F5 /* AmaAmaCpp.cpp in Sources */,
 				7013A05C1CDC6EE500E4BEE9 /* EijiRobotCpp.cpp in Sources */,
 				62C4F430194141DE0047553C /* Helpers.m in Sources */,
+				7D9FBE461CDC6F63000786B3 /* KobayashiRobot.cpp in Sources */,
 				65EC9A5F19691E9A002F9DB2 /* TournamentScene.m in Sources */,
 				62E3A32419397BE400BD3F0F /* RobotAction.m in Sources */,
 				65004E681B4B3DDA00B151B8 /* AdvancedRobot.swift in Sources */,

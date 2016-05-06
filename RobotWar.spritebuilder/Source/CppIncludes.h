@@ -23,5 +23,6 @@
 #include "EijiRobotCpp.hpp"
 #include "NoriyukiRobot.hpp"
 #include "TakeRobotCpp.hpp"
+#include "KobayashiRobot.h"
 
 #endif
