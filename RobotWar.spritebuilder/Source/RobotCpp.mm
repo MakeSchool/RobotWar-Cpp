@@ -112,6 +112,9 @@ RWRect RobotCpp::robotBoundingBox()
         
         retRect.origin = RWVec(rect.origin.x, rect.origin.y);
         retRect.size = RWSize(rect.size.width, rect.size.height);
+        
+        printf("width : %f", rect.size.width);
+        printf("height : %f", rect.size.height);
     }
     
     return retRect;
