@@ -25,6 +25,8 @@ namespace EtsukoMiyazatoAction {
 class EtsukoMiyazato : public RobotCpp
 {
 public:
+     EtsukoMiyazato();
+    
     void run() override;
     void gotHit() override;
     void hitWallWithSideAndAngle(RobotWallHitSide::RobotWallHitSide side, float hitAngle) override;
@@ -34,7 +36,10 @@ private:
     int actionIndex;
     RWVec lastKnownPosition;
     float lastKnownPositionTimestamp;
+    RobotWallHitSide::RobotWallHitSide lastWallSide;
+    float lastHitWallAngle;
     EtsukoMiyazatoAction::EtsukoMiyazatoAction currentState;
+    EtsukoMiyazatoAction::EtsukoMiyazatoAction previousState;
     
     void performNextDefaultAction();
     void performNextTurnAroundAction();
