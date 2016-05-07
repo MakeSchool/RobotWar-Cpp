@@ -13,18 +13,24 @@
 EtsukoMiyazato::EtsukoMiyazato()
 {
     this->currentState = EtsukoMiyazatoAction::DEFAULT;
+    this->previousState = EtsukoMiyazatoAction::FIRING;
     this->actionIndex = 0;
+    this->searchingIndex = 0;
+    this->isDebug = true;
 }
 
 void EtsukoMiyazato::run()
 {
     this->actionIndex = 0;
+    this->searchingIndex = 0;
+    this->lastKnownPosition = RWVec(this->arenaDimensions().width / 2, this->arenaDimensions().height / 2);
     
     while (true)
     {
         while (this->currentState == EtsukoMiyazatoAction::DEFAULT)
         {
-            this->performNextDefaultAction();
+            //this->performNextDefaultAction();
+            this->performNextMoveStraightAction();
         }
         
         while (this->currentState == EtsukoMiyazatoAction::TURN_AROUND)
@@ -41,6 +47,11 @@ void EtsukoMiyazato::run()
         {
             this->performNextSearchingAction();
         }
+        
+        while (this->currentState == EtsukoMiyazatoAction::MOVE_STRAIGHT)
+        {
+            this->performNextMoveStraightAction();
+        }
     }
 }
 
@@ -51,20 +62,28 @@ void EtsukoMiyazato::run()
 //デフォルト
 void EtsukoMiyazato::performNextDefaultAction()
 {
+    if (isDebug) printf("[Default]");
+    
+    /*
     switch (this->actionIndex % 4)
     {
         case 0: this->shoot(); break;
         case 1: this->turnRobotLeft(20); break;
         case 2: this->shoot(); break;
-        case 3: this->turnRobotRight(40); break;
+        case 3: this->turnRobotRight(20); break;
     }
     
     this->actionIndex++;
+     */
+    
+    this->shoot();
 }
 
 //向きを変える
 void EtsukoMiyazato::performNextTurnAroundAction()
 {
+    if (isDebug) printf("[TurnAround]");
+    
     //0より大きかったら(右側があたったら)
     if (this->lastHitWallAngle >= 0)
     {
@@ -77,17 +96,28 @@ void EtsukoMiyazato::performNextTurnAroundAction()
     }
     
     //前に20進む
-    this->moveAhead(20);
+    this->moveAhead(10);
+    
     //前の状態に戻る
-    this->setCurrentState(previousState);
+    if (this->previousState != EtsukoMiyazatoAction::MOVE_STRAIGHT && this->previousState != EtsukoMiyazatoAction::TURN_AROUND)
+    {
+        this->setCurrentState(this->previousState);
+    } else {
+        //状態をFIRINGにセット
+        this->setCurrentState(EtsukoMiyazatoAction::FIRING);
+    }
 }
 
 //撃つアクション
 void EtsukoMiyazato::performNextFiringAction()
 {
-    if (this->currentTimestamp() - this->lastKnownPositionTimestamp > 1.0f)
+    if (isDebug) printf("[Firing]");
+    
+    if (this->currentTimestamp() - this->lastKnownPositionTimestamp > 1.0f && searchingIndex <= 3)
     {
         this->setCurrentState(EtsukoMiyazatoAction::SEARCHING);
+        //ここでランダムをつくる
+        //this->lastKnownPosition = RWVec(<#float xx#>, <#float yy#>);
     }
     else
     {
@@ -103,12 +133,17 @@ void EtsukoMiyazato::performNextFiringAction()
         }
         
         this->shoot();
+        
+        this->searchingIndex = 0;
     }
 }
 
 //サーチ
 void EtsukoMiyazato::performNextSearchingAction()
 {
+    if (isDebug) printf("[Search]");
+    
+    /*
     switch (this->actionIndex % 4)
     {
         case 0: this->moveAhead(50); break;
@@ -118,16 +153,66 @@ void EtsukoMiyazato::performNextSearchingAction()
     }
     
     this->actionIndex++;
+     */
+    
+    this->turnRobotLeft(20);
+    
+    //サーチングインデックスが3超えたら
+    this->searchingIndex ++ ;
+
+    //状態をFIRINGにセット
+    this->setCurrentState(EtsukoMiyazatoAction::FIRING);
+}
+
+//まっすぐ進む
+void EtsukoMiyazato::performNextMoveStraightAction()
+{
+    if (isDebug) printf("[MoveStraight]");
+    
+    //アリーナサイズ(320,568)
+    //printf("%f", this->arenaDimensions().width);
+    //printf("%f", this->arenaDimensions().height);
+    
+    float angle = 0;
+    //もしアリーナの右側いたら
+    if (this->position().x >= this->arenaDimensions().width / 2) {
+        angle = angleBetweenHeadingDirectionAndWorldPosition(RWVec(this->position().x, 0));
+    } else {
+        angle = angleBetweenHeadingDirectionAndWorldPosition(RWVec(this->position().x, this->arenaDimensions().width));
+    }
+    
+    //まっすぐに戻す
+    if (angle >= 0)
+    {
+        this->turnRobotRight(fabsf(angle));
+    }
+    else
+    {
+        this->turnRobotLeft(fabsf(angle));
+    }
+    
+    this->moveAhead(100);
 }
 
 /*
  コールバック
  */
-//的の玉があたった時
+//敵の玉が自分にあたった時
 void EtsukoMiyazato::gotHit()
 {
     //行動をキャンセルする
     this->cancelActiveAction();
+    
+    //相手のX軸が自分の近くにいたら
+    if (this->lastKnownPosition.x - this->position().x <= 30 && this->lastKnownPosition.x - this->position().x >= 0) {
+        //状態をMOVE_STRAIGHTにセット
+        this->setCurrentState(EtsukoMiyazatoAction::MOVE_STRAIGHT);
+    } else if (this->position().x - this->lastKnownPosition.x <= 30 && this->position().x - this->lastKnownPosition.x >= 0) {
+        //状態をMOVE_STRAIGHTにセット
+        this->setCurrentState(EtsukoMiyazatoAction::MOVE_STRAIGHT);
+    } else {
+        
+    }
 }
 
 //敵をスキャンしたとき(相手のposition)
@@ -143,6 +228,7 @@ void EtsukoMiyazato::scannedRobotAtPosition(RWVec position)
     this->lastKnownPosition = position;
     //相手のポジションを取得した時間
     this->lastKnownPositionTimestamp = this->currentTimestamp();
+    
     //状態をFIRINGにセット
     this->setCurrentState(EtsukoMiyazatoAction::FIRING);
 }
@@ -156,15 +242,15 @@ void EtsukoMiyazato::hitWallWithSideAndAngle(RobotWallHitSide::RobotWallHitSide 
         this->cancelActiveAction();
     }
     
-        //壁に対するサイド
-        this->lastWallSide = side;
-        //壁に対する角度
-        this->lastHitWallAngle = hitAngle;
-        //現在ステートを前のステートに保存
-        this->previousState = this->currentState;
-        
-        //状態をTURN_AROUNDにセット
-        this->setCurrentState(EtsukoMiyazatoAction::TURN_AROUND);
+    //壁に対するサイド
+    this->lastWallSide = side;
+    //壁に対する角度
+    this->lastHitWallAngle = hitAngle;
+    //現在ステートを前のステートに保存
+    this->previousState = this->currentState;
+    
+    //状態をTURN_AROUNDにセット
+    this->setCurrentState(EtsukoMiyazatoAction::TURN_AROUND);
 }
 
 

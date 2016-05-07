@@ -18,7 +18,8 @@ namespace EtsukoMiyazatoAction {
         DEFAULT,
         TURN_AROUND,
         FIRING,
-        SEARCHING
+        SEARCHING,
+        MOVE_STRAIGHT,
     };
 }
 
@@ -34,10 +35,15 @@ public:
     void bulletHitEnemy(RWVec enemyPosition) override;
 private:
     int actionIndex;
+    int searchingIndex;
+    
+    bool isDebug;
+    
     RWVec lastKnownPosition;
     float lastKnownPositionTimestamp;
     RobotWallHitSide::RobotWallHitSide lastWallSide;
     float lastHitWallAngle;
+    
     EtsukoMiyazatoAction::EtsukoMiyazatoAction currentState;
     EtsukoMiyazatoAction::EtsukoMiyazatoAction previousState;
     
@@ -45,6 +51,7 @@ private:
     void performNextTurnAroundAction();
     void performNextFiringAction();
     void performNextSearchingAction();
+    void performNextMoveStraightAction();
     
     void setCurrentState(EtsukoMiyazatoAction::EtsukoMiyazatoAction newState);
 };
