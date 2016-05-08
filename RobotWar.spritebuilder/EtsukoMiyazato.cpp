@@ -9,28 +9,37 @@
 #include "EtsukoMiyazato.hpp"
 #include <math.h>
 #include <stdio.h>
+#include <stdlib.h>
+
+float const MY_ANGLE = 10;
 
 EtsukoMiyazato::EtsukoMiyazato()
 {
     this->currentState = EtsukoMiyazatoAction::DEFAULT;
-    this->previousState = EtsukoMiyazatoAction::FIRING;
+    this->previousState = EtsukoMiyazatoAction::DEFAULT;
     this->actionIndex = 0;
     this->searchingIndex = 0;
-    this->isDebug = true;
+    this->firstActionIndex = 0;
+    this->isFirstAction = false;
+    this->isInitialize = false;
+    this->isDebug = false;
 }
 
 void EtsukoMiyazato::run()
 {
+    if (!isInitialize) {
+        this->lastKnownPosition = RWVec(this->arenaDimensions().width / 2, this->arenaDimensions().height / 2);
+        isInitialize = true;
+    }
+    
     this->actionIndex = 0;
     this->searchingIndex = 0;
-    this->lastKnownPosition = RWVec(this->arenaDimensions().width / 2, this->arenaDimensions().height / 2);
     
     while (true)
     {
         while (this->currentState == EtsukoMiyazatoAction::DEFAULT)
         {
-            //this->performNextDefaultAction();
-            this->performNextMoveStraightAction();
+            this->performNextDefaultAction();
         }
         
         while (this->currentState == EtsukoMiyazatoAction::TURN_AROUND)
@@ -64,19 +73,51 @@ void EtsukoMiyazato::performNextDefaultAction()
 {
     if (isDebug) printf("[Default]");
     
-    /*
-    switch (this->actionIndex % 4)
-    {
-        case 0: this->shoot(); break;
-        case 1: this->turnRobotLeft(20); break;
-        case 2: this->shoot(); break;
-        case 3: this->turnRobotRight(20); break;
+    //前の状態がデフォルトではなかったら
+    if (this->previousState != EtsukoMiyazatoAction::DEFAULT) {
+        isFirstAction = false;
     }
     
-    this->actionIndex++;
-     */
+    //始めの処理
+    if (!this->isFirstAction) {
+        
+        this->lastKnownPosition = RWVec(this->arenaDimensions().width / 2, this->arenaDimensions().height / 2);
+        //アリーナの正面にガンを向ける
+        float angle = this->angleBetweenGunHeadingDirectionAndWorldPosition(this->lastKnownPosition);
+        
+        if (angle >= 0) {
+            this->isTurnGunRight = true;
+        } else {
+            this->isTurnGunRight = false;
+        }
+        
+        this->isFirstAction = true;
+        this->firstActionIndex = 0;
+    }
     
     this->shoot();
+    
+    this->firstActionIndex ++;
+    
+    //5回でデフォルトのままだったら
+    if (this->firstActionIndex >= 5) {
+        
+        this->setCurrentState(EtsukoMiyazatoAction::MOVE_STRAIGHT);
+        
+        this->firstActionIndex = 0;
+    }
+    
+    //trueだったら右回転
+    if (this->isTurnGunRight)
+    {
+        this->turnGunRight(MY_ANGLE);
+    }
+    else
+    {
+        this->turnGunLeft(MY_ANGLE);
+    }
+    
+    this->previousState = EtsukoMiyazatoAction::DEFAULT;
 }
 
 //向きを変える
@@ -98,6 +139,19 @@ void EtsukoMiyazato::performNextTurnAroundAction()
     //前に20進む
     this->moveAhead(10);
     
+    this->lastKnownPosition = RWVec(this->arenaDimensions().width / 2, this->arenaDimensions().height / 2);
+    //アリーナの正面にガンを向ける
+    float angle = this->angleBetweenGunHeadingDirectionAndWorldPosition(this->lastKnownPosition);
+    if (angle >= 0)
+    {
+        this->turnGunRight(fabsf(angle));
+    }
+    else
+    {
+        this->turnGunLeft(fabsf(angle));
+    }
+    
+    
     //前の状態に戻る
     if (this->previousState != EtsukoMiyazatoAction::MOVE_STRAIGHT && this->previousState != EtsukoMiyazatoAction::TURN_AROUND)
     {
@@ -115,12 +169,20 @@ void EtsukoMiyazato::performNextFiringAction()
     
     if (this->currentTimestamp() - this->lastKnownPositionTimestamp > 1.0f && searchingIndex <= 3)
     {
-        this->setCurrentState(EtsukoMiyazatoAction::SEARCHING);
+        this->setCurrentState(EtsukoMiyazatoAction::DEFAULT);
+        
         //ここでランダムをつくる
-        //this->lastKnownPosition = RWVec(<#float xx#>, <#float yy#>);
+        float random = rand() % 2; //0から1の値を返す
+        if (random == 0) {
+            this->lastKnownPosition = RWVec(this->lastKnownPosition.x + MY_ANGLE, this->lastKnownPosition.y);
+        } else {
+            this->lastKnownPosition = RWVec(this->lastKnownPosition.x, this->lastKnownPosition.y + MY_ANGLE);
+        }
+        
     }
     else
     {
+        //ガンをラストポシションに向ける
         float angle = this->angleBetweenGunHeadingDirectionAndWorldPosition(this->lastKnownPosition);
         
         if (angle >= 0)
@@ -143,23 +205,17 @@ void EtsukoMiyazato::performNextSearchingAction()
 {
     if (isDebug) printf("[Search]");
     
-    /*
-    switch (this->actionIndex % 4)
-    {
-        case 0: this->moveAhead(50); break;
-        case 1: this->turnRobotLeft(20); break;
-        case 2: this->moveAhead(50); break;
-        case 3: this->turnRobotRight(20); break;
+    //ランダム生成
+    float random = rand() % 2; //0から1の値を返す
+    if (random == 0) {
+        this->turnRobotRight(MY_ANGLE);
+    } else {
+        this->turnRobotLeft(MY_ANGLE);
     }
     
-    this->actionIndex++;
-     */
-    
-    this->turnRobotLeft(20);
-    
-    //サーチングインデックスが3超えたら
+    //サーチングインデックスが3超えたらショットに切り替える
     this->searchingIndex ++ ;
-
+    
     //状態をFIRINGにセット
     this->setCurrentState(EtsukoMiyazatoAction::FIRING);
 }
@@ -176,9 +232,9 @@ void EtsukoMiyazato::performNextMoveStraightAction()
     float angle = 0;
     //もしアリーナの右側いたら
     if (this->position().x >= this->arenaDimensions().width / 2) {
-        angle = angleBetweenHeadingDirectionAndWorldPosition(RWVec(this->position().x, 0));
+        angle = angleBetweenHeadingDirectionAndWorldPosition(RWVec(0, this->position().y));
     } else {
-        angle = angleBetweenHeadingDirectionAndWorldPosition(RWVec(this->position().x, this->arenaDimensions().width));
+        angle = angleBetweenHeadingDirectionAndWorldPosition(RWVec(this->arenaDimensions().width, this->position().y));
     }
     
     //まっすぐに戻す
@@ -191,7 +247,7 @@ void EtsukoMiyazato::performNextMoveStraightAction()
         this->turnRobotLeft(fabsf(angle));
     }
     
-    this->moveAhead(100);
+    this->moveAhead(320);
 }
 
 /*
@@ -211,7 +267,8 @@ void EtsukoMiyazato::gotHit()
         //状態をMOVE_STRAIGHTにセット
         this->setCurrentState(EtsukoMiyazatoAction::MOVE_STRAIGHT);
     } else {
-        
+        //状態をMOVE_STRAIGHTにセット
+        this->setCurrentState(EtsukoMiyazatoAction::MOVE_STRAIGHT);
     }
 }
 

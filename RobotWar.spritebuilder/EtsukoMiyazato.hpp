@@ -26,7 +26,7 @@ namespace EtsukoMiyazatoAction {
 class EtsukoMiyazato : public RobotCpp
 {
 public:
-     EtsukoMiyazato();
+    EtsukoMiyazato();
     
     void run() override;
     void gotHit() override;
@@ -36,8 +36,12 @@ public:
 private:
     int actionIndex;
     int searchingIndex;
+    int firstActionIndex;
     
     bool isDebug;
+    bool isTurnGunRight;
+    bool isFirstAction;
+    bool isInitialize;
     
     RWVec lastKnownPosition;
     float lastKnownPositionTimestamp;
