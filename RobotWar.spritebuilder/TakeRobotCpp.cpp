@@ -8,56 +8,57 @@
 
 #include "TakeRobotCpp.hpp"
 
+TakeRobotCpp::TakeRobotCpp() {
+}
+
 void TakeRobotCpp::run()
 {
+    this->shoot();
     while (true)
-    {
-        //RWVec vec = this->position();
         this->turnGunLeft(180);
-        //this->moveAhead(80);
-        //this->turnRobotRight(20);
-        //this->moveAhead(100);
-        //this->shoot();
-        //this->turnRobotLeft(10);
-    }
 }
 
 void TakeRobotCpp::scannedRobotAtPosition(RWVec enemyPosition)
 {
+    float angle;
     this->cancelActiveAction();
     this->epos = enemyPosition;
     this->lpos = this->gunHeadingDirection();
-    //this->
+    angle = this->angleBetweenGunHeadingDirectionAndWorldPosition(this->epos);
+    if (angle >= 0)
+        this->turnGunRight(angle);
+    else
+        this->turnGunLeft(-angle);
     this->shoot();
 }
 
 void TakeRobotCpp::bulletHitEnemy(RWVec enemyPosition)
 {
+    float angle;
+    this->cancelActiveAction();
     this->epos = enemyPosition;
-    this->moveBack(10);
+    angle = this->angleBetweenGunHeadingDirectionAndWorldPosition(this->epos);
+    if (angle >= 0)
+        this->turnGunRight(angle);
+    else
+        this->turnGunLeft(-angle);
+    this->shoot();
 }
-
 
 void TakeRobotCpp::gotHit()
 {
-    this->moveAhead(10);
-    //this->ldegree = this->angleBetweenGunHeadingDirectionAndWorldPosition(<#RWVec position#>);
-    //this->shoot();
-    //this->
-    //this->turnRobotLeft(45);
-    //this->moveAhead(100);
+    this->cancelActiveAction();
+    this->moveAhead(100);
 }
 
 void TakeRobotCpp::hitWallWithSideAndAngle(RobotWallHitSide::RobotWallHitSide side, float hitAngle)
 {
-    /*
     this->cancelActiveAction();
-    
     switch (side)
     {
         case RobotWallHitSide::FRONT:
             this->turnRobotRight(180);
-            this->moveAhead(20);
+            this->moveAhead(80);
             break;
             
         case RobotWallHitSide::REAR:
@@ -66,16 +67,15 @@ void TakeRobotCpp::hitWallWithSideAndAngle(RobotWallHitSide::RobotWallHitSide si
             
         case RobotWallHitSide::LEFT:
             this->turnRobotRight(90);
-            this->moveAhead(20);
+            this->moveAhead(80);
             break;
             
         case RobotWallHitSide::RIGHT:
             this->turnRobotLeft(90);
-            this->moveAhead(20);
+            this->moveAhead(80);
             break;
             
         case RobotWallHitSide::NONE:
             break;
-    }
-     */
+     }
 }
