@@ -39,6 +39,7 @@ void TurretRobotCpp::run()
 {
     while (true)
     {
+        this->cancelActiveAction();
         switch (this->currentState)
         {
             case TurretRobotCppAction::FIRING:

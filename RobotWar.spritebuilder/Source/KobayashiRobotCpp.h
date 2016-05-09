@@ -32,6 +32,7 @@ public:
     void run() override;
     void scaningAction();
     void firingAction();
+    void eimingPos(RWVec pos);
     void gotHit() override;
     void hitWallWithSideAndAngle(RobotWallHitSide::RobotWallHitSide side, float hitAngle) override;
     RWVec getCenterPoint();
