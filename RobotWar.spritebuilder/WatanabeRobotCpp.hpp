@@ -10,6 +10,7 @@
 #define WatanabeRobotCpp_hpp
 
 #include "RobotCpp.h"
+#include "math.h"
 
 namespace WatanabeRobotState {
     enum WatanabeRobotState
@@ -32,7 +33,21 @@ public:
     void hitWallWithSideAndAngle(RobotWallHitSide::RobotWallHitSide side, float hitAngle) override;
     
 private:
+    enum vectorState
+    {
+        Left,
+        Right
+    };
+    void defaultAction();
+    void searchAction();
+    void firingAction();
+    
     WatanabeRobotState::WatanabeRobotState currentState;
+    vectorState currentVectorState;
+    vectorState lastVectorState;
+    RWVec lastKnownPosition;
+    int bulletCount;
+    int hitWallCount;
 };
 
 #endif /* WatanabeRobotCpp_hpp */
