@@ -34,14 +34,15 @@ public:
     void scannedRobotAtPosition(RWVec position) override;
     void bulletHitEnemy(RWVec enemyPosition) override;
 private:
-    int actionIndex;
-    int searchingIndex;
-    int firstActionIndex;
+    int actionIndex = 0;
+    int searchingIndex = 0;
+    int firstActionIndex = 0;
+    int firstActionCount = 0;
     
-    bool isDebug;
-    bool isTurnGunRight;
-    bool isFirstAction;
-    bool isInitialize;
+    bool isDebug = false;
+    bool isTurnGunRight = false;
+    bool isFirstAction = false;
+    bool isInitialize = false;
     
     RWVec lastKnownPosition;
     float lastKnownPositionTimestamp;

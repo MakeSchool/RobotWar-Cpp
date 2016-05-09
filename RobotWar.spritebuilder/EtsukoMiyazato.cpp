@@ -11,32 +11,57 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-float const MY_ANGLE = 10;
+float const MY_ANGLE = 30;
 
 EtsukoMiyazato::EtsukoMiyazato()
 {
-    this->currentState = EtsukoMiyazatoAction::DEFAULT;
-    this->previousState = EtsukoMiyazatoAction::DEFAULT;
-    this->actionIndex = 0;
-    this->searchingIndex = 0;
-    this->firstActionIndex = 0;
-    this->isFirstAction = false;
-    this->isInitialize = false;
-    this->isDebug = false;
+    this->isDebug = true;
 }
 
 void EtsukoMiyazato::run()
 {
-    if (!isInitialize) {
-        this->lastKnownPosition = RWVec(this->arenaDimensions().width / 2, this->arenaDimensions().height / 2);
-        isInitialize = true;
-    }
-    
-    this->actionIndex = 0;
-    this->searchingIndex = 0;
-    
     while (true)
     {
+        
+        if (!isInitialize) {
+            this->currentState = EtsukoMiyazatoAction::DEFAULT;
+            this->previousState = EtsukoMiyazatoAction::DEFAULT;
+            this->actionIndex = 0;
+            this->searchingIndex = 0;
+            this->firstActionIndex = 0;
+            this->isFirstAction = false;
+            this->isInitialize = false;
+            
+            this->lastKnownPosition = RWVec(this->arenaDimensions().width / 2, this->arenaDimensions().height / 2);
+            isInitialize = true;
+            
+            RWVec position;
+            int distance;
+            //フィールドの上の方にいたら上に移動
+            if (this->position().y >= this->arenaDimensions().height / 2) {
+                position = RWVec(this->position().x, this->arenaDimensions().height);
+                distance = fabs(this->arenaDimensions().height - this->position().y + 1);
+            } else {
+                position = RWVec(this->position().x, 0);
+                distance = fabs(this->position().y + 1);
+            }
+            
+            //向きを変える
+            float angle = this->angleBetweenHeadingDirectionAndWorldPosition(position);
+            if (angle >= 0) {
+                this->turnRobotRight(fabsf(angle));
+            } else {
+                this->turnRobotLeft(fabsf(angle));
+            }
+            
+            //まっすぐ進む
+            this->moveAhead(distance);
+        }
+        
+        this->actionIndex = 0;
+        this->searchingIndex = 0;
+        
+        
         while (this->currentState == EtsukoMiyazatoAction::DEFAULT)
         {
             this->performNextDefaultAction();
@@ -82,7 +107,7 @@ void EtsukoMiyazato::performNextDefaultAction()
     if (!this->isFirstAction) {
         
         this->lastKnownPosition = RWVec(this->arenaDimensions().width / 2, this->arenaDimensions().height / 2);
-        //アリーナの正面にガンを向ける
+        //アリーナの真ん中にガンを向ける
         float angle = this->angleBetweenGunHeadingDirectionAndWorldPosition(this->lastKnownPosition);
         
         if (angle >= 0) {
@@ -93,6 +118,7 @@ void EtsukoMiyazato::performNextDefaultAction()
         
         this->isFirstAction = true;
         this->firstActionIndex = 0;
+        this->firstActionCount = 0;
     }
     
     this->shoot();
@@ -100,21 +126,41 @@ void EtsukoMiyazato::performNextDefaultAction()
     this->firstActionIndex ++;
     
     //5回でデフォルトのままだったら
-    if (this->firstActionIndex >= 5) {
+    if (this->firstActionIndex >= 3) {
         
-        this->setCurrentState(EtsukoMiyazatoAction::MOVE_STRAIGHT);
+        //this->setCurrentState(EtsukoMiyazatoAction::MOVE_STRAIGHT);
+        
+        /*
+         if (this->isTurnGunRight)
+         {
+         this->turnGunLeft(fabsf(MY_ANGLE));
+         }
+         else
+         {
+         this->turnGunRight(fabsf(MY_ANGLE));
+         }
+         */
+        
+        this->isTurnGunRight = !this->isTurnGunRight;
         
         this->firstActionIndex = 0;
+        
+        this->firstActionCount ++;
+        
+        if (this->firstActionCount >= 3) {
+            this->setCurrentState(EtsukoMiyazatoAction::MOVE_STRAIGHT);
+            this->firstActionCount = 0;
+        }
     }
     
     //trueだったら右回転
     if (this->isTurnGunRight)
     {
-        this->turnGunRight(MY_ANGLE);
+        this->turnGunRight(fabsf(MY_ANGLE));
     }
     else
     {
-        this->turnGunLeft(MY_ANGLE);
+        this->turnGunLeft(fabsf(MY_ANGLE));
     }
     
     this->previousState = EtsukoMiyazatoAction::DEFAULT;
@@ -136,20 +182,22 @@ void EtsukoMiyazato::performNextTurnAroundAction()
         this->turnRobotRight(fabs(this->lastHitWallAngle));
     }
     
-    //前に20進む
-    this->moveAhead(10);
+    //前に10進む
+    //this->moveAhead(10);
     
     this->lastKnownPosition = RWVec(this->arenaDimensions().width / 2, this->arenaDimensions().height / 2);
-    //アリーナの正面にガンを向ける
-    float angle = this->angleBetweenGunHeadingDirectionAndWorldPosition(this->lastKnownPosition);
-    if (angle >= 0)
-    {
-        this->turnGunRight(fabsf(angle));
-    }
-    else
-    {
-        this->turnGunLeft(fabsf(angle));
-    }
+    /*
+     //アリーナの正面にガンを向ける
+     float angle = this->angleBetweenGunHeadingDirectionAndWorldPosition(this->lastKnownPosition);
+     if (angle >= 0)
+     {
+     this->turnGunRight(fabsf(angle));
+     }
+     else
+     {
+     this->turnGunLeft(fabsf(angle));
+     }
+     */
     
     
     //前の状態に戻る
@@ -208,9 +256,9 @@ void EtsukoMiyazato::performNextSearchingAction()
     //ランダム生成
     float random = rand() % 2; //0から1の値を返す
     if (random == 0) {
-        this->turnRobotRight(MY_ANGLE);
+        this->turnRobotRight(fabsf(MY_ANGLE));
     } else {
-        this->turnRobotLeft(MY_ANGLE);
+        this->turnRobotLeft(fabsf(MY_ANGLE));
     }
     
     //サーチングインデックスが3超えたらショットに切り替える
@@ -247,7 +295,12 @@ void EtsukoMiyazato::performNextMoveStraightAction()
         this->turnRobotLeft(fabsf(angle));
     }
     
-    this->moveAhead(320);
+    //左側にいたら
+    if (this->position().x <= this->arenaDimensions().width / 2) {
+        this->moveAhead(fabsf(this->arenaDimensions().width - this->position().x + 1));
+    } else {
+        this->moveAhead(fabsf(this->position().x + 1));
+    }
 }
 
 /*
