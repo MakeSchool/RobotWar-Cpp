@@ -17,12 +17,19 @@ public:
     EijiRobotCpp();
     void run() override;
     void gotHit() override;
+    void bulletHitEnemy(RWVec enemyPosition);
     void scannedRobotAtPosition(RWVec position) override;
     void hitWallWithSideAndAngle(RobotWallHitSide::RobotWallHitSide side, float hitAngle) override;
  
 protected:
     int hitWallCount;
-    void myBack();
+    int scannedCount;
+    void myTurn();
+    void myMove(int movement);
+    bool isNeedShoot(RWVec myVec, RWVec enemyVec);
+    bool isNeedTurn(RWVec myVec, RWVec enemyVec);
+    
+    bool isAhead;
     
     enum Movement
     {

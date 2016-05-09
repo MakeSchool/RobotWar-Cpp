@@ -14,6 +14,8 @@
 EijiRobotCpp::EijiRobotCpp()
 {
     hitWallCount = 0;
+    scannedCount = 0;
+    isAhead = false;
     
     RWSize size = this->arenaDimensions();
     RWVec vec = this->position();
@@ -33,37 +35,102 @@ void EijiRobotCpp::run()
 {
     while (true)
     {
-        this->moveBack(1000);
+        isAhead = false;
+        myMove(1000);
+        scannedCount = 0;
     }
 }
+
 
 void EijiRobotCpp::gotHit()
 {
 }
 
-void EijiRobotCpp::scannedRobotAtPosition(RWVec position)
+
+void EijiRobotCpp::bulletHitEnemy(RWVec enemyPosition)
 {
+    scannedCount -= 2;
     RWVec myVec = this->position();
     
-    //自機　敵機
-    if(myVec.x < (position.x - 20))
+    if(isNeedTurn(myVec, enemyPosition))
     {
-        if(nowMovement == Movement::LEFT)
-            myBack();
+        myTurn();
         return;
-    //敵機　自機
-    } else if(myVec.x > (position.x + 20))
+    }
+    if(isNeedShoot(myVec, enemyPosition))
     {
-        if(nowMovement == Movement::RIGHT)
-            myBack();
-        return;
-    } else {
         this->cancelActiveAction();
         shoot();
+        return;
     }
+    
 }
 
-void EijiRobotCpp::myBack()
+void EijiRobotCpp::scannedRobotAtPosition(RWVec position)
+{
+    scannedCount++;
+    RWVec myVec = this->position();
+    
+    if(scannedCount > 4)
+        return;
+    
+    if(isNeedTurn(myVec, position))
+    {
+        myTurn();
+        return;
+    }
+       
+    if(isNeedShoot(myVec,position))
+    {
+        this->cancelActiveAction();
+        shoot();
+        return;
+    }
+    
+}
+
+bool EijiRobotCpp::isNeedShoot(RWVec myVec, RWVec enemyVec)
+{
+    
+    if((myVec.x > (enemyVec.x - 20)) && (myVec.x < (enemyVec.x + 20)))
+    {
+        return true;
+    }
+    if((myVec.y > (enemyVec.y - 20)) && ((myVec.y < (enemyVec.y + 20))))
+    {
+        return true;
+    }
+    return false;
+}
+
+bool EijiRobotCpp::isNeedTurn(RWVec myVec, RWVec enemyVec)
+{
+    switch(nowMovement)
+    {
+        case Movement::UP:
+            if(myVec.y > (enemyVec.y + 20))
+                return true;
+            break;
+        case Movement::DOWN:
+            if(myVec.y < (enemyVec.y - 20))
+                return true;
+            break;
+        case Movement::LEFT:
+            if(myVec.x < (enemyVec.x - 20))
+                return true;
+            break;
+        case Movement::RIGHT:
+            if(myVec.x > (enemyVec.x + 20))
+                return true;
+            break;
+        case Movement::STOP:
+        default:
+            break;
+    }
+    return false;
+}
+
+void EijiRobotCpp::myTurn()
 {
     if(nowMovement == Movement::DOWN)
         nowMovement = Movement::UP;
@@ -75,29 +142,46 @@ void EijiRobotCpp::myBack()
         nowMovement = Movement::LEFT;
     
     this->cancelActiveAction();
-    this->moveAhead(10);
+    
+    myMove(10);
+    isAhead = !isAhead;
+}
+
+void EijiRobotCpp::myMove(int movement)
+{
+    if(isAhead)
+        this->moveAhead(movement);
+    else
+        this->moveBack(movement);
+    
 }
 
 void EijiRobotCpp::hitWallWithSideAndAngle(RobotWallHitSide::RobotWallHitSide side, float hitAngle)
 {
     this->cancelActiveAction();
     
-    switch (side)
+    if(hitWallCount == 0) {
+        this->turnGunRight(90);
+    }
+    
+    hitWallCount++;
+    this->turnRobotLeft(90);
+            
+    switch(nowMovement)
     {
-        case RobotWallHitSide::REAR:
-        case RobotWallHitSide::FRONT:
-        case RobotWallHitSide::LEFT:
-        case RobotWallHitSide::RIGHT:
-            
-            if(hitWallCount == 0) {
-                this->turnGunRight(90);
-            }
-            hitWallCount++;
-            this->turnRobotLeft(90);
-            
-            break;
-            
-        case RobotWallHitSide::NONE:
+        case Movement::DOWN:
+            nowMovement = Movement::RIGHT;
+            return;
+        case Movement::UP:
+            nowMovement = Movement::LEFT;
+            return;
+        case Movement::LEFT:
+            nowMovement = Movement::DOWN;
+            return;
+        case Movement::RIGHT:
+            nowMovement = Movement::UP;
+            return;
+        case Movement::STOP:
             break;
     }
 }
