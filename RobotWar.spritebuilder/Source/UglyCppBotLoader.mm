@@ -94,9 +94,9 @@ static UglyCppBotLoader *_sharedInstance = nil;
     {
         returnRobot = new TakeRobotCpp();
     }
-    else if ([name isEqualToString:@"KobayashiRobot"])
+    else if ([name isEqualToString:@"KobayashiRobotCpp"])
     {
-        returnRobot = new KobayashiRobot();
+        returnRobot = new KobayashiRobotCpp();
     }
     else if ([name isEqualToString:@"KotanikiRobot"])
     {
