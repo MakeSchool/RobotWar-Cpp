@@ -139,9 +139,9 @@ void AmaAmaCpp::bulletHitEnemy(RWVec enemyPosition)
 void AmaAmaCpp::scannedRobotAtPosition(RWVec position)
 {
     printf("Scan!\n");
+    this->cancelActiveAction();
     if (this->currentState != AmaAmaCppAction::FIRING)
     {
-        this->cancelActiveAction();
         this->setCurrentState(AmaAmaCppAction::FIRING);
     }
     
@@ -149,9 +149,9 @@ void AmaAmaCpp::scannedRobotAtPosition(RWVec position)
     this->lastKnownPositionTimestamp = this->currentTimestamp();
     
     this->Aim();
-    this->shoot();
-    this->shoot();
-    this->shoot();
+//    this->shoot();
+//    this->shoot();
+//    this->shoot();
 }
 
 void AmaAmaCpp::setCurrentState(AmaAmaCppAction::AmaAmaCppAction newState)
