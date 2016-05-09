@@ -20,7 +20,11 @@ namespace KotanikiRobotAction {
         DEFAULT,
         TURN_AROUND,
         FIRING,
-        SEARCHING
+        SEARCHING,
+        BACK_GEAR,
+        
+        SEARCH_DUSH,
+        HIT_TURN,
     };
 }
 
@@ -39,8 +43,13 @@ private:
     KotanikiRobotAction::KotanikiRobotAction currentState;
     RWVec lastKnownPosition;
     float lastKnownPositionTimestamp;
+    int actionIndex;
  
     void setCurrentState(KotanikiRobotAction::KotanikiRobotAction newState);
-    
+    void swayRight();
+    void swayLeft();
+    void performMove();
+    void performFiring();
+    void performSerching();
 };
 #endif /* KotanikiRobot_hpp */
