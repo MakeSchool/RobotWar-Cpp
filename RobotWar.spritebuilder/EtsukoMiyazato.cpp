@@ -15,7 +15,7 @@ float const MY_ANGLE = 30;
 
 EtsukoMiyazato::EtsukoMiyazato()
 {
-    this->isDebug = true;
+    this->isDebug = false;
 }
 
 void EtsukoMiyazato::run()
