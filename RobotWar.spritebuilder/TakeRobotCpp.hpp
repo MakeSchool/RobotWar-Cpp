@@ -14,6 +14,8 @@
 class TakeRobotCpp : public RobotCpp
 {
 public:
+    TakeRobotCpp();
+    
     void run() override;
     void gotHit() override;
     void hitWallWithSideAndAngle(RobotWallHitSide::RobotWallHitSide side, float hitAngle) override;
@@ -23,8 +25,6 @@ public:
 private:
     RWVec lpos;
     RWVec epos;
-    int ldeg;
-    int edeg;
 };
 
 
