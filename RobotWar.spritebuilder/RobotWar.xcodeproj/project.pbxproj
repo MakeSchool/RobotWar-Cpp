@@ -27,7 +27,7 @@
 		650785D1196A20290022192D /* TournamentWonScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 650785D0196A20290022192D /* TournamentWonScene.m */; };
 		65EC9A5F19691E9A002F9DB2 /* TournamentScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 65EC9A5E19691E99002F9DB2 /* TournamentScene.m */; };
 		7D9FBE3C1CDC6D86000786B3 /* TestRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D9FBE3A1CDC6D86000786B3 /* TestRobotCpp.cpp */; };
-		7D9FBE461CDC6F63000786B3 /* KobayashiRobot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D9FBE441CDC6F63000786B3 /* KobayashiRobot.cpp */; };
+		7D9FBE461CDC6F63000786B3 /* KobayashiRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D9FBE441CDC6F63000786B3 /* KobayashiRobotCpp.cpp */; };
 		B71F5911188484E7003F4D28 /* iPad-old.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5907188484E7003F4D28 /* iPad-old.png */; };
 		B71F5912188484E7003F4D28 /* iPad-old@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5908188484E7003F4D28 /* iPad-old@2x.png */; };
 		B71F5913188484E7003F4D28 /* iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5909188484E7003F4D28 /* iPad.png */; };
@@ -153,8 +153,8 @@
 		65EC9A5E19691E99002F9DB2 /* TournamentScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TournamentScene.m; path = Source/TournamentScene.m; sourceTree = "<group>"; };
 		7D9FBE3A1CDC6D86000786B3 /* TestRobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestRobotCpp.cpp; path = Source/TestRobotCpp.cpp; sourceTree = "<group>"; };
 		7D9FBE3B1CDC6D86000786B3 /* TestRobotCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestRobotCpp.h; path = Source/TestRobotCpp.h; sourceTree = "<group>"; };
-		7D9FBE441CDC6F63000786B3 /* KobayashiRobot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = KobayashiRobot.cpp; path = Source/KobayashiRobot.cpp; sourceTree = "<group>"; };
-		7D9FBE451CDC6F63000786B3 /* KobayashiRobot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KobayashiRobot.h; path = Source/KobayashiRobot.h; sourceTree = "<group>"; };
+		7D9FBE441CDC6F63000786B3 /* KobayashiRobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = KobayashiRobotCpp.cpp; path = Source/KobayashiRobotCpp.cpp; sourceTree = "<group>"; };
+		7D9FBE451CDC6F63000786B3 /* KobayashiRobotCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KobayashiRobotCpp.h; path = Source/KobayashiRobotCpp.h; sourceTree = "<group>"; };
 		B71F5907188484E7003F4D28 /* iPad-old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old.png"; path = "Icons/iPad-old.png"; sourceTree = "<group>"; };
 		B71F5908188484E7003F4D28 /* iPad-old@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old@2x.png"; path = "Icons/iPad-old@2x.png"; sourceTree = "<group>"; };
 		B71F5909188484E7003F4D28 /* iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iPad.png; path = Icons/iPad.png; sourceTree = "<group>"; };
@@ -260,8 +260,8 @@
 				65004D541B4A717D00B151B8 /* SimpleRobotCpp.cpp */,
 				65004D551B4A717D00B151B8 /* SimpleRobotCpp.h */,
 				65004D9B1B4AC97800B151B8 /* AdvancedRobotCpp.cpp */,
-				7D9FBE441CDC6F63000786B3 /* KobayashiRobot.cpp */,
-				7D9FBE451CDC6F63000786B3 /* KobayashiRobot.h */,
+				7D9FBE441CDC6F63000786B3 /* KobayashiRobotCpp.cpp */,
+				7D9FBE451CDC6F63000786B3 /* KobayashiRobotCpp.h */,
 				65004D9C1B4AC97800B151B8 /* AdvancedRobotCpp.h */,
 				65004DA91B4AD96400B151B8 /* TurretRobotCpp.cpp */,
 				65004DAA1B4AD96400B151B8 /* TurretRobotCpp.h */,
@@ -433,7 +433,7 @@
 				ORGANIZATIONNAME = MakeGamesWithUs;
 				TargetAttributes = {
 					B77F1B2D17B978D7009739AE = {
-						DevelopmentTeam = SBVP8ED765;
+						DevelopmentTeam = QZL83B3A9F;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 0;
@@ -543,7 +543,7 @@
 				B7378994180767190076A88C /* MainScene.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				62C4F430194141DE0047553C /* Helpers.m in Sources */,
-				7D9FBE461CDC6F63000786B3 /* KobayashiRobot.cpp in Sources */,
+				7D9FBE461CDC6F63000786B3 /* KobayashiRobotCpp.cpp in Sources */,
 				65EC9A5F19691E9A002F9DB2 /* TournamentScene.m in Sources */,
 				62E3A32419397BE400BD3F0F /* RobotAction.m in Sources */,
 				65004E681B4B3DDA00B151B8 /* AdvancedRobot.swift in Sources */,
@@ -644,7 +644,7 @@
 					"\"Source/libs/cocos2d-iphone/external/ObjectAL\"/**",
 				);
 				INFOPLIST_FILE = Source/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
@@ -652,8 +652,9 @@
 					"-lsqlite3",
 					"-ObjC",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.apportable.RobotWar12;
 				PRODUCT_NAME = RobotWar;
-				PROVISIONING_PROFILE = "18D84403-392D-4C50-BA7D-C45F153D06AB";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Source/Robot/RobotWar-Bridging-Header.h";
 				WRAPPER_EXTENSION = app;
 			};
@@ -679,15 +680,16 @@
 					"\"Source/libs/cocos2d-iphone/external/ObjectAL\"/**",
 				);
 				INFOPLIST_FILE = Source/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-lsqlite3",
 					"-ObjC",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.apportable.RobotWar12;
 				PRODUCT_NAME = RobotWar;
-				PROVISIONING_PROFILE = "18D84403-392D-4C50-BA7D-C45F153D06AB";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Source/Robot/RobotWar-Bridging-Header.h";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
