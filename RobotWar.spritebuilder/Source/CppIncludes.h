@@ -23,7 +23,7 @@
 #include "EijiRobotCpp.hpp"
 #include "NoriyukiRobot.hpp"
 #include "TakeRobotCpp.hpp"
-#include "KobayashiRobot.h"
 #include "KotanikiRobot.hpp"
+#include "KobayashiRobotCpp.h"
 
 #endif

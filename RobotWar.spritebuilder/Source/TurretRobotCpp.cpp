@@ -39,7 +39,6 @@ void TurretRobotCpp::run()
 {
     while (true)
     {
-        this->robotBoundingBox();
         switch (this->currentState)
         {
             case TurretRobotCppAction::FIRING:
