@@ -38,13 +38,14 @@ void AmaAmaCpp::run()
 
 void AmaAmaCpp::performNextStartAction()
 {
-    printf("\nArenaSize: %f, %f", this->arenaDimensions().width, this->arenaDimensions().height);
-    printf("\nrobotBoundingBox: %f, %f", this->robotBoundingBox().size.width, this->robotBoundingBox().size.height);
+    printf("ArenaSize: %f, %f\n", this->arenaDimensions().width, this->arenaDimensions().height);
+    printf("robotBoundingBox: %f, %f\n", this->robotBoundingBox().size.width, this->robotBoundingBox().size.height);
 
-    this->setCurrentState(AmaAmaCppAction::SEARCHING);
     this->shoot();
-    this->turnRobot(90);
+    this->turnRobot(-90);
     this->moveAhead(500);
+    printf("StartFin\n");
+    this->setCurrentState(AmaAmaCppAction::SEARCHING);
 }
 
 void AmaAmaCpp::performNextDefaultAction()
@@ -61,44 +62,49 @@ void AmaAmaCpp::performNextDefaultAction()
 
 void AmaAmaCpp::performNextFiringAction()
 {
-    if (this->currentTimestamp() - this->lastKnownPositionTimestamp > 1.0f)
+    if (this->currentTimestamp() - this->lastKnownPositionTimestamp > 5.0f)
     {
+        //Turn Gun to Head and Searching restart
         RWVec target(this->position().x + this->headingDirection().x, this->position().y + this->headingDirection().y);
         float angle = this->angleBetweenGunHeadingDirectionAndWorldPosition(target);
-        printf("\nangle: %f", angle);
+        printf("angle: %f\n", angle);
         this->turnGun(angle);
         this->setCurrentState(AmaAmaCppAction::SEARCHING);
     }
     else
     {
-        float angle = this->angleBetweenGunHeadingDirectionAndWorldPosition(this->lastKnownPosition);
-        this->turnGun(angle);
+        this->cancelActiveAction();
         this->shoot();
     }
 }
 
 void AmaAmaCpp::performNextSearchingAction()
 {
-    switch (this->actionIndex % 4)
-    {
-        case 0: this->moveAhead(50); break;
-        case 1: this->turnRobotLeft(40); break;
-        case 2: this->moveAhead(50); break;
-        case 3: this->turnRobotRight(20); break;
-    }
+    
+    this->moveAhead(500);
+    
+//    switch (this->actionIndex % 4)
+//    {
+//        case 0: this->moveAhead(50); break;
+//        case 1: this->turnRobotLeft(40); break;
+//        case 2: this->moveAhead(50); break;
+//        case 3: this->turnRobotRight(20); break;
+//    }
     
     this->actionIndex++;
 }
 
 void AmaAmaCpp::gotHit()
 {
+    printf("GotHit!!\n");
     //this->shoot();
-    this->turnRobotLeft(45);
-    this->moveAhead(100);
+//    this->turnRobotLeft(45);
+//    this->moveAhead(100);
 }
 
 void AmaAmaCpp::hitWallWithSideAndAngle(RobotWallHitSide::RobotWallHitSide side, float hitAngle)
 {
+    printf("HitWall! : %d\n", (int)side);
     if (this->currentState != AmaAmaCppAction::TURN_AROUND)
     {
         this->cancelActiveAction();
@@ -109,39 +115,42 @@ void AmaAmaCpp::hitWallWithSideAndAngle(RobotWallHitSide::RobotWallHitSide side,
         float angle;
         angle = fabs(hitAngle) / 2.0f;
         
-        this->turnRobot(angle);
-        
-        this->moveAhead(20);
-        
+        this->moveBack(50);
+        this->turnRobot(90);
         this->setCurrentState(previousState);
     }
 }
 
 void AmaAmaCpp::bulletHitEnemy(RWVec enemyPosition)
 {
-    if (this->currentState != AmaAmaCppAction::FIRING)
+    printf("HitEnemy!\n");
+    if (this->currentState != AmaAmaCppAction::FIRING && this->currentState != AmaAmaCppAction::START)
     {
         this->cancelActiveAction();
+        this->setCurrentState(AmaAmaCppAction::FIRING);
     }
-    this->setCurrentState(AmaAmaCppAction::FIRING);
+    this->lastKnownPosition = enemyPosition;
+    this->lastKnownPositionTimestamp = this->currentTimestamp();
 }
 
 void AmaAmaCpp::scannedRobotAtPosition(RWVec position)
 {
+    printf("Scan!\n");
     if (this->currentState != AmaAmaCppAction::FIRING)
     {
         this->cancelActiveAction();
+        this->setCurrentState(AmaAmaCppAction::FIRING);
     }
     
     this->lastKnownPosition = position;
     this->lastKnownPositionTimestamp = this->currentTimestamp();
     
-    this->setCurrentState(AmaAmaCppAction::FIRING);
-    
+    this->Aim();
 }
 
 void AmaAmaCpp::setCurrentState(AmaAmaCppAction::AmaAmaCppAction newState)
 {
+    printf("newstagte: %d\n", newState);
     this->currentState = newState;
     this->actionIndex = 0;
     
@@ -176,4 +185,10 @@ void AmaAmaCpp::turnRobot(float angle)
     {
         this->turnRobotLeft(fabsf(angle));
     }
+}
+
+void AmaAmaCpp::Aim()
+{
+    float angle = this->angleBetweenGunHeadingDirectionAndWorldPosition(this->lastKnownPosition);
+    this->turnGun(angle);
 }
