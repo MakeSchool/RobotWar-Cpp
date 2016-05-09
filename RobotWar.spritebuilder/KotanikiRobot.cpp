@@ -103,7 +103,7 @@ void KotanikiRobot::performSerching()
 {
     switch (this->actionIndex % 2) {
         case 0:
-            moveAhead(50);
+            moveAhead(300);
             break;
             
         case 1:
