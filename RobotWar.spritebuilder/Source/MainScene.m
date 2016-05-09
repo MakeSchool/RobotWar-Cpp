@@ -280,8 +280,25 @@
       break;
   }
   
-  CGPoint diffFromCorner = ccpMult(ccpForAngle(CC_DEGREES_TO_RADIANS(angle)), distance);
+    CGPoint diffFromCorner = ccpMult(ccpForAngle(CC_DEGREES_TO_RADIANS(angle)), distance);
+    
+    
   CGPoint bombPos = ccpAdd(cornerPosition, diffFromCorner);
+    
+    NSLog(@"------------------------------------");
+    NSLog(@"%f", cornerPosition.x);
+    NSLog(@"%f", cornerPosition.y);
+    NSLog(@"%d", angle);
+    NSLog(@"%f", ccpForAngle(CC_DEGREES_TO_RADIANS(angle)).x);
+    NSLog(@"%f", ccpForAngle(CC_DEGREES_TO_RADIANS(angle)).y);
+    NSLog(@"%d", distance);
+    NSLog(@"%f", ccpMult(ccpForAngle(CC_DEGREES_TO_RADIANS(angle)), distance).x);
+    NSLog(@"%f", ccpMult(ccpForAngle(CC_DEGREES_TO_RADIANS(angle)), distance).y);
+    NSLog(@"bombpos_x : %f", bombPos.x);
+    NSLog(@"bombpos_y : %f", bombPos.y);
+    NSLog(@"%f", [self dimensions].width/2);
+    
+    
   
   CCParticleSystem *explosion = (CCParticleSystem *) [CCBReader load:@"BombExplosion"];
   [_gameNode addChild:explosion];

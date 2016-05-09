@@ -16,5 +16,14 @@
 #include "NewAdvancedRobotCpp.h"
 #include "LiveRobotCpp.h"
 #include "AmaAmaCpp.h"
+#include "AsadaRobotCpp.hpp"
+#include "Tokutya.hpp"
+#include "EtsukoMiyazato.hpp"
+#include "WatanabeRobotCpp.hpp"
+#include "EijiRobotCpp.hpp"
+#include "NoriyukiRobot.hpp"
+#include "TakeRobotCpp.hpp"
+#include "KobayashiRobot.h"
+#include "KotanikiRobot.hpp"
 
 #endif
