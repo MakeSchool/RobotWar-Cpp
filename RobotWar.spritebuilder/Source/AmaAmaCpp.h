@@ -8,9 +8,10 @@ namespace AmaAmaCppAction {
     enum AmaAmaCppAction
     {
         DEFAULT,
-        TURN_AROUND,
-        FIRING,
-        SEARCHING
+        TURN_AROUND,    //not use
+        FIRING,         //Find Enemy and Shot
+        SEARCHING,
+        START           //Start Only
     };
 }
 
@@ -34,11 +35,13 @@ private:
     void performNextFiringAction();
     void performNextSearchingAction();
     void performNextDefaultAction();
+    void performNextStartAction();
     
     void setCurrentState(AmaAmaCppAction::AmaAmaCppAction newState);
     
     void turnGun(float angle);
     void turnRobot(float angle);
+    void Aim();
 };
 
 #endif /* defined(__RobotWar__AmaAmaCpp__) */
