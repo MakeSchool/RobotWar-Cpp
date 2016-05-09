@@ -73,7 +73,7 @@ void AmaAmaCpp::performNextFiringAction()
     }
     else
     {
-        this->cancelActiveAction();
+        printf("Fire!\n");
         this->shoot();
     }
 }
@@ -97,9 +97,13 @@ void AmaAmaCpp::performNextSearchingAction()
 void AmaAmaCpp::gotHit()
 {
     printf("GotHit!!\n");
-    //this->shoot();
-//    this->turnRobotLeft(45);
-//    this->moveAhead(100);
+    
+    if (this->hitPoints() < 5)
+    {
+        this->cancelActiveAction();
+        this->setCurrentState(AmaAmaCppAction::SEARCHING);
+        this->moveAhead(200);
+    }
 }
 
 void AmaAmaCpp::hitWallWithSideAndAngle(RobotWallHitSide::RobotWallHitSide side, float hitAngle)
@@ -109,7 +113,6 @@ void AmaAmaCpp::hitWallWithSideAndAngle(RobotWallHitSide::RobotWallHitSide side,
     {
         this->cancelActiveAction();
         
-        AmaAmaCppAction::AmaAmaCppAction previousState = this->currentState;
         this->setCurrentState(AmaAmaCppAction::TURN_AROUND);
         
         float angle;
@@ -117,7 +120,7 @@ void AmaAmaCpp::hitWallWithSideAndAngle(RobotWallHitSide::RobotWallHitSide side,
         
         this->moveBack(50);
         this->turnRobot(90);
-        this->setCurrentState(previousState);
+        this->setCurrentState(AmaAmaCppAction::SEARCHING);
     }
 }
 
@@ -136,9 +139,9 @@ void AmaAmaCpp::bulletHitEnemy(RWVec enemyPosition)
 void AmaAmaCpp::scannedRobotAtPosition(RWVec position)
 {
     printf("Scan!\n");
+    this->cancelActiveAction();
     if (this->currentState != AmaAmaCppAction::FIRING)
     {
-        this->cancelActiveAction();
         this->setCurrentState(AmaAmaCppAction::FIRING);
     }
     
@@ -146,9 +149,9 @@ void AmaAmaCpp::scannedRobotAtPosition(RWVec position)
     this->lastKnownPositionTimestamp = this->currentTimestamp();
     
     this->Aim();
-    this->shoot();
-    this->shoot();
-    this->shoot();
+//    this->shoot();
+//    this->shoot();
+//    this->shoot();
 }
 
 void AmaAmaCpp::setCurrentState(AmaAmaCppAction::AmaAmaCppAction newState)
