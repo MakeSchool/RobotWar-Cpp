@@ -98,12 +98,12 @@ void AmaAmaCpp::gotHit()
 {
     printf("GotHit!!\n");
     
-    if (this->hitPoints() < 5)
-    {
-        this->cancelActiveAction();
-        this->setCurrentState(AmaAmaCppAction::SEARCHING);
-        this->moveAhead(200);
-    }
+//    if (this->hitPoints() < 5)
+//    {
+//        this->cancelActiveAction();
+//        this->setCurrentState(AmaAmaCppAction::SEARCHING);
+//        this->moveAhead(200);
+//    }
 }
 
 void AmaAmaCpp::hitWallWithSideAndAngle(RobotWallHitSide::RobotWallHitSide side, float hitAngle)
