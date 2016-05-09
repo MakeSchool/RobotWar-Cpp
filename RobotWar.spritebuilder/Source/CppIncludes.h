@@ -12,12 +12,11 @@
 // List all Cpp bots here:
 #include "SimpleRobotCpp.h"
 #include "AdvancedRobotCpp.h"
-#include "TurretRobotCpp.h"
 #include "NewAdvancedRobotCpp.h"
 #include "LiveRobotCpp.h"
 #include "AmaAmaCpp.h"
 #include "AsadaRobotCpp.hpp"
-#include "Tokutya.hpp"
+#include "GahakuRobotCpp.h"
 #include "EtsukoMiyazato.hpp"
 #include "WatanabeRobotCpp.hpp"
 #include "EijiRobotCpp.hpp"

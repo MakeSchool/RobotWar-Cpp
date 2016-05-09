@@ -50,10 +50,6 @@ static UglyCppBotLoader *_sharedInstance = nil;
     {
         returnRobot = new AdvancedRobotCpp();
     }
-    else if ([name isEqualToString:@"TurretRobotCpp"])
-    {
-        returnRobot = new TurretRobotCpp();
-    }
     else if ([name isEqualToString:@"NewAdvancedRobotCpp"])
     {
         returnRobot = new NewAdvancedRobotCpp();
@@ -70,9 +66,9 @@ static UglyCppBotLoader *_sharedInstance = nil;
     {
         returnRobot = new AsadaRobotCpp();
     }
-    else if ([name isEqualToString:@"Tokutya"])
+    else if ([name isEqualToString:@"GahakuRobotCpp"])
     {
-        returnRobot = new Tokutya();
+        returnRobot = new GahakuRobotCpp();
     }
     else if ([name isEqualToString:@"EtsukoMiyazato"])
     {
