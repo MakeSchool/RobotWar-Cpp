@@ -107,14 +107,21 @@ void KotanikiRobot::swayRight()
 
 void KotanikiRobot::performSerching()
 {
-    switch (this->actionIndex % 2) {
+    switch (this->actionIndex % 4) {
         case 0:
-            moveAhead(300);
+            moveAhead(100);
             break;
             
         case 1:
-            turnRobotRight(90);
+            turnRobotLeft(45);
             break;
+        case 2:
+            moveAhead(100);
+            break;
+        case 3:
+            turnRobotRight(45);
+            break;
+            
     }
     
     this->actionIndex++;
