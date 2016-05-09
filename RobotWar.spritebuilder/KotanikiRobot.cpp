@@ -32,12 +32,18 @@ void KotanikiRobot::run()
             moveAhead(100);
             setCurrentState(KotanikiRobotAction::FIRST_MOVE);
         }
+        
+        while (this->currentState == KotanikiRobotAction::HIT_TURN) {
+            turnGunLeft(90);
+            setCurrentState(KotanikiRobotAction::FIRST_MOVE);
+        }
     }
 }
 
 void KotanikiRobot::gotHit()
 {
     moveAhead(100);
+    setCurrentState(KotanikiRobotAction::HIT_TURN);
 }
 
 
@@ -118,25 +124,25 @@ void KotanikiRobot::performMove()
 {
     switch (this->actionIndex % 4)
     {
-        case 0:
+        case 1:
         {
             RWVec currentPosition = this->position();
             RWSize arenaSize = this->arenaDimensions();
-            float bodyLength = this->robotBoundingBox().size.width;
+            //float bodyLength = this->robotBoundingBox().size.width;
             
             swayRight();
             
             if (currentPosition.y < arenaSize.height / 2.0f)
             {
-                this->moveAhead(currentPosition.y - bodyLength);
+                this->moveAhead(currentPosition.x);
             }
             else {
-                this->moveAhead(arenaSize.height - (currentPosition.y + bodyLength));
+                this->moveAhead(arenaSize.height - currentPosition.y);
             }
         }
             break;
             
-        case 1:
+        case 0:
         {
             RWVec currentPosition = this->position();
             RWSize arenaSize = this->arenaDimensions();

@@ -24,6 +24,7 @@ namespace KotanikiRobotAction {
         BACK_GEAR,
         
         SEARCH_DUSH,
+        HIT_TURN,
     };
 }
 
