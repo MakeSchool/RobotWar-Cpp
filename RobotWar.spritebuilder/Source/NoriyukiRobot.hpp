@@ -20,7 +20,8 @@ namespace NoriyukiRobotAction {
         SCAN_AND_HIT,
         FIRING,
         CHANGE_POSITION,
-        HITTING_AROUND
+        HITTING_AROUND,
+        GOT_HIT
     };
 }
 
@@ -39,6 +40,7 @@ private:
     NoriyukiRobotAction::NoriyukiRobotAction currentState;
     float timeSinceLastEnemyHit;
     int lastAimedPositionNumber;
+    float timeSinceLastGotHit;
     
     std::array<RWVec, 4> positionsToHit;
     RWVec whichBestPosition();
