@@ -25,5 +25,6 @@
 #include "TakeRobotCpp.hpp"
 #include "KotanikiRobot.hpp"
 #include "KobayashiRobotCpp.h"
+#include "SuperKen.h"
 
 #endif

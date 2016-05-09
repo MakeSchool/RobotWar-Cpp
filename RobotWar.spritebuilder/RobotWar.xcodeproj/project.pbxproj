@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5BFAA9591CDC6F5D005A1F25 /* Tokutya.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BFAA9571CDC6F5D005A1F25 /* Tokutya.cpp */; };
 		13DEE3E91CDC6C5F006ABB3E /* WatanabeRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13DEE3E71CDC6C5F006ABB3E /* WatanabeRobotCpp.cpp */; };
 		2A7385601CDC6E0E0007F425 /* NoriyukiRobot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A73855E1CDC6E0E0007F425 /* NoriyukiRobot.cpp */; };
+		5BFAA9591CDC6F5D005A1F25 /* GahakuRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BFAA9571CDC6F5D005A1F25 /* GahakuRobotCpp.cpp */; };
 		6244629A1937DDD300895F2D /* Robot.m in Sources */ = {isa = PBXBuildFile; fileRef = 624462991937DDD300895F2D /* Robot.m */; };
 		629FCFF4193E71C300896E8C /* GameOverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 629FCFF3193E71C300896E8C /* GameOverScene.m */; };
 		62C4F430194141DE0047553C /* Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C4F42F194141DE0047553C /* Helpers.m */; };
@@ -29,12 +29,13 @@
 		65004EE81B4C0CB200B151B8 /* UglyCppBotLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 65004EE71B4C0CB200B151B8 /* UglyCppBotLoader.mm */; };
 		650785D1196A20290022192D /* TournamentWonScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 650785D0196A20290022192D /* TournamentWonScene.m */; };
 		65EC9A5F19691E9A002F9DB2 /* TournamentScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 65EC9A5E19691E99002F9DB2 /* TournamentScene.m */; };
-		A8782D0A1CDC6A1C0038BF47 /* AsadaRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8782D081CDC6A1C0038BF47 /* AsadaRobotCpp.cpp */; };
 		6FD8CED21CDC6FA700022EBA /* EtsukoMiyazato.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6FD8CED01CDC6FA700022EBA /* EtsukoMiyazato.cpp */; };
 		7013A05C1CDC6EE500E4BEE9 /* EijiRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7013A05A1CDC6EE500E4BEE9 /* EijiRobotCpp.cpp */; };
 		73F3E4F71CDC6F7600D34459 /* TakeRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 73F3E4F51CDC6F7600D34459 /* TakeRobotCpp.cpp */; };
 		7D9FBE3C1CDC6D86000786B3 /* TestRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D9FBE3A1CDC6D86000786B3 /* TestRobotCpp.cpp */; };
 		7D9FBE461CDC6F63000786B3 /* KobayashiRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D9FBE441CDC6F63000786B3 /* KobayashiRobotCpp.cpp */; };
+		9F745AB21CE0322C00D83A25 /* SuperKen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F745AB01CE0322C00D83A25 /* SuperKen.cpp */; };
+		A8782D0A1CDC6A1C0038BF47 /* AsadaRobotCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8782D081CDC6A1C0038BF47 /* AsadaRobotCpp.cpp */; };
 		B71F5911188484E7003F4D28 /* iPad-old.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5907188484E7003F4D28 /* iPad-old.png */; };
 		B71F5912188484E7003F4D28 /* iPad-old@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5908188484E7003F4D28 /* iPad-old@2x.png */; };
 		B71F5913188484E7003F4D28 /* iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5909188484E7003F4D28 /* iPad.png */; };
@@ -64,8 +65,8 @@
 		B77F1B4017B978D7009739AE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3F17B978D7009739AE /* CoreGraphics.framework */; };
 		B77F1B4217B978D7009739AE /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B4117B978D7009739AE /* CoreText.framework */; };
 		BCA5F346195BD4DA00F1A2DF /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA5F345195BD4DA00F1A2DF /* GLKit.framework */; };
-		CADB0D691CDC71E10092E4F5 /* AmaAmaCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CADB0D671CDC71E10092E4F5 /* AmaAmaCpp.cpp */; };
 		C920366E1CDC6F7900F21065 /* KotanikiRobot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C920366C1CDC6F7900F21065 /* KotanikiRobot.cpp */; };
+		CADB0D691CDC71E10092E4F5 /* AmaAmaCpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CADB0D671CDC71E10092E4F5 /* AmaAmaCpp.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,12 +120,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5BFAA9571CDC6F5D005A1F25 /* Tokutya.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tokutya.cpp; sourceTree = "<group>"; };
-		5BFAA9581CDC6F5D005A1F25 /* Tokutya.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Tokutya.hpp; sourceTree = "<group>"; };
 		13DEE3E71CDC6C5F006ABB3E /* WatanabeRobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WatanabeRobotCpp.cpp; sourceTree = "<group>"; };
 		13DEE3E81CDC6C5F006ABB3E /* WatanabeRobotCpp.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = WatanabeRobotCpp.hpp; sourceTree = "<group>"; };
 		2A73855E1CDC6E0E0007F425 /* NoriyukiRobot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NoriyukiRobot.cpp; path = Source/NoriyukiRobot.cpp; sourceTree = "<group>"; };
 		2A73855F1CDC6E0E0007F425 /* NoriyukiRobot.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NoriyukiRobot.hpp; path = Source/NoriyukiRobot.hpp; sourceTree = "<group>"; };
+		5BFAA9571CDC6F5D005A1F25 /* GahakuRobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GahakuRobotCpp.cpp; sourceTree = "<group>"; };
+		5BFAA9581CDC6F5D005A1F25 /* Tokutya.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Tokutya.hpp; sourceTree = "<group>"; };
 		624462981937DDD300895F2D /* Robot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Robot.h; path = Source/Robot.h; sourceTree = "<group>"; };
 		624462991937DDD300895F2D /* Robot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Robot.m; path = Source/Robot.m; sourceTree = "<group>"; };
 		624A3880193E79620054705C /* Robot_Framework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Robot_Framework.h; path = Source/Robot_Framework.h; sourceTree = "<group>"; };
@@ -149,7 +150,7 @@
 		65004D9B1B4AC97800B151B8 /* AdvancedRobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AdvancedRobotCpp.cpp; path = Source/AdvancedRobotCpp.cpp; sourceTree = "<group>"; };
 		65004D9C1B4AC97800B151B8 /* AdvancedRobotCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdvancedRobotCpp.h; path = Source/AdvancedRobotCpp.h; sourceTree = "<group>"; };
 		65004DA91B4AD96400B151B8 /* TurretRobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TurretRobotCpp.cpp; path = Source/TurretRobotCpp.cpp; sourceTree = "<group>"; };
-		65004DAA1B4AD96400B151B8 /* TurretRobotCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TurretRobotCpp.h; path = Source/TurretRobotCpp.h; sourceTree = "<group>"; };
+		65004DAA1B4AD96400B151B8 /* GahakuRobotCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GahakuRobotCpp.h; path = Source/GahakuRobotCpp.h; sourceTree = "<group>"; };
 		65004DAC1B4AF5DB00B151B8 /* NewAdvancedRobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NewAdvancedRobotCpp.cpp; path = Source/NewAdvancedRobotCpp.cpp; sourceTree = "<group>"; };
 		65004DAD1B4AF5DB00B151B8 /* NewAdvancedRobotCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewAdvancedRobotCpp.h; path = Source/NewAdvancedRobotCpp.h; sourceTree = "<group>"; };
 		65004E331B4B2E2200B151B8 /* LiveRobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LiveRobotCpp.cpp; path = Source/LiveRobotCpp.cpp; sourceTree = "<group>"; };
@@ -166,8 +167,6 @@
 		65859D4F196C4E49009F640D /* TournamentConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TournamentConfiguration.h; path = Source/TournamentConfiguration.h; sourceTree = "<group>"; };
 		65EC9A5D19691E99002F9DB2 /* TournamentScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TournamentScene.h; path = Source/TournamentScene.h; sourceTree = "<group>"; };
 		65EC9A5E19691E99002F9DB2 /* TournamentScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TournamentScene.m; path = Source/TournamentScene.m; sourceTree = "<group>"; };
-		A8782D081CDC6A1C0038BF47 /* AsadaRobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AsadaRobotCpp.cpp; path = Source/AsadaRobotCpp.cpp; sourceTree = "<group>"; };
-		A8782D091CDC6A1C0038BF47 /* AsadaRobotCpp.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = AsadaRobotCpp.hpp; path = Source/AsadaRobotCpp.hpp; sourceTree = "<group>"; };
 		6FD8CED01CDC6FA700022EBA /* EtsukoMiyazato.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EtsukoMiyazato.cpp; sourceTree = "<group>"; };
 		6FD8CED11CDC6FA700022EBA /* EtsukoMiyazato.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = EtsukoMiyazato.hpp; sourceTree = "<group>"; };
 		7013A05A1CDC6EE500E4BEE9 /* EijiRobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EijiRobotCpp.cpp; sourceTree = "<group>"; };
@@ -178,6 +177,11 @@
 		7D9FBE3B1CDC6D86000786B3 /* TestRobotCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestRobotCpp.h; path = Source/TestRobotCpp.h; sourceTree = "<group>"; };
 		7D9FBE441CDC6F63000786B3 /* KobayashiRobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = KobayashiRobotCpp.cpp; path = Source/KobayashiRobotCpp.cpp; sourceTree = "<group>"; };
 		7D9FBE451CDC6F63000786B3 /* KobayashiRobotCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KobayashiRobotCpp.h; path = Source/KobayashiRobotCpp.h; sourceTree = "<group>"; };
+		9F745AAF1CE0322C00D83A25 /* KMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KMath.h; path = Source/ken/KMath.h; sourceTree = "<group>"; };
+		9F745AB01CE0322C00D83A25 /* SuperKen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SuperKen.cpp; path = Source/ken/SuperKen.cpp; sourceTree = "<group>"; };
+		9F745AB11CE0322C00D83A25 /* SuperKen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SuperKen.h; path = Source/ken/SuperKen.h; sourceTree = "<group>"; };
+		A8782D081CDC6A1C0038BF47 /* AsadaRobotCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AsadaRobotCpp.cpp; path = Source/AsadaRobotCpp.cpp; sourceTree = "<group>"; };
+		A8782D091CDC6A1C0038BF47 /* AsadaRobotCpp.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = AsadaRobotCpp.hpp; path = Source/AsadaRobotCpp.hpp; sourceTree = "<group>"; };
 		B71F5907188484E7003F4D28 /* iPad-old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old.png"; path = "Icons/iPad-old.png"; sourceTree = "<group>"; };
 		B71F5908188484E7003F4D28 /* iPad-old@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old@2x.png"; path = "Icons/iPad-old@2x.png"; sourceTree = "<group>"; };
 		B71F5909188484E7003F4D28 /* iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iPad.png; path = Icons/iPad.png; sourceTree = "<group>"; };
@@ -212,10 +216,10 @@
 		B77F1B4117B978D7009739AE /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		B7B3713D180358F1007369CC /* libObjectiveChipmunk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libObjectiveChipmunk.a; path = "../libs/cocos2d-iphone/external/Chipmunk/xcode/build/Debug-iphoneos/libObjectiveChipmunk.a"; sourceTree = "<group>"; };
 		BCA5F345195BD4DA00F1A2DF /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
-		CADB0D671CDC71E10092E4F5 /* AmaAmaCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AmaAmaCpp.cpp; path = Source/AmaAmaCpp.cpp; sourceTree = "<group>"; };
-		CADB0D681CDC71E10092E4F5 /* AmaAmaCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmaAmaCpp.h; path = Source/AmaAmaCpp.h; sourceTree = "<group>"; };
 		C920366C1CDC6F7900F21065 /* KotanikiRobot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = KotanikiRobot.cpp; sourceTree = "<group>"; };
 		C920366D1CDC6F7900F21065 /* KotanikiRobot.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = KotanikiRobot.hpp; sourceTree = "<group>"; };
+		CADB0D671CDC71E10092E4F5 /* AmaAmaCpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AmaAmaCpp.cpp; path = Source/AmaAmaCpp.cpp; sourceTree = "<group>"; };
+		CADB0D681CDC71E10092E4F5 /* AmaAmaCpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmaAmaCpp.h; path = Source/AmaAmaCpp.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -295,14 +299,17 @@
 				7D9FBE441CDC6F63000786B3 /* KobayashiRobotCpp.cpp */,
 				7D9FBE451CDC6F63000786B3 /* KobayashiRobotCpp.h */,
 				65004DA91B4AD96400B151B8 /* TurretRobotCpp.cpp */,
-				65004DAA1B4AD96400B151B8 /* TurretRobotCpp.h */,
+				65004DAA1B4AD96400B151B8 /* GahakuRobotCpp.h */,
+				9F745AAF1CE0322C00D83A25 /* KMath.h */,
+				9F745AB01CE0322C00D83A25 /* SuperKen.cpp */,
+				9F745AB11CE0322C00D83A25 /* SuperKen.h */,
 				65004DAC1B4AF5DB00B151B8 /* NewAdvancedRobotCpp.cpp */,
 				65004DAD1B4AF5DB00B151B8 /* NewAdvancedRobotCpp.h */,
 				65004E331B4B2E2200B151B8 /* LiveRobotCpp.cpp */,
 				65004E341B4B2E2200B151B8 /* LiveRobotCpp.h */,
 				A8782D081CDC6A1C0038BF47 /* AsadaRobotCpp.cpp */,
 				A8782D091CDC6A1C0038BF47 /* AsadaRobotCpp.hpp */,
-				5BFAA9571CDC6F5D005A1F25 /* Tokutya.cpp */,
+				5BFAA9571CDC6F5D005A1F25 /* GahakuRobotCpp.cpp */,
 				5BFAA9581CDC6F5D005A1F25 /* Tokutya.hpp */,
 				6FD8CED01CDC6FA700022EBA /* EtsukoMiyazato.cpp */,
 				6FD8CED11CDC6FA700022EBA /* EtsukoMiyazato.hpp */,
@@ -573,7 +580,7 @@
 			files = (
 				13DEE3E91CDC6C5F006ABB3E /* WatanabeRobotCpp.cpp in Sources */,
 				65004D521B4A5B2100B151B8 /* RobotCpp.mm in Sources */,
-				5BFAA9591CDC6F5D005A1F25 /* Tokutya.cpp in Sources */,
+				5BFAA9591CDC6F5D005A1F25 /* GahakuRobotCpp.cpp in Sources */,
 				65004EE81B4C0CB200B151B8 /* UglyCppBotLoader.mm in Sources */,
 				65004E6B1B4B3DDA00B151B8 /* TurretRobot.swift in Sources */,
 				A8782D0A1CDC6A1C0038BF47 /* AsadaRobotCpp.cpp in Sources */,
@@ -599,6 +606,7 @@
 				7D9FBE461CDC6F63000786B3 /* KobayashiRobotCpp.cpp in Sources */,
 				65EC9A5F19691E9A002F9DB2 /* TournamentScene.m in Sources */,
 				62E3A32419397BE400BD3F0F /* RobotAction.m in Sources */,
+				9F745AB21CE0322C00D83A25 /* SuperKen.cpp in Sources */,
 				65004E681B4B3DDA00B151B8 /* AdvancedRobot.swift in Sources */,
 				62E3A330193D3F3B00BD3F0F /* Bullet.m in Sources */,
 				65004DAB1B4AD96400B151B8 /* TurretRobotCpp.cpp in Sources */,

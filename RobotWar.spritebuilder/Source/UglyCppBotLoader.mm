@@ -102,6 +102,10 @@ static UglyCppBotLoader *_sharedInstance = nil;
     {
         returnRobot = new KotanikiRobot();
     }
+    else if ([name isEqualToString:@"SuperKen"])
+    {
+        returnRobot = new SuperKen();
+    }
     
     return returnRobot;
 }

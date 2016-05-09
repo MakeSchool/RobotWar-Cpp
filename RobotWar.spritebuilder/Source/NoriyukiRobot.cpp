@@ -58,8 +58,14 @@ void NoriyukiRobot::bulletHitEnemy(RWVec enemyPosition)
 
 void NoriyukiRobot::gotHit()
 {
-//    this->cancelActiveAction();
-//    this->currentState = NoriyukiRobotAction::CHANGE_POSITION;
+    if (this->currentState == NoriyukiRobotAction::GOT_HIT) {
+        this->timeSinceLastGotHit = this->currentTimestamp();
+    }else{
+        this->cancelActiveAction();
+        this->currentState = NoriyukiRobotAction::GOT_HIT;
+        this->moveDirectly(whichBestPosition());
+        this->currentState = NoriyukiRobotAction::SCAN_AND_HIT;
+    }
 }
 
 void NoriyukiRobot::run()
