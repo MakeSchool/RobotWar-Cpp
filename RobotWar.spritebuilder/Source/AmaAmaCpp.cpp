@@ -146,6 +146,9 @@ void AmaAmaCpp::scannedRobotAtPosition(RWVec position)
     this->lastKnownPositionTimestamp = this->currentTimestamp();
     
     this->Aim();
+    this->shoot();
+    this->shoot();
+    this->shoot();
 }
 
 void AmaAmaCpp::setCurrentState(AmaAmaCppAction::AmaAmaCppAction newState)

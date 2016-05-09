@@ -204,7 +204,7 @@
   }
   
   if (self.currentTimestamp > START_BOMBS && timeSinceBomb > BETWEEN_BOMBS) {
-//      [self dropBomb];
+      [self dropBomb];
       [self updateTimeSinceBomb:0.0f];
   }
     
