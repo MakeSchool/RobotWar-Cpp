@@ -10,15 +10,17 @@
 #define __RobotWar__NoriyukiRobot__
 
 #include "RobotCpp.h"
+#include "array"
 
 namespace NoriyukiRobotAction {
     
     enum NoriyukiRobotAction
     {
-        MOVETOBOTTOM,
-        MOVETOTOP,
-        SCANNING,
-        FIRING
+        INIT,
+        SCAN_AND_HIT,
+        FIRING,
+        CHANGE_POSITION,
+        HITTING_AROUND
     };
 }
 
@@ -32,12 +34,18 @@ public:
     void scannedRobotAtPosition(RWVec position) override;
     void gotHit() override;
     void hitWallWithSideAndAngle(RobotWallHitSide::RobotWallHitSide side, float hitAngle) override;
-    NoriyukiRobotAction::NoriyukiRobotAction whichBetterBottomOrTop();
-    void moveDirectly(RWVec position);
     
 private:
     NoriyukiRobotAction::NoriyukiRobotAction currentState;
     float timeSinceLastEnemyHit;
+    int lastAimedPositionNumber;
+    
+    std::array<RWVec, 4> positionsToHit;
+    RWVec whichBestPosition();
+    void turnHeadingTo(RWVec position);
+    void turnGunTo(RWVec position);
+    void moveDirectly(RWVec position);
+    bool RobotIsPlacedNear(RWVec position);
 };
 
 #endif /* defined(__RobotWar__NoriyukiRobot__) */
