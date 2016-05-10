@@ -129,8 +129,7 @@
   gameOverScene.loserName = loser.creator;
     
   [gameOverScene displayWinMessage];
-  CCTransition *transition = [CCTransition transitionCrossFadeWithDuration:0.3f];
-  [[CCDirector sharedDirector] replaceScene:gameOverSceneWrapper withTransition:transition];
+  [[CCDirector sharedDirector] replaceScene:gameOverSceneWrapper];
 }
 
 #pragma mark - Update Loop

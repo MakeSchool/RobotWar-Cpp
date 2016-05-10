@@ -41,14 +41,13 @@
 - (void)loadTournamentScene
 {
     TournamentScene* tournamentScene = (TournamentScene*) [CCBReader load:@"TournamentScene"];
-    CCTransition *transition = [CCTransition transitionCrossFadeWithDuration:0.3f];
     
     [tournamentScene updateWithResults:@{@"Winner": self.winnerClass, @"Loser": self.loserClass}];
     
     CCScene* newScene = [CCScene node];
     [newScene addChild:tournamentScene];
     
-    [[CCDirector sharedDirector] replaceScene:newScene withTransition:transition];
+    [[CCDirector sharedDirector] replaceScene:newScene];
 }
 
 - (void)displayWinMessage

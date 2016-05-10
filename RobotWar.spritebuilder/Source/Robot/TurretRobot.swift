@@ -59,7 +59,7 @@ class TurretRobot: Robot {
     cancelActiveAction()
     
     // calculate angle between turret and enemey
-    var angleBetweenTurretAndEnemy = angleBetweenGunHeadingDirectionAndWorldPosition(position)
+    let angleBetweenTurretAndEnemy = angleBetweenGunHeadingDirectionAndWorldPosition(position)
     
     // turn if necessary
     if angleBetweenTurretAndEnemy > gunToleranceAngle {

@@ -84,7 +84,7 @@ class CamperRobot: Robot {
   
   func turnToCenter() {
     let arenaSize = arenaDimensions()
-    var angle = Int(angleBetweenGunHeadingDirectionAndWorldPosition(CGPoint(x: arenaSize.width/2, y: arenaSize.height/2)))
+    let angle = Int(angleBetweenGunHeadingDirectionAndWorldPosition(CGPoint(x: arenaSize.width/2, y: arenaSize.height/2)))
     if angle < 0 {
       turnGunLeft(abs(angle))
     } else {
@@ -118,7 +118,7 @@ class CamperRobot: Robot {
     cancelActiveAction()
     
     // calculate angle between turret and enemey
-    var angleBetweenTurretAndEnemy = angleBetweenGunHeadingDirectionAndWorldPosition(position)
+    let angleBetweenTurretAndEnemy = angleBetweenGunHeadingDirectionAndWorldPosition(position)
     
     // turn if necessary
     if angleBetweenTurretAndEnemy > gunToleranceAngle {
